@@ -8,7 +8,7 @@ sudo apt-get install \
 # 'deb ...' form needed because no standard dist/... structure;
 # separate key import needed because it's only automated for ppa:... form.
 sudo add-apt-repository -y 'deb http://download.opensuse.org/repositories/home:/siteshwar/xUbuntu_13.04/ /'
-sudo apt-key add fish-siteshwar-Release.key
+sudo apt-key add $(dirname $0)/fish-siteshwar-Release.key
 
 sudo add-apt-repository -y ppa:cassou/emacs
 
