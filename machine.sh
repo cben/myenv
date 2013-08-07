@@ -2,7 +2,7 @@
 
 sudo apt-get install \
   nano htop di dlocate curl \
-  git git-gui gitg mercurial bzr subversion
+  git git-gui gitg mercurial bzr subversion meld
 
 # Official fishshell.com only has direct .deb download.  I want updates.
 # TODO: https://launchpad.net/~fish-shell/+archive/fish-stable
