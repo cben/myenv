@@ -2,7 +2,7 @@
 
 sudo apt-get install \
   nano htop di dlocate curl \
-  git git-gui gitg mercurial bzr subversion meld
+  git git-gui gitg mercurial bzr subversion meld colordiff
 
 if ! apt-cache show fish | grep -q ridiculousfish; then
   # Official fishshell.com only has direct .deb download.  I want updates.
