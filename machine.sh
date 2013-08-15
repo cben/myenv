@@ -1,8 +1,9 @@
 #!/bin/bash
 
 sudo apt-get install \
-  nano htop di dlocate curl \
-  git git-gui gitg mercurial bzr subversion meld colordiff
+  nano htop di dlocate curl unicode info bash-doc \
+  git git-gui gitg mercurial bzr subversion meld colordiff \
+  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole
 
 if ! apt-cache show fish | grep -q ridiculousfish; then
   # Official fishshell.com only has direct .deb download.  I want updates.
