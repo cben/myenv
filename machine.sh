@@ -29,6 +29,11 @@ if ! apt-cache show git-annex | grep -q "Version: 4\."; then
   update=1
 fi
 
+if ! apt-cache show nodejs | grep -q "Version: 0\.10\."; then
+  sudo /usr/bin/add-apt-repository -y ppa:chris-lea/node.js
+  update=1
+fi
+
 [ "$update" == 1 ] && sudo apt-get update
 
-sudo apt-get install fish emacs-snapshot-gtk git-annex
+sudo apt-get install fish emacs-snapshot-gtk git-annex nodejs
