@@ -10,7 +10,7 @@ if $(dirname $0)/xrandr-edid.sh | grep -q "2490WUXi"; then
   # Regular timing.
   xrandr --newmode "1920x1200_60"  193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync  2> /dev/null
 
-  for OUT in HDMI{1,2,3} DP{1,2,3}; do
+  for OUT in HDMI{2,3}; do
     xrandr --addmode $OUT $MODE
     xrandr --output $OUT --mode $MODE
   done
