@@ -1,3 +1,6 @@
 [submodule "hub"]
 	path = hub
 	url = https://github.com/github/hub.git
+[submodule "ghi"]
+	path = ghi
+	url = https://github.com/stephencelis/ghi
