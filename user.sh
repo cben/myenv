@@ -10,5 +10,5 @@ else
 fi
 
 git config --global color.ui true
-git config --global alias.ci '! env LC_ALL=en_US.utf8 git citool && git push'
+git config --global alias.ci '! env LC_ALL=en_US.utf8 git citool && git push --recurse-submodules=on-demand'
 git config --global credential.helper "cache --timeout=3600"
