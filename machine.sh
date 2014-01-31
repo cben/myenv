@@ -5,7 +5,7 @@ sudo apt-get install \
   git git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole rake \
   gtk-redshift nautilus-open-terminal \
-  read-edid
+  read-edid openssh-server mtr linux-image-extra-`uname -r`
 
 if ! apt-cache show fish | grep -q ridiculousfish; then
   # Official fishshell.com only has direct .deb download.  I want updates.
@@ -35,6 +35,15 @@ if ! apt-cache show nodejs | grep -q "Version: 0\.10\."; then
   update=1
 fi
 
+if ! apt-cache show lxc-docker | grep -q lxc-docker; then
+  sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.io/ubuntu docker main'
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+  update=1
+fi
+
 [ "$update" == 1 ] && sudo apt-get update
 
-sudo apt-get install fish emacs-snapshot-gtk git-annex nodejs nodejs-legacy npm phantomjs
+sudo apt-get install fish emacs-snapshot-gtk git-annex nodejs nodejs-legacy npm phantomjs lxc-docker
+
+# TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
+#       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
