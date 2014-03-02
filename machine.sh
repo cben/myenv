@@ -41,6 +41,13 @@ if ! apt-cache show lxc-docker | grep -q lxc-docker; then
   update=1
 fi
 
+# http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
+# Only adding PPA here, not installing hal by default.
+if ! apt-cache show hal | grep .; then
+  sudo add-apt-repository ppa:mjblenner/ppa-hal
+  update=1
+fi
+
 [ "$update" == 1 ] && sudo apt-get update
 
 sudo apt-get install fish emacs-snapshot-gtk git-annex nodejs nodejs-legacy npm phantomjs lxc-docker
