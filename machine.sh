@@ -3,9 +3,10 @@
 sudo apt-get install \
   nano htop di dlocate curl unicode info bash-doc tmux ack-grep \
   git git-gui gitg mercurial bzr subversion meld colordiff \
-  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole rake \
+  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole \
   gtk-redshift nautilus-open-terminal \
-  read-edid openssh-server mtr linux-image-extra-`uname -r`
+  read-edid openssh-server mtr linux-image-extra-`uname -r` \
+  ruby-full rubygems rake pandoc
 
 if ! apt-cache show fish | grep -q ridiculousfish; then
   # Official fishshell.com only has direct .deb download.  I want updates.
@@ -54,3 +55,9 @@ sudo apt-get install fish emacs-snapshot-gtk git-annex nodejs nodejs-legacy npm 
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
+
+if ! which rhc; then
+  sudo gem install rhc
+else
+  sudo gem update rhc
+fi
