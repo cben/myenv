@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get install \
-  nano htop di dlocate curl unicode info bash-doc tmux ack-grep \
+  nano htop di dlocate curl unar unicode info bash-doc tmux ack-grep \
   git git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole \
   gtk-redshift nautilus-open-terminal \
@@ -44,7 +44,7 @@ fi
 
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
-if ! apt-cache show hal | grep .; then
+if ! apt-cache show hal | grep -q .; then
   sudo add-apt-repository ppa:mjblenner/ppa-hal
   update=1
 fi
