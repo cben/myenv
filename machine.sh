@@ -6,7 +6,7 @@ sudo apt-get install \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole \
   gtk-redshift nautilus-open-terminal \
   read-edid openssh-server mtr linux-image-extra-`uname -r` \
-  ruby-full rubygems rake pandoc
+  ruby-full rubygems rake pandoc retext libjs-mathjax
 
 if ! apt-cache show fish | grep -q ridiculousfish; then
   # Official fishshell.com only has direct .deb download.  I want updates.

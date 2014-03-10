@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # See also beni.sh for personal bits.
 
 if test -x /usr/bin/fish; then
@@ -8,6 +8,8 @@ if test -x /usr/bin/fish; then
 else
   echo "CAN'T SET FISH AS DEFAULT SHELL - RUN machine.sh FIRST."
 fi
+
+cp -i -v --symbolic-link -R "$(dirname "$(readlink -f "$0")")"/.config/ ~/
 
 git config --global color.ui true
 git config --global alias.ci '! env LC_ALL=en_US.utf8 git citool && git push --recurse-submodules=on-demand'
