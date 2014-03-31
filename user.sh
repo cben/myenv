@@ -12,7 +12,7 @@ fi
 cp -i -v --symbolic-link -R "$(dirname "$(readlink -f "$0")")"/.config/ ~/
 
 git config --global color.ui true
-git config --global alias.ci '! env LC_ALL=en_US.utf8 git citool && git push --recurse-submodules=on-demand'
+git config --global --unset alias.ci  # bin/git-ci now
 git config --global credential.helper "cache --timeout=3600"
 
 if [ -f /usr/share/retext/ReText/__init__.py ]; then
