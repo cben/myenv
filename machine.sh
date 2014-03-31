@@ -3,7 +3,7 @@
 sudo apt-get install \
   nano htop di dlocate unar unicode info bash-doc tmux ack-grep \
   curl w3m html-xml-utils xml2 \
-  git git-gui gitg mercurial bzr subversion meld colordiff \
+  git tig git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole \
   gtk-redshift nautilus-open-terminal \
   read-edid openssh-server mtr linux-image-extra-`uname -r` \
