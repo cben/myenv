@@ -2,11 +2,11 @@
 
 sudo apt-get install \
   nano htop di dlocate unar unicode info bash-doc tmux ack-grep \
-  curl w3m html-xml-utils xml2 \
+  openssh-server autossh curl w3m html-xml-utils xml2 \
   git tig git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   gtk-redshift nautilus-open-terminal \
-  read-edid openssh-server mtr linux-image-extra-`uname -r` \
+  read-edid mtr \
   ruby-full rubygems rake pandoc retext libjs-mathjax
 
 if ! apt-cache show fish | grep -q ridiculousfish; then
