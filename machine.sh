@@ -1,7 +1,8 @@
 #!/bin/bash
 
 sudo apt-get install \
-  nano htop di dlocate curl unar unicode info bash-doc tmux ack-grep \
+  nano htop di dlocate unar unicode info bash-doc tmux ack-grep \
+  curl w3m html-xml-utils xml2 \
   git git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole \
   gtk-redshift nautilus-open-terminal \
