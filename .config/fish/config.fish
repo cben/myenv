@@ -1,4 +1,6 @@
-if status --is-login
-    echo "-- running config.fish --"
-    set PATH $PATH ~/myenv/bin
+if status --is-interactive
+    if not contains ~/myenv/bin $PATH
+        echo "== running config.fish =="
+        set -x PATH ~/myenv/bin $PATH
+    end
 end
