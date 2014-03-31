@@ -44,8 +44,14 @@ fi
 
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
-if ! apt-cache show hal | grep -q .; then
+if ! apt-cache show hal > /dev/null; then
   sudo add-apt-repository ppa:mjblenner/ppa-hal
+  update=1
+fi
+
+# Add SAGE repo but don't install by default - it's over 500MB!
+if ! apt-cache show sagemath-upstream-binary > /dev/null; then
+  apt-add-repository -y ppa:aims/sagemath
   update=1
 fi
 
