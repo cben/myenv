@@ -52,7 +52,7 @@ fi
 
 # Add SAGE repo but don't install by default - it's over 500MB!
 if ! apt-cache show sagemath-upstream-binary > /dev/null; then
-  apt-add-repository -y ppa:aims/sagemath
+  sudo apt-add-repository -y ppa:aims/sagemath
   update=1
 fi
 
