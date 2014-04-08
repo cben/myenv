@@ -9,13 +9,8 @@ sudo apt-get install \
   read-edid mtr \
   ruby-full rubygems rake pandoc retext libjs-mathjax
 
-if ! apt-cache show fish | grep -q ridiculousfish; then
-  # Official fishshell.com only has direct .deb download.  I want updates.
-  # TODO: https://launchpad.net/~fish-shell/+archive/fish-stable
-  # 'deb ...' form needed because no standard dist/... structure;
-  # separate key import needed because it's only automated for ppa:... form.
-  sudo /usr/bin/add-apt-repository -y 'deb http://download.opensuse.org/repositories/home:/siteshwar/xUbuntu_13.04/ /'
-  sudo apt-key add $(dirname $0)/fish-siteshwar-Release.key
+if ! apt-cache show fish | grep -q ridiculous_fish; then
+  sudo apt-add-repository ppa:fish-shell/release-2
   update=1
 fi
 
