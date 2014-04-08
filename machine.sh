@@ -9,7 +9,7 @@ sudo apt-get install \
   read-edid mtr \
   ruby-full rubygems rake pandoc retext libjs-mathjax
 
-if ! apt-cache show fish | grep -q ridiculous_fish || ! apt-get update --print-uris  | grep fish-shell; then
+if ! apt-cache show fish | grep -q ridiculous_fish || ! apt-get update --print-uris  | grep -q fish-shell; then
   sudo apt-add-repository ppa:fish-shell/release-2
   update=1
 fi
