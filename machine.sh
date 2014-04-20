@@ -2,11 +2,11 @@
 
 sudo apt-get install \
   nano htop di dlocate ppa-purge unar unicode info bash-doc tmux ack-grep \
-  openssh-server autossh curl w3m html-xml-utils xml2 \
+  openssh-server autossh curl w3m html-xml-utils xml2 mtr \
   git tig git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   gtk-redshift nautilus-open-terminal \
-  read-edid mtr \
+  read-edid xbacklight powertop powerstat iotop \
   ruby-full rubygems rake pandoc retext libjs-mathjax
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
