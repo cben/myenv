@@ -7,7 +7,7 @@ sudo apt-get install \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   gtk-redshift nautilus-open-terminal \
   read-edid xbacklight powertop powerstat iotop \
-  ruby-full rubygems rake pandoc retext libjs-mathjax
+  ruby-full rake pandoc retext libjs-mathjax
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
   apt-get update --print-uris  | grep -q "$1"
