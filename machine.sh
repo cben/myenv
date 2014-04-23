@@ -5,6 +5,7 @@ sudo apt-get install \
   openssh-server autossh curl w3m html-xml-utils xml2 mtr \
   git tig git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
+  nodejs nodejs-legacy npm phantomjs \
   gtk-redshift nautilus-open-terminal \
   read-edid xbacklight powertop powerstat iotop \
   ruby-full rake pandoc retext libjs-mathjax
@@ -32,8 +33,6 @@ if ! has-ppa fmarier/git-annex; then
   update=1
 fi
 
-add-ppa chris-lea/node.js
-
 if ! has-ppa docker.io; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.io/ubuntu docker main'
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -49,7 +48,7 @@ add-ppa aims/sagemath
 
 [ "$update" == 1 ] && sudo apt-get update
 
-sudo apt-get install fish emacs-snapshot-gtk git-annex nodejs nodejs-legacy npm phantomjs lxc-docker
+sudo apt-get install fish emacs-snapshot-gtk git-annex lxc-docker
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
