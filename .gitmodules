@@ -4,3 +4,6 @@
 [submodule "ghi"]
 	path = ghi
 	url = https://github.com/stephencelis/ghi
+[submodule "spark"]
+	path = spark
+	url = https://github.com/holman/spark
