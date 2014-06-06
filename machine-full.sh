@@ -6,5 +6,5 @@
 
 sudo apt-get install \
     texlive texlive-latex-extra texlive-science \
-    latexmk latexdiff texworks texstudio \
+    latexmk latexdiff texworks texstudio texlive-extra-utils \
     sagemath-upstream-binary
