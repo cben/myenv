@@ -1,6 +1,15 @@
 #!/bin/bash
 
-sudo apt-get install \
+# apt is handy (if only for colors & progress bar) but too new to assume (14.04?).
+sudo-apt () {
+  if [ -x /usr/bin/apt ]; then
+    sudo apt "$@"
+  else
+    sudo apt-get "$@"
+  fi
+}
+
+sudo-apt install \
   nano htop di dlocate ppa-purge unar unicode info bash-doc tmux ack-grep \
   openssh-server autossh curl w3m html-xml-utils xml2 mtr \
   git tig git-gui gitg mercurial bzr subversion meld colordiff \
@@ -13,7 +22,7 @@ sudo apt-get install \
   vlc
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
-  apt-get update --print-uris  | grep -q "$1"
+  apt update --print-uris  | grep -q "$1"
 }
 
 function add-ppa () {
@@ -40,9 +49,9 @@ add-ppa mjblenner/ppa-hal
 # Add SAGE repo but don't install by default - it's over 500MB!
 add-ppa aims/sagemath
 
-[ "$update" == 1 ] && sudo apt-get update
+[ "$update" == 1 ] && sudo-apt update
 
-sudo apt-get install fish emacs-snapshot-gtk git-annex lxc-docker
+sudo-apt install fish emacs-snapshot-gtk git-annex lxc-docker
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
