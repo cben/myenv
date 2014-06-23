@@ -6,9 +6,11 @@ sudo apt-get install \
   git tig git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   nodejs nodejs-legacy npm phantomjs \
+  ruby-full rake \
   gtk-redshift nautilus-open-terminal \
   read-edid xbacklight powertop powerstat iotop \
-  ruby-full rake pandoc retext libjs-mathjax referencer pdfshuffler diffpdf
+  pandoc retext libjs-mathjax referencer pdfshuffler diffpdf \
+  vlc
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
   apt-get update --print-uris  | grep -q "$1"
@@ -24,14 +26,6 @@ function add-ppa () {
 add-ppa fish-shell/release-2
 
 add-ppa cassou/emacs
-
-if ! has-ppa fmarier/git-annex; then
-  # http://git-annex.branchable.com/install/Ubuntu/
-  # deb form to force precise version (no raring build in his PPA yet).
-  sudo /usr/bin/add-apt-repository -y 'deb http://ppa.launchpad.net/fmarier/git-annex/ubuntu precise main'
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 90F7E9EB
-  update=1
-fi
 
 if ! has-ppa docker.io; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.io/ubuntu docker main'
