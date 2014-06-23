@@ -8,7 +8,7 @@ sudo apt-get install \
   nodejs nodejs-legacy npm phantomjs \
   gtk-redshift nautilus-open-terminal \
   read-edid xbacklight powertop powerstat iotop \
-  ruby-full rake pandoc retext libjs-mathjax referencer pdfshuffler
+  ruby-full rake pandoc retext libjs-mathjax referencer pdfshuffler diffpdf
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
   apt-get update --print-uris  | grep -q "$1"
