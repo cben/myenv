@@ -2,7 +2,7 @@
 # These would be part of machine.sh but take too much space to
 # install on all machines - notably on my chromebox.
 
-source ./machine.sh
+source $(dirname "$0")/machine.sh
 
 sudo-apt install \
     texlive texlive-latex-extra texlive-science \
