@@ -22,7 +22,7 @@ sudo-apt install \
   vlc
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
-  apt update --print-uris  | grep -q "$1"
+  apt-get update --print-uris  | grep -q "$1"
 }
 
 function add-ppa () {
