@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# apt is handy (if only for colors & progress bar) but too new to assume (14.04?).
+# apt is handy (if only for colors & progress bar) but too new to require (2014).
 sudo-apt () {
   if [ -x /usr/bin/apt ]; then
     sudo apt "$@"
@@ -11,14 +11,15 @@ sudo-apt () {
 
 sudo-apt install \
   nano htop di dlocate ppa-purge unar unicode info bash-doc tmux ack-grep \
-  openssh-server autossh curl w3m html-xml-utils xml2 jq mtr chromium-browser \
+  openssh-server autossh curl w3m mtr chromium-browser ruby-bcat html-xml-utils xml2 jq \
   git tig git-gui gitg mercurial bzr subversion meld colordiff \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   nodejs nodejs-legacy npm phantomjs \
   ruby-full rake \
   gtk-redshift nautilus-open-terminal \
   read-edid xbacklight powertop powerstat iotop \
-  pandoc retext libjs-mathjax referencer pdfshuffler diffpdf \
+  pandoc retext libtext-multimarkdown-perl libjs-mathjax \
+  referencer pdfshuffler diffpdf \
   vlc
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
