@@ -7,6 +7,6 @@ source $(dirname "$0")/machine.sh
 
 sudo-apt install \
     nautilus-dropbox \
-    texlive texlive-latex-extra texlive-science \
+    texlive texlive-latex-recommended texlive-latex-extra texlive-science texlive-humanities \
     latexmk latexdiff texworks texstudio texlive-extra-utils \
     sagemath-upstream-binary
