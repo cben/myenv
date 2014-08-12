@@ -1,0 +1,11 @@
+#!/bin/bash
+# Drop-in replacement for diff -u.
+# patiencediff is Bram Cohen's improved algorithm;
+# colordiff.py is colors changes within lines, like meld.
+# https://plus.google.com/+BeniCherniavskyPaskin/posts/869iFsrzKNe
+
+if [ -t 1 ]; then  # stdout isatty
+  python -m bzrlib.patiencediff "$@" | colordiff.py
+else
+  python -m bzrlib.patiencediff "$@"
+fi
