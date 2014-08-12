@@ -18,7 +18,7 @@ sudo-apt install \
   ruby-full rake \
   gtk-redshift nautilus-open-terminal \
   read-edid xbacklight powertop powerstat iotop \
-  pandoc retext libtext-multimarkdown-perl libjs-mathjax \
+  pandoc pandoc-citeproc libtext-multimarkdown-perl retext libjs-mathjax \
   referencer pdfshuffler diffpdf \
   vlc
 
