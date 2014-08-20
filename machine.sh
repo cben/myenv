@@ -9,6 +9,8 @@ sudo-apt () {
   fi
 }
 
+# == Things in standard repo ==
+
 sudo-apt install \
   nano htop di dlocate ppa-purge unar unicode info bash-doc tmux ack-grep \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq \
@@ -21,6 +23,8 @@ sudo-apt install \
   pandoc pandoc-citeproc libtext-multimarkdown-perl retext libjs-mathjax \
   referencer pdfshuffler diffpdf \
   vlc
+
+# == Add extra sources ==
 
 function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
   apt-get update --print-uris  | grep -q "$1"
@@ -50,12 +54,18 @@ add-ppa mjblenner/ppa-hal
 # Add SAGE repo but don't install by default - it's over 500MB!
 add-ppa aims/sagemath
 
+add-ppa bubbleguuum/bubbleupnpserver
+
+# == Install from extra sources ==
+
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk git-annex lxc-docker
+sudo-apt install fish emacs-snapshot-gtk git-annex lxc-docker bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
+
+# == Non-apt ==
 
 if ! which rhc; then
   sudo gem install rhc
