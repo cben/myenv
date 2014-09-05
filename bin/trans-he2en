@@ -1,0 +1,29 @@
+#!/bin/sed -f
+# EXTREMELY CRUDE !
+s/א/X/g
+s/ב/b/g
+s/ג/g/g
+s/ד/d/g
+s/ה/h/g
+s/ו/w/g
+s/ז/z/g
+s/ח/ch/g
+s/ט/T/g
+s/י/y/g
+s/כ/k/g
+s/ך/kh/g
+s/ל/l/g
+s/מ/m/g
+s/ם/m/g
+s/נ/n/g
+s/ן/n/g
+s/ס/s/g
+s/ע/Y/g
+s/פ/p/g
+s/ף/f/g
+s/צ/ts/g
+s/ץ/ts/g
+s/ק/q/g
+s/ר/r/g
+s/ש/sh/g
+s/ת/t/g

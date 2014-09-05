@@ -1,0 +1,15 @@
+#!/usr/bin/fish
+set old (tempfile -p watch)
+set new (tempfile -p watch)
+function --signal SIGINT cleanup
+   rm -vf $old $new
+end
+while true
+    eval $argv > $new ^&1
+    clear
+    echo "Every 3 seconds:  "(date)
+    colordiff -U1 $old $new
+    mv -f $new $old
+    sleep 3
+end
+cleanup

@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+"""Output infinite stream of random lines picked from the input stream
+
+The input is read to completion before output can begin.
+
+"""
+
+import sys, random, fileinput
+
+lines = list(fileinput.input())
+num = len(lines)
+try:
+    while 1:
+        sys.stdout.write(lines[random.randrange(num)])
+except IOError:
+    pass

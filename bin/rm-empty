@@ -1,0 +1,2 @@
+#!/bin/sh
+du -a --dereference "$@" | sed -ne 's/^0\t//p' | largs --no-run-if-empty rm -v

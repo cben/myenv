@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ $# == 0 ]]; then
+    echo "Usage: share <directory...>"
+    exit 1
+fi
+sudo chgrp -R users "$@"
+sudo chmod -R ug+rwX,o+rX-w "$@"
+find "$@" -type d -print0 | sudo xargs -0 chmod g+s

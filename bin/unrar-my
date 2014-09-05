@@ -1,0 +1,4 @@
+#!/bin/sh
+for f in "$@"; do
+    unrar.exe x "$f"
+done

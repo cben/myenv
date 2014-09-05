@@ -1,0 +1,5 @@
+#!/usr/bin/fish
+for f in $argv
+    unzip $f
+    and rm -v $f
+end

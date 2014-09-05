@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+import sys
+from BitTorrent.bencode import bdecode
+
+for fname in sys.argv[1:]:
+    print "=== %s ===" % fname
+    try:
+        data = bdecode(open(fname, 'rb').read())
+        if 'files' in data['info']:
+            print "--- %s/ ---" % data['info']['name']
+            paths = sorted('/'.join(f['path']) for f in data['info']['files'])
+            for p in paths:
+                print p
+        else:
+            print data['info']['name']
+    except:
+        import traceback
+        sys.stderr.write(traceback.format_exc())

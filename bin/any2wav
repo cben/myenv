@@ -1,0 +1,30 @@
+#!/bin/bash
+
+mkdir wav/
+
+i=1
+
+handle () {
+    t="${1//\//_}"
+    t="wav/$(printf %02d $i).${t%.*}.wav"
+    let i++
+
+    echo
+    echo "$1 -> $t"
+    echo
+
+    if [[ "$1" == *.ogg ]]; then
+        oggdec -o "$t" "$1"
+    elif [[ "$1" == *.mp3 ]]; then
+        mp3-cmdline -w "$t" "$1"
+    elif [[ "$1" == *.wav ]]; then
+        # MP3 inside WAV not supported.
+        cp "$1" "$t"
+    fi
+}
+
+if [[ $# != 0 ]]; then
+    for f; do handle "$f"; done
+else
+    while read f; do handle "$f"; done
+fi

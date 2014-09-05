@@ -1,0 +1,8 @@
+#!/bin/bash
+COLUMNS=`tput cols`
+while true; do 
+    for i in $(seq ${#1}); do
+        yes "$1" | head -$COLUMNS | tr -d '\n' | cut -c $i-$(($i + $COLUMNS - 1)) | tr '\n' '\r'
+        sleep 0.05
+    done
+done

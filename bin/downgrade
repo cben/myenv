@@ -1,0 +1,2 @@
+#!/bin/bash
+apt-get install $(apt-show-versions -a | fgrep -f <(apt-show-versions -a -v | grep newer | cut -f 1 -d ' ') | grep -e gutsy -e feisty | grep -v / | cut -f 1-2 | tr '\t' = | sort)

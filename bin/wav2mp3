@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+"""
+Usage:
+    wav2mp3 file1.wav file2.wav file3.wav ...
+    wav2mp3 < file.wav > file.mp3
+    
+Extracts the `RIFF/WAVE/data` chunk (which contains the wrapped MP3) from a
+.WAV file.  If given file names, writes matching file with .mp3 extension.
+"""
+
+import sys, chunk
+
+def filter_chunks(input, *names):
+    while True:
+        try:
+            c = chunk.Chunk(input, bigendian=0)  # M$ RIFF is little-endian
+        except EOFError:
+            break
+        name = c.getname()
+        print >>sys.stderr, ' '*4 + name, c.getsize()
+        if name in names:
+            yield c
+        else:
+            c.skip()
+
+def convert(input, output):
+    try:
+        for c in filter_chunks(input, 'RIFF'):
+            if c.read(4) == 'WAVE':
+                 for c in filter_chunks(c, 'data'):
+                     print >>sys.stderr, ' '*8 + 'Dumping...'
+                     output.writelines(iter(lambda: c.read(8192), ''))
+    except IOError:
+        pass
+
+if __name__ == '__main__':
+    args = sys.argv[1:]
+    if '--help' in args:
+        print __doc__
+        sys.exit(2)
+    if args:
+        for fname in args:
+            if fname.lower().endswith('.wav'):
+                outfname = fname[:-4] + '.mp3'
+            else:
+                outfname = fname + '.mp3'
+            print >>sys.stderr, fname, '->', outfname
+            convert(file(fname, 'rb'), file(outfname, 'wb'))
+    else:
+        convert(sys.stdin, sys.stdout)
+    #print >>sys.stderr, '<STDIN> -> <STDOUT>'
+

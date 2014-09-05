@@ -1,0 +1,11 @@
+#!/bin/bash
+# I don't remember why this was needed - beni. # gksudo -- rmmod kvm_intel
+gksudo -- chown -R roman:vboxusers /home/VirtualBox
+gksudo -- chmod -R ug+rw /home/VirtualBox
+if [[ $# == 0 ]]; then
+    virtualbox
+else
+    VBoxManage startvm "$@"          
+fi
+gksudo -- chown -R roman:vboxusers /home/VirtualBox
+gksudo -- chmod -R ug+rw /home/VirtualBox

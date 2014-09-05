@@ -1,0 +1,13 @@
+#!/bin/sh
+
+mkdir burn/
+
+handle () {
+    sox -V "$1" -c 2 -r 44100 "burn/$1"
+}
+
+if [[ $# != 0 ]]; then
+    for f; do handle "$f"; done
+else
+    while read f; do handle "$f"; done
+fi

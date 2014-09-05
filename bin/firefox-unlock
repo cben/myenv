@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+rm -v ~/.mozilla/firefox/*/{,.parent}lock
+sudo chown -R $USER: ~/.mozilla/firefox
+
+for f in ~/.mozilla/firefox/*/bookmarkbackups/закладки-*.json
+    mv $f (echo $f | sed s/закладки/bookmarks/)
+end
+
+echo NOTE: If firefox comes up with no bookmarks, do this:
+set files ~/.mozilla/firefox/*/places.sqlite*
+echo rm \"$files\"

@@ -1,0 +1,7 @@
+#!/bin/sh
+if fgconsole > /dev/null; then
+    sudo setupcon ru
+else
+    setxkbmap us,ru -variant ,phonetic -option '' -option grp:caps_toggle,grp:switch,grp_led:scroll
+fi &&
+echo "Now CapsLock cycles between English and phonetic Russion layouts."

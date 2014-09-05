@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/tr '\n' '\0' | /usr/bin/xargs -0 "$@"

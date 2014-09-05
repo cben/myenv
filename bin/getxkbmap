@@ -1,0 +1,2 @@
+#!/bin/sh
+xprop -root | grep ^_XKB_RULES_NAMES

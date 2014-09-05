@@ -1,0 +1,7 @@
+#!/bin/sh
+if fgconsole > /dev/null; then
+    sudo setupcon he
+else
+    setxkbmap us,il -variant ,lyx -option '' -option grp:caps_toggle,grp:switch,grp_led:scroll
+fi &&
+echo "Now CapsLock cycles between English and Hebrew layouts."

@@ -1,0 +1,11 @@
+#!/bin/bash
+if [[ $# < 2 ]]; then
+  echo "Usage: $0 <format> <file>..."
+  echo "  <format> is usually just the destination extension, e.g. 'pdf' or 'odp'."
+  echo "  For advanced usage see http://ask.libreoffice.org/en/question/2641/#post-id-6292"
+  exit 2
+fi
+
+# http://ask.libreoffice.org/en/question/1686/how-to-not-connect-to-a-running-instance/?answer=1701#post-id-1701
+# The ideosyncratic single-dash -env is deliberate; —env doesn’t work.
+libreoffice --headless -env:UserInstallation="file://$HOME/.libreoffice-alt" --convert-to "$@"

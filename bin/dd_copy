@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+#
+# Usage: dd_copy <source> <target>
+#
+set source $argv[1]
+set target $argv[2]
+set log $argv[2].log
+for f in (cd $source; find -type f)
+    echo $f
+    mkdir -p (dirname $target/$f)  (dirname $log/$f.log)
+    ddrescue -vv $source/$f $target/$f $log/$f.log
+end

@@ -1,0 +1,2 @@
+#!/bin/bash
+SSH_ASKPASS=/usr/bin/ssh-askpass /usr/bin/ssh -A -X -T -n gurthang /usr/bin/x-session-manager

@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+for i in (seq 0 9)
+    if not test -e /tmp/.X$i-lock
+        startx -- :$i $ARGV &
+        exit
+    end
+end

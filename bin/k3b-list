@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $# == 0 ]; then
+    echo "Usage: k3b-list file.k3b..."
+    exit 2
+fi
+for f in "$@"; do
+    [ $# -gt 1 ] && echo "==> $f <=="
+    unzip -c "$f" maindata.xml | sed -ne 's/^.* url="\([^"]*\)".*$\|^.*<url>\([^>]*\)<\/url>.*$/\1/p'
+done
+
