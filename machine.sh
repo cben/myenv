@@ -19,7 +19,7 @@ sudo-apt install \
   nodejs nodejs-legacy npm phantomjs \
   ruby-full rake \
   gtk-redshift nautilus-open-terminal \
-  read-edid xbacklight powertop powerstat iotop \
+  read-edid xbacklight powertop powerstat iotop android-tools-adb \
   pandoc pandoc-citeproc libtext-multimarkdown-perl retext libjs-mathjax \
   referencer pdfshuffler diffpdf \
   vlc
