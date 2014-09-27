@@ -60,7 +60,7 @@ add-ppa bubbleguuum/bubbleupnpserver
 
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk git-annex lxc-docker bubbleupnpserver
+sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el git-annex lxc-docker bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
