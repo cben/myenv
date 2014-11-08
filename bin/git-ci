@@ -1,7 +1,11 @@
 #!/bin/bash
-# git-gui pops a dialog if it doesn't find spelling dictionary for current
-# locale.  Simpler to silence it (and I write English commit messages anyway).
-if env LC_ALL=en_US.utf8 git citool; then
+if if [ -v DISPLAY ]; then
+     # git-gui pops a dialog if it doesn't find spelling dictionary for current
+     # locale.  Simpler to silence it (and I write English commit messages anyway).
+     env LC_ALL=en_US.utf8 git citool
+   else
+     git commit -a
+   fi; then
   git push --recurse-submodules=on-demand || echo '`git push` failed.'
 else
   echo Commit cancelled, so not pushing.
