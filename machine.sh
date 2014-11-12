@@ -45,8 +45,8 @@ add-ppa fish-shell/release-2
 
 add-ppa cassou/emacs
 
-if ! has-ppa docker.io; then
-  sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.io/ubuntu docker main'
+if ! has-ppa docker.com; then
+  sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
   update=1
 fi
