@@ -51,6 +51,12 @@ if ! has-ppa docker.com; then
   update=1
 fi
 
+if ! has-ppa geogebra; then
+  sudo /usr/bin/add-apt-repository -y 'deb http://www.geogebra.net/linux/ stable main'
+  sudo apt-key add office@geogebra.org.gpg.key
+  update=1
+fi
+
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
 add-ppa mjblenner/ppa-hal
@@ -64,7 +70,7 @@ add-ppa bubbleguuum/bubbleupnpserver
 
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el git-annex lxc-docker bubbleupnpserver
+sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el git-annex lxc-docker geogebra5 bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
