@@ -4,7 +4,7 @@ xrandr --verbose | perl -ne '
 if (/^(\w+) connected /) {
   $output = $1;
 }
-if ((/EDID:/.../:/) && !/:/) {
+if ((/EDID(_DATA)?:/.../:/) && !/:/) {
   s/^\s+//;
   chomp;
   $hex .= $_;
