@@ -1,11 +1,52 @@
 #!/bin/bash
-if if [ -v DISPLAY ]; then
-     # git-gui pops a dialog if it doesn't find spelling dictionary for current
-     # locale.  Simpler to silence it (and I write English commit messages anyway).
-     env LC_ALL=en_US.utf8 git citool
-   else
-     git commit -a
-   fi; then
+# Commit then push.  Similar in spirit to `svn ci`.
+
+# Allow `git ci DIR` or `git ci FILES...` even if outside the git directory.
+# chdir into the directory will not work because then relative paths passed to
+# `git add` would be broken; instead stay where we are but config git/work dirs.
+for arg; do
+  if [ -e "$arg" ]; then  # try to skip options and find a file/dirname.
+    if [ ! -d "$arg" ]; then
+      set arg "$(dirname "$arg")"
+    fi
+    if (cd "$arg" && git rev-parse --show-toplevel 2>/dev/null); then
+      export GIT_WORK_TREE="$(cd "$arg"; git rev-parse --show-toplevel)"
+      # `git rev-parse --git-dir` may give relative or absolute path.
+      export GIT_DIR="$(cd "$arg"; cd "$(git rev-parse --git-dir)"; pwd -P)"
+      echo "GIT_WORK_TREE=$GIT_WORK_TREE    GIT_DIR=$GIT_DIR"
+      break
+    fi
+  fi
+done
+
+if [ $# -gt 0 ]; then
+  # citool takes no args, but it can pick up things we stage first.
+  # `--update DIR` does the more useful "stage all changes under DIR/"
+  # rather than "add ALL files under DIR/".
+  # TODO: an explicit `git ci NEWFILE` will silently not add it.
+  #       Simple loop testing whether each arg is a dir.
+  git add --verbose --update "$0"
+fi
+
+if
+  if [ -v DISPLAY ] && git help citool >&/dev/null; then
+    # Without args, we could auto-stage all changes but `citool` is more
+    # keyboard-friendly if we don't (I found no way to access file list with kbd; you
+    # can stage files by just repeatedly pressing Ctrl+T but you can't unstage by Ctrl+U)
+
+    # git-gui pops a dialog if it doesn't find spelling dictionary for current
+    # locale.  Simpler to silence it (and I write English commit messages anyway).
+    env LC_ALL=en_US.utf8 git citool
+  else
+    # Not using `--interactive`/`--patch` because the interface sucks.
+    # TODO: learn to use `tig` for interactive commit?
+    if [ $# -gt 0 ]; then
+      git commit --verbose  # only what was staged
+    else
+      git commit --verbose -a
+    fi
+  fi
+then
   git push --recurse-submodules=on-demand || echo '`git push` failed.'
 else
   echo Commit cancelled, so not pushing.
