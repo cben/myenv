@@ -18,7 +18,7 @@ sudo-apt install \
   git tig git-gui gitg github-backup mercurial bzr subversion meld colordiff etckeeper \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   nodejs nodejs-legacy npm phantomjs \
-  ruby-full rake golang \
+  build-essential pkg-config ruby-full rake golang \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   pandoc libtext-multimarkdown-perl retext libjs-mathjax \
