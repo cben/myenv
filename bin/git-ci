@@ -2,8 +2,12 @@
 # Commit then push.  Similar in spirit to `svn ci`.
 
 # Allow `git ci DIR` or `git ci FILES...` even if outside the git directory.
+# (Also *tries* to allow options, which get passed to git add/commit.)
+
 # chdir into the directory will not work because then relative paths passed to
 # `git add` would be broken; instead stay where we are but config git/work dirs.
+# BUG: THAT DOESN'T WORK EITHER!  SHOULD REWRITE ARGS...
+
 for arg; do
   if [ -e "$arg" ]; then  # try to skip options and find a file/dirname.
     if [ ! -d "$arg" ]; then
@@ -23,9 +27,10 @@ if [ $# -gt 0 ]; then
   # citool takes no args, but it can pick up things we stage first.
   # `--update DIR` does the more useful "stage all changes under DIR/"
   # rather than "add ALL files under DIR/".
-  # TODO: an explicit `git ci NEWFILE` will silently not add it.
-  #       Simple loop testing whether each arg is a dir.
-  git add --verbose --update "$0"
+  # BUG: an explicit `git ci NEWFILE` will silently not add it.
+  #      Simple loop testing whether each arg is a dir wouldn't
+  #      support non-path options.
+  git add --verbose --update "$@"
 fi
 
 if
