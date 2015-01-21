@@ -12,7 +12,8 @@ sudo-apt () {
 # == Things in standard repo ==
 
 sudo-apt install \
-  $(check-language-support -l en) $(check-language-support -l he) culmus-fancy $(check-language-support -l ru) \
+  $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
+  $(check-language-support -l ru) fontmatrix \
   nano htop di dlocate ppa-purge unar unicode info bash-doc tmux ack-grep par logapp renameutils \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
   git tig git-gui gitg github-backup mercurial bzr subversion meld colordiff etckeeper \
