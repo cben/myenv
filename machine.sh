@@ -59,6 +59,9 @@ if ! has-ppa geogebra; then
   update=1
 fi
 
+add-ppa ytvwld/syncthing
+add-ppa nilarimogard/webupd8  # for Syncthing GTK
+
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
 add-ppa mjblenner/ppa-hal
@@ -72,7 +75,8 @@ add-ppa bubbleguuum/bubbleupnpserver
 
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el git-annex lxc-docker geogebra5 bubbleupnpserver
+sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el lxc-docker \
+  git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
