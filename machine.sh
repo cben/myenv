@@ -53,6 +53,12 @@ if ! has-ppa docker.com; then
   update=1
 fi
 
+if ! has-ppa heroku; then
+  sudo /usr/bin/add-apt-repository -y 'deb http://toolbelt.heroku.com/ubuntu ./'
+  curl https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
+  update=1
+fi
+
 if ! has-ppa geogebra; then
   sudo /usr/bin/add-apt-repository -y 'deb http://www.geogebra.net/linux/ stable main'
   sudo apt-key add office@geogebra.org.gpg.key
@@ -76,7 +82,7 @@ add-ppa bubbleguuum/bubbleupnpserver
 [ "$update" == 1 ] && sudo-apt update
 
 sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el lxc-docker \
-  git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
+  heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
