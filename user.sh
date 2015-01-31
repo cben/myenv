@@ -20,3 +20,6 @@ if [ -f /usr/share/retext/ReText/__init__.py ]; then
   # Live preview because why not.
   echo 'globalSettings.useWebKit = globalSettings.restorePreviewState = globalSettings.previewState = True' | python3 -i /usr/share/retext/ReText/__init__.py
 fi
+
+# GNU parallel is nice but kinda nagware - asks you to cite it on every run!
+touch ~/.parallel/will-cite
