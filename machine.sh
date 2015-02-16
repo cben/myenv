@@ -89,8 +89,8 @@ sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el lxc-
 
 # == Non-apt ==
 
-if ! which rhc; then
-  sudo gem install rhc
+if ! which rhc || ! which travis ; then
+  sudo gem install rhc travis
 else
-  sudo gem update rhc
+  sudo gem update rhc travis
 fi
