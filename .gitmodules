@@ -13,3 +13,6 @@
 [submodule "gnu-parallel"]
 	path = gnu-parallel
 	url = git://git.savannah.gnu.org/parallel.git
+[submodule "speedtest-cli"]
+	path = speedtest-cli
+	url = https://github.com/sivel/speedtest-cli
