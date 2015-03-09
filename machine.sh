@@ -94,3 +94,5 @@ if ! which rhc || ! which travis ; then
 else
   sudo gem update rhc travis
 fi
+
+sudo pip install -U restview
