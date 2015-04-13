@@ -16,7 +16,7 @@ sudo-apt install \
   $(check-language-support -l ru) fontmatrix \
   nano htop di dlocate ppa-purge unicode info bash-doc tmux ack-grep par logapp moreutils renameutils \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
-  git tig git-gui gitg github-backup mercurial bzr subversion meld colordiff etckeeper \
+  git tig git-gui gitg github-backup mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   nodejs nodejs-legacy npm phantomjs \
   build-essential pkg-config ruby-full rake golang \
