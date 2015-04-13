@@ -45,7 +45,8 @@ function add-ppa () {
 
 add-ppa fish-shell/release-2
 
-add-ppa cassou/emacs
+sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
+add-ppa ubuntu-elisp/ppa
 
 if ! has-ppa docker.com; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
