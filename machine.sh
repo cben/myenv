@@ -16,10 +16,10 @@ sudo-apt install \
   $(check-language-support -l ru) fontmatrix \
   nano htop di dlocate ppa-purge unicode info bash-doc tmux ack-grep par logapp moreutils renameutils \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
-  git tig git-gui gitg github-backup mercurial bzr subversion meld colordiff etckeeper gist \
+  git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   nodejs nodejs-legacy npm phantomjs \
-  build-essential pkg-config ruby-full rake golang openjdk-8-jdk bsh groovy \
+  build-essential pkg-config colormake ruby-full rake golang openjdk-8-jdk bsh \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   pandoc libtext-multimarkdown-perl retext libjs-mathjax \
@@ -97,3 +97,10 @@ else
 fi
 
 sudo pip install -U restview
+
+# This is somewhat silly & dirty, but it's distibuted as C source with git package, not
+# distributed as binary, I don't want to submodule all of Git just for this small file, and it
+# does #include some Git config so in-place `sudo make` works but a non-root build in a another
+# directory would need a bit of setup...
+# See also user.sh configuring to use it.
+sudo colormake -C /usr/share/doc/git/contrib/credential/gnome-keyring

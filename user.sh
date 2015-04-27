@@ -13,7 +13,7 @@ cp -i -v --symbolic-link -R "$(dirname "$(readlink -f "$0")")"/.config/ ~/
 
 git config --global color.ui true
 git config --global --unset alias.ci  # bin/git-ci now
-git config --global credential.helper "cache --timeout=3600"
+[ -x /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring"
 
 if [ -f /usr/share/retext/ReText/__init__.py ]; then
   # useWebKit needed for retext to support math (see also .config/markdown-extensions.txt).
