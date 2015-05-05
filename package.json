@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "ungit": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cben/myenv"
+  }
+}
