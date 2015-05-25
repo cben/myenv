@@ -11,7 +11,7 @@
 for arg; do
   if [ -e "$arg" ]; then  # try to skip options and find a file/dirname.
     if [ ! -d "$arg" ]; then
-      set arg "$(dirname "$arg")"
+      arg="$(dirname "$arg")"
     fi
     if (cd "$arg" && git rev-parse --show-toplevel 2>/dev/null); then
       export GIT_WORK_TREE="$(cd "$arg"; git rev-parse --show-toplevel)"
