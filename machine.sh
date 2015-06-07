@@ -20,7 +20,7 @@ sudo-apt install \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
   nodejs nodejs-legacy npm phantomjs \
-  build-essential pkg-config colormake ruby-full rake golang openjdk-8-jdk bsh \
+  build-essential pkg-config colormake ruby-full rake golang guile-2.0 openjdk-8-jdk bsh \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   pandoc libtext-multimarkdown-perl retext libjs-mathjax \
