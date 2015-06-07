@@ -14,7 +14,8 @@ sudo-apt () {
 sudo-apt install \
   $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) fontmatrix \
-  nano htop di dlocate ppa-purge unicode info bash-doc tmux ack-grep par unar logapp moreutils renameutils \
+  nano htop di dlocate ppa-purge unicode info bash-doc ack-grep par unar \
+  tmux logapp moreutils renameutils rlwrap entr \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
