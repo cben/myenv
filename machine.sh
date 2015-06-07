@@ -23,13 +23,13 @@ sudo-apt install \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 openjdk-8-jdk bsh \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
-  pandoc libtext-multimarkdown-perl retext libjs-mathjax \
+  libtext-multimarkdown-perl retext libjs-mathjax \
   referencer pdfshuffler diffpdf \
   vlc
 
 # These were missing in 13.10 (which I'm still using on my chromebox);
 # let them fail separately.
-sudo-apt install gist pandoc-citeproc
+sudo-apt install gist
 
 # == Add extra sources ==
 
