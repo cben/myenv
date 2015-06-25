@@ -5,6 +5,7 @@ if test -x /usr/bin/fish; then
   if ! grep -q "^$USER:.*:/usr/bin/fish" /etc/passwd; then
     chsh -s /usr/bin/fish
   fi
+  fish env.fish
 else
   echo "CAN'T SET FISH AS DEFAULT SHELL - RUN machine.sh FIRST."
 fi
