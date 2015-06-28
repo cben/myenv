@@ -24,7 +24,7 @@ sudo-apt install \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   libtext-multimarkdown-perl retext libjs-mathjax \
-  referencer pdfshuffler diffpdf \
+  referencer pdftk pdfshuffler diffpdf \
   vlc
 
 # These were missing in 13.10 (which I'm still using on my chromebox);
