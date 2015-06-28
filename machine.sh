@@ -101,6 +101,9 @@ fi
 
 sudo pip install -U restview
 
+# See also npm modules installed per-user via package.json (and symlinked into bin/)
+sudo npm install -g --silent grunt-cli bower markmon
+
 # This is somewhat silly & dirty, but it's distibuted as C source with git package, not
 # distributed as binary, I don't want to submodule all of Git just for this small file, and it
 # does #include some Git config so in-place `sudo make` works but a non-root build in a another
