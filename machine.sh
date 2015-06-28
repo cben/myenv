@@ -70,6 +70,8 @@ fi
 add-ppa ytvwld/syncthing
 add-ppa nilarimogard/webupd8  # for Syncthing GTK
 
+add-ppa webupd8team/atom
+
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
 add-ppa mjblenner/ppa-hal
@@ -83,7 +85,7 @@ add-ppa bubbleguuum/bubbleupnpserver
 
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el lxc-docker \
+sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el atom lxc-docker \
   heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
