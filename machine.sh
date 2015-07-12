@@ -79,8 +79,6 @@ add-ppa mjblenner/ppa-hal
 # Add SAGE repo but don't install by default - it's over 500MB!
 add-ppa aims/sagemath
 
-add-ppa bubbleguuum/bubbleupnpserver
-
 # == Install from extra sources ==
 
 [ "$update" == 1 ] && sudo-apt update
@@ -90,7 +88,7 @@ add-ppa bubbleguuum/bubbleupnpserver
 sudo-apt install lxc-docker
 
 sudo-apt install fish emacs-snapshot emacs-snapshot-el atom \
-  heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
+  heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
