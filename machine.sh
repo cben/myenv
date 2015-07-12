@@ -51,7 +51,7 @@ add-ppa ubuntu-elisp/ppa
 
 if ! has-ppa docker.com; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
   update=1
 fi
 
@@ -85,7 +85,11 @@ add-ppa bubbleguuum/bubbleupnpserver
 
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el atom lxc-docker \
+# Only on amd64, let it fail separately.  (TODO: docker.io package seems to exist on i386
+# but does it work?  See https://github.com/docker/docker/issues/7513)
+sudo-apt install lxc-docker
+
+sudo-apt install fish emacs-snapshot emacs-snapshot-el atom \
   heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
