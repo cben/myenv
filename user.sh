@@ -5,7 +5,6 @@ if test -x /usr/bin/fish; then
   if ! grep -q "^$USER:.*:/usr/bin/fish" /etc/passwd; then
     chsh -s /usr/bin/fish
   fi
-  fish env.fish
 else
   echo "CAN'T SET FISH AS DEFAULT SHELL - RUN machine.sh FIRST."
 fi
@@ -23,4 +22,5 @@ if [ -f /usr/share/retext/ReText/__init__.py ]; then
 fi
 
 # GNU parallel is nice but kinda nagware - asks you to cite it on every run!
+mkdir -p ~/.parallel/
 touch ~/.parallel/will-cite

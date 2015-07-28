@@ -14,7 +14,7 @@ sudo-apt () {
 sudo-apt install \
   $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) fontmatrix \
-  nano htop dstat glances di ncdu dlocate ppa-purge unicode info bash-doc ack-grep silversearcher-ag par unar \
+  nano htop dstat glances di ncdu dlocate ppa-purge unicode info bash-doc ack-grep silversearcher-ag par unar gddrescue \
   tmux logapp moreutils renameutils rlwrap entr \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
@@ -51,7 +51,7 @@ add-ppa ubuntu-elisp/ppa
 
 if ! has-ppa docker.com; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
   update=1
 fi
 
@@ -79,14 +79,16 @@ add-ppa mjblenner/ppa-hal
 # Add SAGE repo but don't install by default - it's over 500MB!
 add-ppa aims/sagemath
 
-add-ppa bubbleguuum/bubbleupnpserver
-
 # == Install from extra sources ==
 
 [ "$update" == 1 ] && sudo-apt update
 
-sudo-apt install fish emacs-snapshot-gtk emacs-snapshot-el emacs-goodies-el atom lxc-docker \
-  heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5 bubbleupnpserver
+# Only on amd64, let it fail separately.  (TODO: docker.io package seems to exist on i386
+# but does it work?  See https://github.com/docker/docker/issues/7513)
+sudo-apt install lxc-docker
+
+sudo-apt install fish emacs-snapshot emacs-snapshot-el atom \
+  heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
