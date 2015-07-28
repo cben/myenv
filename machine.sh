@@ -101,8 +101,8 @@ fi
 
 sudo pip install -U restview
 
-# See also npm modules installed per-user via package.json (and symlinked into bin/)
-sudo npm install -g --silent grunt-cli bower markmon
+# Switched to local install via package.json.
+sudo npm uninstall -g --silent grunt-cli bower markmon
 
 # This is somewhat silly & dirty, but it's distibuted as C source with git package, not
 # distributed as binary, I don't want to submodule all of Git just for this small file, and it

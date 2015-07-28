@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "ungit": "*"
+    "bower": "^1.4.1",
+    "grunt-cli": "^0.1.13",
+    "markmon": "0.0.7",
+    "ungit": "^0.9.3"
   },
   "repository": {
     "type": "git",
