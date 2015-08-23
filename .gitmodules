@@ -19,3 +19,6 @@
 [submodule "e"]
 	path = e
 	url = https://github.com/knu/e
+[submodule "hr"]
+	path = hr
+	url = https://github.com/LuRsT/hr
