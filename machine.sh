@@ -14,7 +14,8 @@ sudo-apt () {
 sudo-apt install \
   $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) fontmatrix \
-  nano htop dstat glances di ncdu dlocate ppa-purge unicode info bash-doc ack-grep silversearcher-ag par unar gddrescue \
+  nano htop dstat glances di ncdu dlocate ppa-purge unicode info bash-doc ack-grep silversearcher-ag \
+  par unar gddrescue smartmontools \
   tmux logapp moreutils renameutils rlwrap entr \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
