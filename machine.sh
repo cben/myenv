@@ -62,12 +62,6 @@ if ! has-ppa heroku; then
   update=1
 fi
 
-if ! has-ppa geogebra; then
-  sudo /usr/bin/add-apt-repository -y 'deb http://www.geogebra.net/linux/ stable main'
-  sudo apt-key add office@geogebra.org.gpg.key
-  update=1
-fi
-
 add-ppa ytvwld/syncthing
 add-ppa nilarimogard/webupd8  # for Syncthing GTK
 
@@ -89,7 +83,7 @@ add-ppa aims/sagemath
 sudo-apt install lxc-docker
 
 sudo-apt install fish emacs-snapshot emacs-snapshot-el atom \
-  heroku-toolbelt git-annex syncthing syncthing-gtk geogebra5
+  heroku-toolbelt git-annex syncthing syncthing-gtk
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
