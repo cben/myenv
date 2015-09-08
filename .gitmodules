@@ -22,3 +22,6 @@
 [submodule "hr"]
 	path = hr
 	url = https://github.com/LuRsT/hr
+[submodule "retext"]
+	path = retext
+	url = https://github.com/cben/retext
