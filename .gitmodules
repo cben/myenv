@@ -24,4 +24,4 @@
 	url = https://github.com/LuRsT/hr
 [submodule "retext"]
 	path = retext
-	url = https://github.com/cben/retext
+	url = https://github.com/retext-project/retext
