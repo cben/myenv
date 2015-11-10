@@ -16,7 +16,7 @@ sudo-apt install \
 # Up to date pandoc.  Will compile in ~/.cabal but install in /usr/local.
 # (The only reason I'm installing here globally instead of per-user is saving space.)
 cabal update
-cabal install --flags="embed_data_files" pandoc pandoc-citeproc --global --root-cmd=sudo
+cabal install --flags="embed_data_files" hsb2hs pandoc pandoc-citeproc --global --root-cmd=sudo
 # Alternative for the record: there seems to be no PPA; to find latest official .deb:
 #     curl https://api.github.com/repos/jgm/pandoc/releases/latest |
 #         jq '.[] | .assets[] | .browser_download_url | select(endswith(".deb"))' --raw-output
