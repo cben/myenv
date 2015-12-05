@@ -14,7 +14,8 @@ sudo-apt () {
 sudo-apt install \
   $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) fontmatrix \
-  nano htop dstat glances di ncdu dlocate ppa-purge unicode info bash-doc ack-grep silversearcher-ag \
+  nano htop dstat glances systat di ncdu dlocate ppa-purge \
+  unicode info bash-doc ack-grep silversearcher-ag \
   par unar gddrescue smartmontools \
   tmux logapp moreutils renameutils rlwrap entr \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
@@ -50,6 +51,8 @@ add-ppa fish-shell/release-2
 sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
 add-ppa ubuntu-elisp/ppa
 
+add-ppa zanchey/asciinema
+
 if ! has-ppa docker.com; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
   sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -67,6 +70,8 @@ add-ppa nilarimogard/webupd8  # for Syncthing GTK
 
 add-ppa webupd8team/atom
 
+add-ppa zeal-developers/ppa
+
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
 add-ppa mjblenner/ppa-hal
@@ -82,7 +87,7 @@ add-ppa aims/sagemath
 # but does it work?  See https://github.com/docker/docker/issues/7513)
 sudo-apt install lxc-docker
 
-sudo-apt install fish emacs-snapshot emacs-snapshot-el atom \
+sudo-apt install fish asciinema emacs-snapshot emacs-snapshot-el atom zeal \
   heroku-toolbelt git-annex syncthing syncthing-gtk
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
