@@ -65,7 +65,11 @@ if ! has-ppa heroku; then
   update=1
 fi
 
-add-ppa ytvwld/syncthing
+if ! has-ppa apt.syncthing.net; then
+  sudo /usr/bin/add-apt-repository -y 'deb http://apt.syncthing.net/ syncthing release'
+  curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+  update=1
+fi
 add-ppa nilarimogard/webupd8  # for Syncthing GTK
 
 add-ppa webupd8team/atom
