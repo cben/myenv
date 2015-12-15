@@ -1,9 +1,9 @@
 if status --is-interactive
-    if not contains ~/myenv/bin $PATH
-        echo "== running config.fish =="
+    echo "== running config.fish =="
+    if not contains myenv/bin $PATH
         # Detect where myenv/ was checked out, assuming this file is a symlink as installed by myenv/user.sh;
         # if not a symlink this works out to ~/bin.
-        set -x PATH (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish/config.fish))))/bin $PATH
+        set -x PATH (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish/config.fish))))/{bin,node_modules/.bin} $PATH
     end
 end
 
