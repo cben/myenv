@@ -18,10 +18,9 @@ sudo-apt install \
   unicode info bash-doc ack-grep silversearcher-ag \
   par unar gddrescue smartmontools \
   tmux logapp moreutils renameutils rlwrap entr \
-  openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge \
+  openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
-  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip \
-  nodejs nodejs-legacy npm phantomjs \
+  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip libzmq-dev \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 openjdk-8-jdk bsh \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
@@ -46,12 +45,21 @@ function add-ppa () {
   fi
 }
 
+UBUNTU_VERSION="$(lsb_release --short --codename)"
+
 add-ppa fish-shell/release-2
 
 sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
 add-ppa ubuntu-elisp/ppa
 
 add-ppa zanchey/asciinema
+
+if ! has-ppa "nodesource.*UBUNTU_VERSION"; then
+  # TODO: after upgrade multiple versions will pile up?
+  sudo /usr/bin/add-apt-repository -y "deb https://deb.nodesource.com/node_4.x $UBUNTU_VERSION main"
+  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+  update=1
+fi
 
 if ! has-ppa docker.com; then
   sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
@@ -91,7 +99,7 @@ add-ppa aims/sagemath
 # but does it work?  See https://github.com/docker/docker/issues/7513)
 sudo-apt install lxc-docker
 
-sudo-apt install fish asciinema emacs-snapshot emacs-snapshot-el atom zeal \
+sudo-apt install fish nodejs asciinema emacs-snapshot emacs-snapshot-el atom zeal \
   heroku-toolbelt git-annex syncthing syncthing-gtk
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
@@ -105,7 +113,7 @@ else
   sudo gem update rhc travis
 fi
 
-sudo pip install -U restview
+sudo pip3 install --upgrade --system restview jupyter
 
 # Switched to local install via package.json.
 sudo npm uninstall -g --silent grunt-cli bower markmon

@@ -25,3 +25,6 @@
 [submodule "retext"]
 	path = retext
 	url = https://github.com/retext-project/retext
+[submodule "jupyter-sidecar"]
+	path = jupyter-sidecar
+	url = https://github.com/nteract/jupyter-sidecar
