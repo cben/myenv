@@ -5,6 +5,10 @@ if status --is-interactive
         # if not a symlink this works out to ~/bin.
         set -x PATH (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish/config.fish))))/{bin,node_modules/.bin} $PATH
     end
+    # pip install --user (default) goes to ~/.local
+    if not echo $PATH | grep -q ~/.local/bin
+        set -x PATH ~/.local/bin $PATH
+    end
 end
 
 # M-up is fish's single most time-saving key binding.
