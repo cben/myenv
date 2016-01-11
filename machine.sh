@@ -12,6 +12,7 @@ sudo-apt () {
 # == Things in standard repo ==
 
 sudo-apt install \
+  apt-transport-https \
   $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) fontmatrix \
   nano htop sysdig dstat glances sysstat nethogs di ncdu dlocate ppa-purge \
@@ -61,20 +62,20 @@ if ! has-ppa "nodesource.*UBUNTU_VERSION"; then
   update=1
 fi
 
-if ! has-ppa docker.com; then
-  sudo /usr/bin/add-apt-repository -y 'deb http://get.docker.com/ubuntu docker main'
-  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+if ! has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
+  sudo /usr/bin/add-apt-repository -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
+  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
   update=1
 fi
 
 if ! has-ppa heroku; then
-  sudo /usr/bin/add-apt-repository -y 'deb http://toolbelt.heroku.com/ubuntu ./'
+  sudo /usr/bin/add-apt-repository -y 'deb https://toolbelt.heroku.com/ubuntu ./'
   curl https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
   update=1
 fi
 
 if ! has-ppa apt.syncthing.net; then
-  sudo /usr/bin/add-apt-repository -y 'deb http://apt.syncthing.net/ syncthing release'
+  sudo /usr/bin/add-apt-repository -y 'deb https://apt.syncthing.net/ syncthing release'
   curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
   update=1
 fi
@@ -97,7 +98,8 @@ add-ppa aims/sagemath
 
 # Only on amd64, let it fail separately.  (TODO: docker.io package seems to exist on i386
 # but does it work?  See https://github.com/docker/docker/issues/7513)
-sudo-apt install lxc-docker
+sudo apt-get purge lxc-docker
+sudo-apt install docker-engine "linux-image-extra-$(uname -r)"
 
 sudo-apt install fish nodejs asciinema emacs-snapshot emacs-snapshot-el atom zeal \
   heroku-toolbelt git-annex syncthing syncthing-gtk
