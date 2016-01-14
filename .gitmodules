@@ -28,3 +28,6 @@
 [submodule "jupyter-sidecar"]
 	path = jupyter-sidecar
 	url = https://github.com/nteract/jupyter-sidecar
+[submodule "fedy"]
+	path = fedy
+	url = https://github.com/folkswithhats/fedy
