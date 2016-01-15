@@ -9,7 +9,9 @@ sudo dnf install libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-li
 # TODO: obsolete by Fedy?
 
 
-sudo dnf install fish htop glances gitk bzr nano emacs
+sudo dnf install fish htop sysdig glances \
+     git-gui tig bzr nano emacs \
+     make automake gcc gcc-c++ kernel-devel
 
 # Add repos
 # =========
@@ -22,3 +24,5 @@ rpm --quiet --query folkswithhats-release || sudo dnf -y --nogpgcheck install ht
 
 sudo dnf install vlc fedy
 
+sudo dnf install libgnome-keyring-devel
+./install-git-credential-gnome-keyring.sh

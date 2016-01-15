@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 # apt is handy (if only for colors & progress bar) but too new to require (2014).
 sudo-apt () {
@@ -126,9 +126,5 @@ sudo pip3 install --upgrade --system restview jupyter
 # Switched to local install via package.json.
 sudo npm uninstall -g --silent grunt-cli bower markmon
 
-# This is somewhat silly & dirty, but it's distibuted as C source with git package, not
-# distributed as binary, I don't want to submodule all of Git just for this small file, and it
-# does #include some Git config so in-place `sudo make` works but a non-root build in a another
-# directory would need a bit of setup...
-# See also user.sh configuring to use it.
-sudo colormake -C /usr/share/doc/git/contrib/credential/gnome-keyring
+# TODO: deps for compiling git-credential-gnome-keyring.c?
+./install-git-credential-gnome-keyring.sh
