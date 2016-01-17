@@ -9,20 +9,28 @@ sudo dnf install libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-li
 # TODO: obsolete by Fedy?
 
 
-sudo dnf install fish htop sysdig glances \
-     git-gui tig bzr nano emacs \
-     make automake gcc gcc-c++ kernel-devel
+sudo dnf install \
+    fish htop glances \
+    git-gui tig bzr meld nano emacs \
+    make automake gcc gcc-c++ kernel-devel \
+    mscore
 
 # Add repos
 # =========
 
 # http://rpmfusion.org/Configuration
+# TODO: http!?  https gives cert for wrong domain + 404.
 sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # From http://folkswithhats.org/fedy-installer
 rpm --quiet --query folkswithhats-release || sudo dnf -y --nogpgcheck install http://folkswithhats.org/repo/$(rpm -E %fedora)/RPMS/noarch/folkswithhats-release-1.0.1-1.fc$(rpm -E %fedora).noarch.rpm
 
-sudo dnf install vlc fedy
+if ! rpm --quiet --query sysdig; then
+  sudo rpm --import "$(dirname "$0")"/draios.gpg.key
+  sudo cp -v "$(dirname "$0")"/draios.repo /etc/yum.repos.d/
+fi
+
+sudo dnf install vlc fedy sysdig
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh
