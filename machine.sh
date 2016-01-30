@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # apt is handy (if only for colors & progress bar) but too new to require (2014).
 sudo-apt () {
