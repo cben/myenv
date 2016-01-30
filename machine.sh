@@ -22,7 +22,7 @@ sudo-apt install \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip libzmq-dev \
-  build-essential pkg-config colormake ruby-full rake golang guile-2.0 openjdk-8-jdk bsh \
+  build-essential pkg-config colormake ruby-full rake golang guile-2.0 \
   gtk-redshift nautilus-open-terminal \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   libtext-multimarkdown-perl retext libjs-mathjax \
