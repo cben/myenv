@@ -8,7 +8,7 @@ source $(dirname "$0")/machine.sh
 sudo-apt install \
     nautilus-dropbox \
     texlive texlive-latex-recommended texlive-latex-extra texlive-extra-utils \
-    texlive-fonts-extra texlive-science texlive-humanities texlive-lang-{hebrew,cyrillic} \
+    texlive-fonts-extra texlive-science texlive-humanities texlive-luatex texlive-lang-{hebrew,cyrillic} \
     latexmk latexdiff texworks texstudio auctex emacs-goodies-el \
     haskell-platform \
     sagemath-upstream-binary
