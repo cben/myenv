@@ -12,7 +12,9 @@ sudo dnf install libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-li
 sudo dnf install \
     fish htop glances \
     git-gui tig bzr meld nano emacs \
+    ack the_silver_searcher \
     make automake gcc gcc-c++ kernel-devel \
+    python-tools python3-tools
     mscore
 
 # Add repos
