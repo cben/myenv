@@ -14,7 +14,8 @@ sudo dnf install \
     git-gui tig bzr meld nano emacs \
     ack the_silver_searcher \
     make automake gcc gcc-c++ kernel-devel \
-    python-tools python3-tools
+    python-tools python3-tools \
+    nodejs npm \
     mscore
 
 # Add repos
