@@ -28,12 +28,17 @@ sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-relea
 # From http://folkswithhats.org/fedy-installer
 rpm --quiet --query folkswithhats-release || sudo dnf -y --nogpgcheck install http://folkswithhats.org/repo/$(rpm -E %fedora)/RPMS/noarch/folkswithhats-release-1.0.1-1.fc$(rpm -E %fedora).noarch.rpm
 
+if ! rpm --quiet --query chromium; then
+  sudo rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
+  sudo curl https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo -o /etc/yum.repos.d/fedora-chromium-stable.repo
+fi
+
 if ! rpm --quiet --query sysdig; then
   sudo rpm --import "$(dirname "$0")"/draios.gpg.key
   sudo cp -v "$(dirname "$0")"/draios.repo /etc/yum.repos.d/
 fi
 
-sudo dnf install vlc fedy sysdig
+sudo dnf install vlc fedy sysdig chromium
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh
