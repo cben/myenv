@@ -16,7 +16,7 @@ for DIR in \
 	/usr/share/doc/git-core-doc/contrib/credential/gnome-keyring; do
     if [ -d "$DIR" ]; then
 	sudo "$MAKE" -C "$DIR" &&
-	    sudo ln -s -v "$DIR/git-credential-gnome-keyring" /usr/local/bin/
+	    sudo ln -s -v "$DIR/git-credential-gnome-keyring" /usr/local/bin/ || true
 	exit
     fi
 done

@@ -26,6 +26,16 @@ sudo dnf install \
 # Add repos
 # =========
 
+if ! rpm --quiet --query chromium; then
+  sudo rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
+  sudo curl https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo -o /etc/yum.repos.d/fedora-chromium-stable.repo
+fi
+
+if ! rpm --quiet --query sysdig; then
+  sudo rpm --import draios.gpg.key
+  sudo cp -v draios.repo /etc/yum.repos.d/
+fi
+
 # http://rpmfusion.org/Configuration
 # TODO: http!?  https gives cert for wrong domain + 404.
 if ! rpm --quiet --query rpmfusion-free-release; then
@@ -41,17 +51,12 @@ fi
 # => fedy from submodule seems to work (bin/fedy)
 sudo dnf install gjs dnf-plugins-core wget  # https://github.com/folkswithhats/fedy#dependencies
 
-if ! rpm --quiet --query chromium; then
-  sudo rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
-  sudo curl https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo -o /etc/yum.repos.d/fedora-chromium-stable.repo
-fi
+rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
 
-if ! rpm --quiet --query sysdig; then
-  sudo rpm --import draios.gpg.key
-  sudo cp -v draios.repo /etc/yum.repos.d/
-fi
-
-sudo dnf install vlc totem mplayer youtube-dl ffmpeg sysdig chromium
+sudo dnf install \
+     chromium sysdig \
+     vlc totem mplayer youtube-dl ffmpeg \
+     syncthing syncthing-gtk
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh

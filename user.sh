@@ -24,3 +24,9 @@ fi
 # GNU parallel is nice but kinda nagware - asks you to cite it on every run!
 mkdir -p ~/.parallel/
 touch ~/.parallel/will-cite
+
+# Per https://copr.fedorainfracloud.org/coprs/decathorpe/syncthing/
+systemctl --user enable syncthing.service
+systemctl --user enable syncthing-inotify.service  # ignore on RHEL
+systemctl --user start syncthing.service
+systemctl --user start syncthing-inotify.service  # ignore on RHEL
