@@ -32,14 +32,14 @@ if ! rpm --quiet --query chromium; then
 fi
 
 if ! rpm --quiet --query sysdig; then
-  sudo rpm --import draios.gpg.key
-  sudo cp -v draios.repo /etc/yum.repos.d/
+  sudo rpm --import repo-stuff/syncthing-draios.gpg.key
+  sudo cp -v repo-stuff/syncthing-draios.repo /etc/yum.repos.d/
 fi
 
 # http://rpmfusion.org/Configuration
 # TODO: http!?  https gives cert for wrong domain + 404.
 if ! rpm --quiet --query rpmfusion-free-release; then
-    sudo rpm --import rpmfusion-free-fedora23.gpg.key
+    sudo rpm --import repo-stuff/rpmfusion-free-fedora23.gpg.key
     sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 fi
 # TODO: do I want rpmfusion nonfree?
