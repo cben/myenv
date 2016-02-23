@@ -21,6 +21,7 @@ sudo dnf install \
     make automake gcc gcc-c++ kernel-devel \
     python-tools python3-tools \
     nodejs npm \
+    linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla-fira-mono-fonts google-droid-sans-mono-fonts \
     mscore
 
 # Add repos
@@ -51,10 +52,12 @@ fi
 # => fedy from submodule seems to work (bin/fedy)
 sudo dnf install gjs dnf-plugins-core wget  # https://github.com/folkswithhats/fedy#dependencies
 
+rpm --quiet --query hack-fonts || sudo dnf copr -y enable heliocastro/hack-fonts
+
 rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
 
 sudo dnf install \
-     chromium sysdig \
+     hack-fonts chromium sysdig \
      vlc totem mplayer youtube-dl ffmpeg \
      syncthing syncthing-gtk
 
