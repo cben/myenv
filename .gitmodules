@@ -34,3 +34,6 @@
 [submodule "unicode"]
 	path = unicode
 	url = https://github.com/garabik/unicode
+[submodule "jo"]
+	path = jo
+	url = https://github.com/jpmens/jo
