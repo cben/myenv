@@ -15,7 +15,7 @@ cd "$(dirname "$0")"
 
 
 sudo dnf install \
-    fish htop glances mlocate mtr nmap \
+    fish htop glances mlocate mtr nmap jq \
     git-gui tig bzr meld nano emacs \
     ack the_silver_searcher \
     make automake gcc gcc-c++ kernel-devel \
