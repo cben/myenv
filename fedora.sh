@@ -22,7 +22,7 @@ sudo dnf install \
     python-tools python3-tools \
     nodejs npm \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla-fira-mono-fonts google-droid-sans-mono-fonts \
-    mscore
+    redshift redshift-gtk mscore
 
 # Add repos
 # =========
