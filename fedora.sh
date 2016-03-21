@@ -19,7 +19,7 @@ sudo dnf install \
     git-gui tig bzr meld nano emacs \
     ack the_silver_searcher \
     make automake gcc gcc-c++ kernel-devel \
-    python-tools python3-tools \
+    python-tools python3-tools python-ipython-console python3-ipython-notebook \
     nodejs npm \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla-fira-mono-fonts google-droid-sans-mono-fonts \
     redshift redshift-gtk mscore
