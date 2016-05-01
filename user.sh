@@ -12,6 +12,7 @@ fi
 cp -i -v --symbolic-link -R "$(dirname "$(readlink -f "$0")")"/.config/ ~/
 
 git config --global color.ui true
+git config --global diff.algorithm patience
 git config --global --unset alias.ci  # bin/git-ci now
 [ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
 

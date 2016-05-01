@@ -1,4 +1,3 @@
 #!/bin/bash
 # Git diff with intra-line coloring.
-# TODO: does not show chmods, gets confused by submodule diffs.
-git difftool -y --extcmd="$(dirname "$0")"/d "$@"
+git diff | colordiff.py
