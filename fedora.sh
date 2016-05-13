@@ -21,7 +21,8 @@ sudo dnf install \
     make automake gcc gcc-c++ kernel-devel \
     python-tools python3-tools python-ipython-console python3-ipython-notebook \
     nodejs npm \
-    linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla-fira-mono-fonts google-droid-sans-mono-fonts \
+    linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
+    mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
     redshift redshift-gtk mscore
 
 # Add repos
