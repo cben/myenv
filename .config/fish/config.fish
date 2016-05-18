@@ -5,11 +5,14 @@ function PATH_prepend -a dir
     end
 end
 
+# Detect where myenv/ was checked out, assuming this file is a symlink as installed by myenv/user.sh;
+# if not a symlink this works out to ~/bin.
+set myenv_dir (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish/config.fish))))
+
 if status --is-interactive
     echo "== running config.fish =="
-    # Detect where myenv/ was checked out, assuming this file is a symlink as installed by myenv/user.sh;
-    # if not a symlink this works out to ~/bin.
-    PATH_prepend (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish/config.fish))))/{bin,node_modules/.bin}
+    PATH_prepend $myenv_dir/bin
+    PATH_prepend $myenv_dir/node_modules/.bin
     # pip install --user (default) goes to ~/.local
     PATH_prepend ~/.local/bin
     # some sbin tools are useful without root, e.g. mtr on fedora
