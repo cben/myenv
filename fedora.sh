@@ -23,6 +23,7 @@ sudo dnf install \
     nodejs \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
+    pandoc \
     redshift redshift-gtk mscore
 
 # fail separately on fedora 24 alpha - nodejs includes npm anyway
