@@ -11,3 +11,14 @@ Updating involves `PULL.sh` then committing (if submodules got updated) and re-r
 I'm striving for *.sh to be idempotent.
 
 License: Do whatever you want.  https://creativecommons.org/publicdomain/zero/1.0/
+
+## GitHub 2FA tips (doesn't really belong here but useful bootstrapping new machine)
+
+```
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+```
+Upload ~/.ssh/id_rsa.pub to https://github.com/settings/ssh.
+```
+git clone --recursive github.com:cben/myenv  # easier to remember than `git@github.com:cben/myenv.git`, works.
+```
