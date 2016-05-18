@@ -20,10 +20,13 @@ sudo dnf install \
     ack the_silver_searcher renameutils \
     make automake gcc gcc-c++ kernel-devel \
     python-tools python3-tools python-ipython-console python3-ipython-notebook \
-    nodejs npm \
+    nodejs \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
     redshift redshift-gtk mscore
+
+# fail separately on fedora 24 alpha - nodejs includes npm anyway
+sudo dnf install npm || echo "@@@@@@@@@@@@@@@@@@@ FAILED npm package.  Do we have any version?  which npm -> $(which npm)"
 
 # Add repos
 # =========
@@ -59,8 +62,11 @@ rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
 
 sudo dnf install \
      hack-fonts chromium sysdig \
-     vlc totem mplayer youtube-dl ffmpeg \
+     totem youtube-dl \
      syncthing syncthing-gtk
+
+# TODO: fail separately on fedora 24 alpha - no rpmfusion yet?
+sudo dnf install vlc mplayer ffmpeg || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh
