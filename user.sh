@@ -9,7 +9,9 @@ else
   echo "CAN'T SET FISH AS DEFAULT SHELL - RUN machine.sh FIRST."
 fi
 
-cp -i -v --symbolic-link -R "$(dirname "$(readlink -f "$0")")"/.config/ ~/
+dir="$(dirname "$(readlink -f "$0")")"
+
+cp -i -v --symbolic-link -R "$dir"/.config/ ~/
 
 git config --global color.ui true
 git config --global diff.algorithm patience

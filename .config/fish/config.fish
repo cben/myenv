@@ -8,11 +8,14 @@ end
 # Detect where myenv/ was checked out, assuming this file is a symlink as installed by myenv/user.sh;
 # if not a symlink this works out to ~/bin.
 set myenv_dir (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish/config.fish))))
+# https://github.com/rbenv/rbenv#installation, modified to be under myenv/
+set -x RBENV_ROOT $myenv_dir/rbenv
 
 if status --is-interactive
     echo "== running config.fish =="
     PATH_prepend $myenv_dir/bin
     PATH_prepend $myenv_dir/node_modules/.bin
+    PATH_prepend $myenv_dir/rbenv/shims
     # pip install --user (default) goes to ~/.local
     PATH_prepend ~/.local/bin
     # some sbin tools are useful without root, e.g. mtr on fedora
