@@ -23,7 +23,7 @@ sudo dnf install \
     nodejs \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
-    pandoc python3-markups python3-qt5 \
+    pandoc python3-markups python3-qt5 unicode-ucd \
     pygpgme \
     redshift redshift-gtk mscore
 
