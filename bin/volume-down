@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Install this script for XF86AudioLowerVolume in ~/.config/openbox/lubuntu-rc.xml
+
+# https://bugs.launchpad.net/ubuntu/+source/lubuntu-default-settings/+bug/1455602
+# Won't raise over 100%
+#amixer -q -D pulse sset Master 3%- unmute
+
+# Can go over 100% - http://askubuntu.com/a/558604
+pactl set-sink-volume @DEFAULT_SINK@ -- -5%
+
+# amixer does print values over 100%
+volume=$(amixer -D pulse sget Master | grep -o '[0-9]*%' | head -n1 | tr -d %)
+
+# Brute way to replace existing notification - http://askubuntu.com/a/190397
+killall xfce4-notifyd
+# http://askubuntu.com/a/246695 modified icon for xfce
+#notify-send " " -i audio-volume-medium -h int:value:$volume  -h string:synchronous:volume -t 700
+notify-send "Громкость $volume%" -i audio-volume-medium -t 700
