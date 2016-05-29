@@ -44,3 +44,6 @@
 [submodule "ruby-build"]
 	path = ruby-build
 	url = https://github.com/rbenv/ruby-build
+[submodule "unitedrpms.github.io"]
+	path = unitedrpms.github.io
+	url = https://github.com/UnitedRPMs/unitedrpms.github.io/

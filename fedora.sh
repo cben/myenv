@@ -51,6 +51,13 @@ if ! rpm --quiet --query rpmfusion-free-release; then
 fi
 # TODO: do I want rpmfusion nonfree?
 
+# rpmfusion allegedly should already work with Fedora 24 but doesn't for me.
+# https://ask.fedoraproject.org/en/question/85345/when-will-rpmfusion-be-ready-for-f24/
+# https://unitedrpms.github.io/ is an alternative, at least for "central"
+# packages like VLC.  TODO: might create conflicts?
+sudo rpm --import unitedrpms.github.io/URPMS-GPG-PUBLICKEY-Fedora-24
+sudo dnf config-manager --add-repo=unitedrpms.github.io/unitedrpms.repo
+
 # From http://folkswithhats.org/fedy-installer
 # TODO: http?! nogpgcheck!?
 #rpm --quiet --query folkswithhats-release || sudo dnf -y --nogpgcheck install http://folkswithhats.org/repo/$(rpm -E %fedora)/RPMS/noarch/folkswithhats-release-1.0.1-1.fc$(rpm -E %fedora).noarch.rpm
