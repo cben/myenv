@@ -56,8 +56,9 @@ fi
 # https://ask.fedoraproject.org/en/question/85345/when-will-rpmfusion-be-ready-for-f24/
 # https://unitedrpms.github.io/ is an alternative, at least for "central"
 # packages like VLC.  TODO: might create conflicts?
-sudo rpm --import unitedrpms.github.io/URPMS-GPG-PUBLICKEY-Fedora-24
-sudo dnf config-manager --add-repo=unitedrpms.github.io/unitedrpms.repo
+sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/URPMS-GPG-PUBLICKEY-Fedora-24
+sudo dnf config-manager --add-repo=https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/unitedrpms.repo
+
 
 # From http://folkswithhats.org/fedy-installer
 # TODO: http?! nogpgcheck!?
