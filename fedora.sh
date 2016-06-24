@@ -16,7 +16,7 @@ cd "$(dirname "$0")"
 
 sudo dnf install \
     fish htop glances mlocate mtr nmap jq smartmontools \
-    git-gui tig hub bzr meld nano emacs \
+    git-gui tig hub bzr hg meld nano emacs \
     ack the_silver_searcher renameutils \
     make automake gcc gcc-c++ kernel-devel \
     python-tools python3-tools python-ipython-console python3-ipython-notebook \
