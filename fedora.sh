@@ -13,8 +13,8 @@ cd "$(dirname "$0")"
 #sudo dnf install libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-libs.i686 pulseaudio-libs-glib2.i686 alsa-plugins-pulseaudio.i686
 # TODO: obsolete by Fedy?
 
-
 sudo dnf install \
+    dnf-automatic \
     fish htop glances mlocate mtr nmap jq smartmontools \
     git-gui tig hub bzr hg meld nano emacs \
     ack the_silver_searcher renameutils \
@@ -81,3 +81,6 @@ sudo dnf install vlc mplayer ffmpeg || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusio
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh
+
+echo '== DOES THIS SYSTEM AUTO-UPDATE? =='
+grep --with-filename _updates /etc/dnf/automatic.conf
