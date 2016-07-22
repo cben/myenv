@@ -16,6 +16,7 @@ cp -i -v --symbolic-link -R "$dir"/.config/ ~/
 git config --global color.ui true
 git config --global diff.algorithm patience
 git config --global merge.tool meld
+git config --global submodule.fetchJobs 8
 git config --global --unset alias.ci  # bin/git-ci now
 [ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
 
