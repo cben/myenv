@@ -24,7 +24,7 @@ sudo dnf install \
     golang godep \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
-    pandoc python3-markups python3-qt5 unicode-ucd \
+    pandoc python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     pygpgme \
     redshift redshift-gtk mscore
 
