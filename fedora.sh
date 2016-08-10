@@ -28,8 +28,10 @@ sudo dnf install \
     pygpgme \
     redshift redshift-gtk mscore
 
-# fail separately on fedora 24 alpha - nodejs includes npm anyway
-sudo dnf install npm || echo "@@@@@@@@@@@@@@@@@@@ FAILED npm package.  Do we have any version?  which npm -> $(which npm)"
+# nodejs includes npm anyway since fedora 24
+if ! rpm -ql nodejs | grep -q /bin/npm; then
+  sudo dnf install npm || echo "@@@@@@@@@@@@@@@@@@@ FAILED npm package.  Do we have any version?  which npm -> $(which npm)"
+fi
 
 # Add repos
 # =========
