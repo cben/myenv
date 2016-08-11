@@ -48,19 +48,17 @@ fi
 
 # http://rpmfusion.org/Configuration
 # TODO: http!?  https gives cert for wrong domain + 404.
-if ! rpm --quiet --query rpmfusion-free-release; then
-    sudo rpm --import repo-stuff/rpmfusion-free-fedora23.gpg.key
+if ! rpm --query rpmfusion-free-release | grep -q rpmfusion-free-release-$(rpm -E %fedora); then
+    # Keys from https://pgp.mit.edu/pks/lookup?search=RPM+Fusion+24 etc
+    sudo rpm --import repo-stuff/rpmfusion-free-fedora$(rpm -E %fedora).gpg.key
     sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 fi
 # TODO: do I want rpmfusion nonfree?
 
-# rpmfusion allegedly should already work with Fedora 24 but doesn't for me.
-# https://ask.fedoraproject.org/en/question/85345/when-will-rpmfusion-be-ready-for-f24/
 # https://unitedrpms.github.io/ is an alternative, at least for "central"
 # packages like VLC.  TODO: might create conflicts?
-sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/URPMS-GPG-PUBLICKEY-Fedora-24
-sudo dnf config-manager --add-repo=https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/unitedrpms.repo
-
+#sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/URPMS-GPG-PUBLICKEY-Fedora-24
+#sudo dnf config-manager --add-repo=https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/unitedrpms.repo
 
 # From http://folkswithhats.org/fedy-installer
 # TODO: http?! nogpgcheck!?
@@ -78,8 +76,7 @@ sudo dnf install \
      totem youtube-dl \
      syncthing syncthing-gtk
 
-# TODO: fail separately on fedora 24 alpha - no rpmfusion yet?
-sudo dnf install vlc mplayer ffmpeg || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
+sudo dnf install vlc mplayer ffmpeg guvcview || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh
