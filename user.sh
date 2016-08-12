@@ -21,10 +21,10 @@ git config --global diff.submodule log
 git config --global --unset alias.ci  # bin/git-ci now
 [ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
 
-if [ -f /usr/share/retext/ReText/__init__.py ]; then
+if [ -f "$dir"/retext/ReText/__init__.py ]; then
   # useWebKit needed for retext to support math (see also .config/markdown-extensions.txt).
   # Live preview because why not.
-  echo 'globalSettings.useWebKit = globalSettings.restorePreviewState = globalSettings.previewState = True' | python3 -i /usr/share/retext/ReText/__init__.py
+  echo 'globalSettings.useWebKit = globalSettings.restorePreviewState = globalSettings.previewState = True' | python3 -i "$dir"/retext/ReText/__init__.py
 fi
 
 # GNU parallel is nice but kinda nagware - asks you to cite it on every run!
