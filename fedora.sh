@@ -59,6 +59,7 @@ fi
 # packages like VLC.  TODO: might create conflicts?
 #sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/URPMS-GPG-PUBLICKEY-Fedora-24
 #sudo dnf config-manager --add-repo=https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/unitedrpms.repo
+sudo dnf config-manager --set-disabled unitedrpms\*
 
 # From http://folkswithhats.org/fedy-installer
 # TODO: http?! nogpgcheck!?
@@ -80,6 +81,8 @@ sudo dnf install vlc mplayer ffmpeg guvcview || echo "@@@@@@@@@@@@@@@@@@@ FAILED
 
 sudo dnf install libgnome-keyring-devel
 ./install-git-credential-gnome-keyring.sh
+
+sudo dnf update --refresh
 
 echo '== DOES THIS SYSTEM AUTO-UPDATE? =='
 grep --with-filename _updates /etc/dnf/automatic.conf
