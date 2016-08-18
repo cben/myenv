@@ -35,6 +35,9 @@ if ! rpm -ql nodejs | grep -q /bin/npm; then
   sudo dnf install npm || echo "@@@@@@@@@@@@@@@@@@@ FAILED npm package.  Do we have any version?  which npm -> $(which npm)"
 fi
 
+# etcd 3.0.4 needed for kubernetes
+sudo dnf install --enablerepo rawhide etcd --best
+
 # Add repos
 # =========
 
