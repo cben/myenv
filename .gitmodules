@@ -47,3 +47,6 @@
 [submodule "unitedrpms.github.io"]
 	path = unitedrpms.github.io
 	url = https://github.com/UnitedRPMs/unitedrpms.github.io/
+[submodule "rotate-screen"]
+	path = rotate-screen
+	url = https://gist.github.com/rubo77/daa262e0229f6e398766
