@@ -23,15 +23,14 @@ sudo-apt install \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python{,3}-pip libzmq-dev \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 \
-  gtk-redshift nautilus-open-terminal \
+  gtk-redshift \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   libtext-multimarkdown-perl retext libjs-mathjax \
   referencer pdftk pdfshuffler diffpdf \
   vlc
 
-# These were missing in 13.10 (which I'm still using on my chromebox);
-# let them fail separately.
-sudo-apt install gist
+# This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
+sudo-apt install nautilus-open-terminal
 
 # == Add extra sources ==
 
