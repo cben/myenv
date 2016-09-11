@@ -26,8 +26,8 @@ sudo dnf install --setopt=strict=0 \
     pygpgme \
     redshift redshift-gtk mscore
 
-# nodejs includes npm anyway since fedora 24
-if ! rpm -ql nodejs | grep -q /bin/npm; then
+# nodejs included npm anyway at some point in fedora 24 (or was it from UnitedRPMs?)
+if ! rpm -ql nodejs | egrep -q '^(/usr)?/bin/npm'; then
   sudo dnf install npm || echo "@@@@@@@@@@@@@@@@@@@ FAILED npm package.  Do we have any version?  which npm -> $(which npm)"
 fi
 
