@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -v
 # Update and (re)install things
 cd "$(dirname "$0")"
 git pull --rebase=preserve --recurse-submodules
