@@ -3,8 +3,7 @@
     "bower": "*",
     "greenkeeper": "*",
     "grunt-cli": "*",
-    "markmon": "*",
-    "ungit": "*"
+    "markmon": "*"
   },
   "repository": {
     "type": "git",

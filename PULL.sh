@@ -1,12 +1,14 @@
 #!/bin/bash -v
 # Update and (re)install things
 cd "$(dirname "$0")"
+
 git pull --rebase=preserve --recurse-submodules
 git submodule update --init --recursive --remote
-# This (re)installs inside hub/, there is a fixed symlink in bin/
+
+# Build/install submodules inside their directories, there are a fixed symlinks in bin/
 (cd hub; ./script/build)
-# Similarly, there is a fixed symlink in bin/
 (cd jo; autoreconf -i; ./configure; make check)
+(cd ungit; npm install --silent; grunt)
 
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.

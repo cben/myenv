@@ -53,3 +53,6 @@
 [submodule "yq"]
 	path = yq
 	url = https://github.com/jim80net/yq
+[submodule "ungit"]
+	path = ungit
+	url = https://github.com/FredrikNoren/ungit
