@@ -1,29 +1,25 @@
 #!/bin/bash
 
-# Very early, currenty mostly stuff I'm installing for Mira.
-
-set -e -u -o pipefail  # TODO untested in this script
+set -e -u -o pipefail
 
 cd "$(dirname "$0")"
 
-## Skype dynamic deps - http://www.if-not-true-then-false.com/2012/install-skype-on-fedora-centos-red-hat-rhel-scientific-linux-sl/
-#sudo dnf install alsa-lib.i686 fontconfig.i686 freetype.i686 glib2.i686 libSM.i686 libXScrnSaver.i686 libXi.i686 libXrandr.i686 libXrender.i686 libXv.i686 libstdc++.i686 pulseaudio-libs.i686 qt.i686 qt-x11.i686 zlib.i686 qtwebkit.i686
+# dropped non-free Skype etc — use Fedy
 
-# Simpler: Skype 32bit for Fedora on 64bit - https://ask.fedoraproject.org/en/question/8738/sticky-how-do-i-install-skype-on-fedora/?answer=16444#post-id-16444
-#sudo dnf install libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-libs.i686 pulseaudio-libs-glib2.i686 alsa-plugins-pulseaudio.i686
-# TODO: obsolete by Fedy?
+# Things from standard repos
+# ==========================
 
 # I want the command to proceed partially even if it can't do all these;
 # I'm not sure I want --allowerasing by default, so trying --setopt=strict=0
 sudo dnf install --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances mlocate mtr nmap jq smartmontools \
-    git-gui tig hub bzr hg meld nano emacs \
+    git git-gui tig hub libgnome-keyring-devel bzr hg meld nano emacs \
     ack the_silver_searcher renameutils \
     make automake gcc gcc-c++ kernel-devel \
-    python-tools python3-tools python-ipython-console python3-ipython-notebook \
+    python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
     nodejs \
-    golang godep \
+    maven \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
     pandoc python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
@@ -38,8 +34,8 @@ fi
 # etcd 3.0.4 needed for kubernetes
 sudo dnf install --enablerepo rawhide etcd --best
 
-# Add repos
-# =========
+# Add extra repos
+# ===============
 
 if ! rpm --quiet --query chromium; then
   sudo rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
@@ -77,6 +73,9 @@ rpm --quiet --query hack-fonts || sudo dnf copr -y enable heliocastro/hack-fonts
 
 rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
 
+# Install from extra repos
+# ========================
+
 sudo dnf install \
      hack-fonts chromium sysdig \
      totem youtube-dl \
@@ -84,10 +83,10 @@ sudo dnf install \
 
 sudo dnf install vlc mplayer ffmpeg guvcview || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
 
-sudo dnf install libgnome-keyring-devel
-./install-git-credential-gnome-keyring.sh
-
 sudo dnf update --refresh
+
+# Non-dnf global stuff
+./machine.sh
 
 echo '== DOES THIS SYSTEM AUTO-UPDATE? =='
 grep --with-filename _updates /etc/dnf/automatic.conf

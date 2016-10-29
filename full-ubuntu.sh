@@ -1,5 +1,6 @@
 #!/bin/bash
-# These would be part of machine.sh but take too much space to
+
+# These would be part of ubuntu.sh but take too much space to
 # install on all machines - notably on my chromebox.
 # Dropbox itself is not heavy but it brings a lot of files :-)
 
