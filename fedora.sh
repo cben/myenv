@@ -6,6 +6,10 @@ cd "$(dirname "$0")"
 
 # dropped non-free Skype etc — use Fedy
 
+# I kinda like pressing <Enter> to confirm installation, but with dnf's [y/N] prompts
+# having to press y <Enter> is too much :-)  defualtyes=1 makes dnf use [Y/n].
+grep -q defaultyes /etc/dnf/dnf.conf || sudo sed --in-place -e '/\[main\]/adefaultyes=1' /etc/dnf/dnf.conf
+
 # Things from standard repos
 # ==========================
 
