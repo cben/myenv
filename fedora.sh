@@ -13,7 +13,7 @@ cd "$(dirname "$0")"
 # I'm not sure I want --allowerasing by default, so trying --setopt=strict=0
 sudo dnf install --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
-    fish htop glances mlocate mtr nmap jq smartmontools \
+    fish htop glances perf mlocate mtr nmap jq smartmontools \
     git git-gui tig hub libgnome-keyring-devel bzr hg meld nano emacs \
     ack the_silver_searcher renameutils \
     make automake gcc gcc-c++ kernel-devel \
