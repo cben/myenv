@@ -3,10 +3,16 @@
     "bower": "*",
     "greenkeeper": "*",
     "grunt-cli": "*",
-    "markmon": "*"
+    "markmon": "*",
+    "snyk": "^1.19.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cben/myenv"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }

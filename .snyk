@@ -1,0 +1,11 @@
+version: v1.5.0
+ignore: {}
+patch:
+  'npm:negotiator:20160616':
+    - markmon > express > connect > compression > accepts > negotiator:
+        patched: '2016-11-09T10:08:26.358Z'
+    - markmon > express > connect > serve-index > accepts > negotiator:
+        patched: '2016-11-09T10:08:26.358Z'
+  'npm:ws:20160104':
+    - markmon > socket.io > socket.io-client > ws:
+        patched: '2016-11-09T10:08:26.358Z'
