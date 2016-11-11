@@ -2,7 +2,8 @@
 # our Yoga 2 Pro outputs to HDMI1, Thinkpad T450s to DP1.
 xrandr --output HDMI1 -s 3840x2160 --transform none --pos 0x0
 xrandr --output DP1 -s 3840x2160 --transform none --pos 0x0
-# in both cases, builtin screen is eDP1.  0 should be its highest possible res.
+# builtin screen is eDP1 / eDP-1.  0 should be its highest possible res.
 xrandr --output eDP1 -s 0 --scale-from 3840x2160 --pos 0x0
+xrandr --output eDP-1 -s 0 --scale-from 3840x2160 --pos 0x0
 xrandr --auto
 xrandr
