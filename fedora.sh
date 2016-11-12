@@ -10,6 +10,9 @@ cd "$(dirname "$0")"
 # having to press y <Enter> is too much :-)  defualtyes=1 makes dnf use [Y/n].
 grep -q defaultyes /etc/dnf/dnf.conf || sudo sed --in-place -e '/\[main\]/adefaultyes=1' /etc/dnf/dnf.conf
 
+sudo dnf install etckeeper
+[ -d /etc/.git ] || [ -d /etc/.bzr ] || sudo etckeeper init
+
 # Things from standard repos
 # ==========================
 
