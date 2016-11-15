@@ -3,7 +3,8 @@
     "bower": "*",
     "greenkeeper": "*",
     "grunt-cli": "*",
-    "markmon": "*"
+    "markmon": "*",
+    "npm-check-updates": "^2.8.6"
   },
   "repository": {
     "type": "git",
