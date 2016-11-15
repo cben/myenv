@@ -1,0 +1,8 @@
+#!/bin/bash
+# `docker ps` approximation with IP addresses - https://github.com/docker/docker/issues/8786
+(
+  echo 'CONTAINER ID|IMAGE|COMMAND|CREATED|STATUS|IP|PORTS|NAMES';
+  # truncating Id to 12 chars is docker ps default
+  # truncating StartedAt to 19 gives seconds resolution: "2016-11-15T12:57:56"
+  docker ps -q "$@" | xargs docker inspect --format '{{printf "%.12s" .Id}}|{{.Config.Image}}|{{.Config.Cmd}}|{{printf "%.19s" .State.StartedAt}}|{{.State.Status}}|{{range $net, $conf := .NetworkSettings.Networks}}{{$net}}:{{$conf.IPAddress}} {{end}}|{{.NetworkSettings.Ports}}|{{.Name}}'
+) | column -t -s '|'
