@@ -21,6 +21,8 @@ git config --global diff.submodule log
 git config --global --unset alias.ci  # bin/git-ci now
 [ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
 
+$dir/check-github-ssh-fingerprint.sh
+
 if [ -f "$dir"/retext/ReText/__init__.py ]; then
   # useWebKit needed for retext to support math (see also .config/markdown-extensions.txt).
   # Live preview because why not.
