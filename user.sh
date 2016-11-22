@@ -13,15 +13,30 @@ dir="$(dirname "$(readlink -f "$0")")"
 
 cp -i -v --symbolic-link -R "$dir"/.config/ ~/
 
+# Git
+# ===
+
 git config --global color.ui true
 git config --global diff.algorithm patience
 git config --global merge.tool meld
 git config --global submodule.fetchJobs 8
 git config --global diff.submodule log
 git config --global --unset alias.ci  # bin/git-ci now
+
+# Two ways to make github 2FA easier:
+# 1. Remember HTTPS passwords "forever", so I can put in an app-specific passwords.
 [ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
 
+# 2. Automatically push over SSH when anonymously cloned over HTTPS.
+# Normal github repos:
+git config --global url.ssh://git@github.com/.pushInsteadOf https://github.com/
+# Gists: https://stackoverflow.com/questions/18019142/how-to-clone-a-github-gist-via-ssh-protocol
+git config --global --replace-all url.ssh://git@gist.github.com/.pushInsteadOf https://gist.github.com/
+git config github.user && git config --global --add url.ssh://git@gist.github.com/.pushInsteadOf https://gist.github.com/$(git config github.user)/
+
 $dir/check-github-ssh-fingerprint.sh
+
+# ---
 
 if [ -f "$dir"/retext/ReText/__init__.py ]; then
   # useWebKit needed for retext to support math (see also .config/markdown-extensions.txt).

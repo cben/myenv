@@ -22,6 +22,6 @@ Upload ~/.ssh/id_rsa.pub to https://github.com/settings/ssh.
 ```
 git clone --recursive github.com:cben/myenv  # easier to remember than `git@github.com:cben/myenv.git`, works.
 ```
+Run user.sh to configure sweet `pushInsteadOf`.
 
-TODOC: creating 2FA token; using git's `insteadOf` configuration to rewrite the
-http urls to ssh urls.
+TODO: creating 2FA token.
