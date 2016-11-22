@@ -3,6 +3,7 @@
 
 git config --global user.email "cben@redhat.com"
 git config --global user.name "Beni Cherniavsky-Paskin"
+git config --global github.user "cben"
 
 bzr whoami "Beni Cherniavsky-Paskin <beni.cherniavsky@gmail.com>"
 
