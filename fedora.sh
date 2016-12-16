@@ -24,7 +24,7 @@ sudo dnf install --setopt=strict=0 \
     git git-gui tig hub libgnome-keyring-devel bzr hg meld nano emacs \
     ack the_silver_searcher renameutils \
     make automake gcc gcc-c++ kernel-devel \
-    python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
+    python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
     nodejs \
     maven \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
