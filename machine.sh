@@ -20,7 +20,7 @@ else
   sudo gem update rhc travis
 fi
 
-sudo --set-home pip3 install --upgrade --system restview jupyter
+sudo --set-home pip3 install --upgrade restview jupyter
 
 # Switched to local install via package.json.
 sudo npm uninstall -g --silent grunt-cli bower markmon
