@@ -4,10 +4,16 @@
     "greenkeeper": "*",
     "grunt-cli": "*",
     "markmon": "*",
-    "npm-check-updates": "^2.8.6"
+    "npm-check-updates": "^2.8.6",
+    "snyk": "^1.21.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cben/myenv"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
