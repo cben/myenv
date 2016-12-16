@@ -56,3 +56,6 @@
 [submodule "ungit"]
 	path = ungit
 	url = https://github.com/FredrikNoren/ungit
+[submodule "stderred"]
+	path = stderred
+	url = https://github.com/sickill/stderred
