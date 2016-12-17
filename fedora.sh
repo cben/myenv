@@ -88,7 +88,7 @@ sudo dnf install \
      totem youtube-dl \
      syncthing syncthing-gtk
 
-sudo dnf install vlc mplayer ffmpeg guvcview || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
+sudo dnf install vlc mplayer ffmpeg guvcview mkvtoolnix-gui || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
 
 sudo dnf update --refresh
 
