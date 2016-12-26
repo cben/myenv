@@ -59,3 +59,6 @@
 [submodule "stderred"]
 	path = stderred
 	url = https://github.com/sickill/stderred
+[submodule "outline-grep"]
+	path = outline-grep
+	url = https://github.com/mbrubeck/outline-grep

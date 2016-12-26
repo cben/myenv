@@ -11,7 +11,7 @@ sudo-apt install \
     texlive texlive-latex-recommended texlive-latex-extra texlive-extra-utils \
     texlive-fonts-extra texlive-science texlive-humanities texlive-luatex texlive-lang-{hebrew,cyrillic} \
     latexmk latexdiff texworks texstudio auctex emacs-goodies-el \
-    haskell-platform \
+    haskell-platform libghc6-regex-posix-dev \
     sagemath-upstream-binary
 
 # Up to date pandoc.  Will compile in ~/.cabal but install in /usr/local.

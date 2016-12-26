@@ -1,0 +1,2 @@
+#!/bin/bash -x
+exec "$(dirname "$0")"/../outline-grep/OutlineGrep.lhs "$@"

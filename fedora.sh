@@ -27,6 +27,7 @@ sudo dnf install --setopt=strict=0 \
     python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
     nodejs \
     maven \
+    haskell-platform ghc-regex-posix-devel \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
     pandoc python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
