@@ -42,6 +42,6 @@
 ) |& /usr/bin/logger --stderr --id
 
 # To install in crontab:
-# 01 * * * * mira /home/mira/myenv/DYNV6
+# 01 * * * * mira /home/mira/myenv/bin/dynv6-update
 
 # To see logs: journalctl -n20
