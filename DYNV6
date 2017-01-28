@@ -1,9 +1,14 @@
 #!/bin/bash
 
 (
-  domain=paskin.dynv6.net
+  domain="$(hostname --fqdn)"
   current="$(host "$domain")"
   echo "Before: $current"
+
+  if ! echo "$domain" | grep -q dynv6; then  # TODO: dynv6 supports some other domains.
+     echo "$domain doesn't look like a dynv6 domain, exiting"
+     exit 2
+  fi
 
   # http://ipv6-test.com/api/
   v4="$(curl http://v4.ipv6-test.com/api/myip.php)"
@@ -35,5 +40,8 @@
 
   echo "After: $(host paskin.dynv6.net)"
 ) |& /usr/bin/logger --stderr --id
+
+# To install in crontab:
+# 01 * * * * mira /home/mira/myenv/DYNV6
 
 # To see logs: journalctl -n20
