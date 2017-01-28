@@ -1,0 +1,39 @@
+#!/bin/bash
+
+(
+  domain=paskin.dynv6.net
+  current="$(host "$domain")"
+  echo "Before: $current"
+
+  # http://ipv6-test.com/api/
+  v4="$(curl http://v4.ipv6-test.com/api/myip.php)"
+  v6="$(curl http://v6.ipv6-test.com/api/myip.php)"
+
+  # https://dynv6.com/docs/apis
+  #curl 'https://dynv6.com/api/update?hostname=paskin.dynv6.net&ipv4=auto&token=...'
+  # For ssh, ssh-keygen -t ed25519, upload to https://dynv6.com/public_keys
+  # TODO: don't send if same IP?
+  if [ -z "$v4" ]; then
+     echo "no IPv4"
+  else
+     if echo "$current" | grep -q "$v4"; then
+        echo "IPv4 already good"
+     else
+        ssh api@dynv6.com hosts "$domain" set ipv4addr "$v4"
+     fi
+  fi
+
+  if [ -z "$v6" ]; then
+     echo "no IPv6"
+  else
+     if echo "$current" | grep -q "$v6"; then
+        echo "IPv6 already good"
+     else
+        ssh api@dynv6.com hosts "$domain" set ipv6addr "$v6"
+     fi
+  fi
+
+  echo "After: $(host paskin.dynv6.net)"
+) |& /usr/bin/logger --stderr --id
+
+# To see logs: journalctl -n20
