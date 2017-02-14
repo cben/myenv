@@ -22,7 +22,7 @@ sudo dnf install --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf mlocate mtr nmap inadyn-mt jq python-jwt smartmontools \
     git git-gui tig hub libgnome-keyring-devel bzr hg meld nano emacs \
-    ack the_silver_searcher renameutils \
+    ack the_silver_searcher renameutils xsel \
     make automake gcc gcc-c++ kernel-devel \
     python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
     nodejs \
