@@ -17,6 +17,7 @@ cp -i -v --symbolic-link -R "$dir"/.config/ ~/
 # ===
 
 git config --global color.ui true
+git config --global core.pager 'less --quit-if-one-screen' # --no-init might be needed on some systems
 git config --global diff.algorithm patience
 git config --global merge.tool meld
 git config --global submodule.fetchJobs 8
