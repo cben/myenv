@@ -20,6 +20,7 @@ git config --global color.ui true
 git config --global core.pager 'less --quit-if-one-screen' # --no-init might be needed on some systems
 git config --global diff.algorithm patience
 git config --global merge.tool meld
+git config --global rerere.enabled true
 git config --global submodule.fetchJobs 8
 git config --global diff.submodule log
 git config --global --unset alias.ci  # bin/git-ci now
