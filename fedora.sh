@@ -41,6 +41,8 @@ fi
 
 # etcd 3.0.4 needed for kubernetes
 sudo dnf install --enablerepo rawhide etcd --best
+# many golang programs need fresh golang
+sudo dnf install --enablerepo rawhide golang --best
 
 # Add extra repos
 # ===============
