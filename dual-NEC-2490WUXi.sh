@@ -1,7 +1,7 @@
 #!/bin/bash
 # For some reason, 2490WUXi reports 720p instead of 1080p when HDCP is enabled.
 
-if $(dirname $0)/xrandr-edid.sh | grep -q "2490WUXi"; then
+if $(dirname $0)/bin/xrandr-edid | grep -q "2490WUXi"; then
   MODE="1920x1200R"
   echo "== Detected (at least one) 2490WUXi, applying $MODE (to all outs). =="
   # /dev/null the "X Error...BadName" error if already exist.
@@ -17,5 +17,5 @@ if $(dirname $0)/xrandr-edid.sh | grep -q "2490WUXi"; then
     fi
   done
 else
-  echo "== WRONG MONITOR (run $(dirname $0)/xrandr-edid.sh for details). =="
+  echo "== WRONG MONITOR (run $(dirname $0)/bin/xrandr-edid for details). =="
 fi
