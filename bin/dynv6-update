@@ -41,7 +41,7 @@
   echo "After: $(host paskin.dynv6.net)"
 ) |& /usr/bin/logger --stderr --id
 
-# To install in crontab:
-# 01 * * * * mira /home/mira/myenv/bin/dynv6-update
+# To install in `crontab -e` (hourly at xx:53):
+# 53 * * * * /home/mira/myenv/bin/dynv6-update
 
 # To see logs: journalctl -n20
