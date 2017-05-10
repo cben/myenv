@@ -4,7 +4,7 @@
 # install on all machines - notably on my chromebox.
 # Dropbox itself is not heavy but it brings a lot of files :-)
 
-source $(dirname "$0")/machine.sh
+source $(dirname "$0")/ubuntu.sh
 
 sudo-apt install \
     nautilus-dropbox \
