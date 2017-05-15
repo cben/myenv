@@ -19,7 +19,11 @@ cp -i -v --symbolic-link -R "$dir"/.config/ ~/
 git config --global color.ui true
 git config --global core.pager 'less --quit-if-one-screen' # --no-init might be needed on some systems
 git config --global diff.algorithm patience
-git config --global merge.tool meld
+# http://stackoverflow.com/q/11133290/239657
+git config --global merge.conflictStyle diff3
+git config --global merge.tool mymeld
+git config --global merge.tool.mymeld.cmd '--auto-merge $LOCAL $BASE $REMOTE --output $MERGED'
+
 git config --global rerere.enabled true
 git config --global submodule.fetchJobs 8
 git config --global diff.submodule log
@@ -43,7 +47,12 @@ $dir/check-github-ssh-fingerprint.sh
 if [ -f "$dir"/retext/ReText/__init__.py ]; then
   # useWebKit needed for retext to support math (see also .config/markdown-extensions.txt).
   # Live preview because why not.
-  echo 'globalSettings.useWebKit = globalSettings.restorePreviewState = globalSettings.previewState = True' | python3 -i "$dir"/retext/ReText/__init__.py
+  # TODO: seems useWebKit is wiped away after running retext?
+  python3 -i "$dir"/retext/ReText/__init__.py <<-EOF
+	settings.setValue('useWebKit', True)
+	settings.setValue('livePreviewByDefault', True)
+	settings.sync()
+	EOF
 fi
 
 # GNU parallel is nice but kinda nagware - asks you to cite it on every run!
