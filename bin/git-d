@@ -1,3 +1,12 @@
 #!/bin/bash
 # Git diff with intra-line coloring.
-git diff "$@" | colordiff.py
+if [ $# == 0 ]; then
+  # conveniece without args, like `git diff HEAD` but separating staged/unstaged.
+  # TODO: do it if given options but not if given commit to diff against (that would show changes twice)?
+  tput rev; echo "== STAGED ==                  "; tput sgr0
+  git diff --staged | colordiff.py
+  tput rev; echo "== UNSTAGED ==                "; tput sgr0
+  git diff | colordiff.py
+else
+  git diff "$@" | colordiff.py
+fi
