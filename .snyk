@@ -1,0 +1,36 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - markmon > express > connect > finalhandler > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > body-parser > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > compression > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > connect-timeout > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > express-session > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > send > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > morgan > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > serve-index > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > serve-static > send > debug > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > send > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > connect-timeout > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > serve-static > send > ms:
+        patched: '2017-05-22T02:52:08.694Z'
+    - markmon > express > connect > serve-favicon > ms:
+        patched: '2017-05-22T02:52:08.694Z'
