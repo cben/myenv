@@ -1,1 +1,5 @@
 node_modules/
+
+# kludge: these are already in rbenv/.gitignore, but ag doesn't look there
+# https://github.com/ggreer/the_silver_searcher/issues/1087
+rbenv/versions/
