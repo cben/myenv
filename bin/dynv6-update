@@ -22,8 +22,9 @@
      echo "no IPv4"
   else
      if echo "$current" | grep -q "$v4"; then
-        echo "IPv4 already good"
+        echo "IPv4 already good: $v4"
      else
+	echo "IPv4 updating to $v4"
         ssh api@dynv6.com hosts "$domain" set ipv4addr "$v4"
      fi
   fi
@@ -32,8 +33,9 @@
      echo "no IPv6"
   else
      if echo "$current" | grep -q "$v6"; then
-        echo "IPv6 already good"
+        echo "IPv6 already good: $v6"
      else
+	echo "IPv4 updating to $v6"
         ssh api@dynv6.com hosts "$domain" set ipv6addr "$v6"
      fi
   fi
