@@ -1,5 +1,7 @@
 # Bits of config and software I use
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cben/myenv.svg)](https://greenkeeper.io/)
+
 If you're not me, use with caution.
 
 Works on Ubuntu 14.04 (I think, haven't tested for some time) or later.
