@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "bower": "*",
-    "greenkeeper": "*",
     "grunt-cli": "*",
     "markmon": "*",
     "npm-check-updates": "^2.8.6"
