@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dir="$(dirname "$(dirname "$0")")"/stderred/
+echo $dir
+
+# based on usr/share/stderred/stderred.sh
+if [[ ! "$LD_PRELOAD" == *libstderred.so* ]]; then
+  if [[ -f "$dir/build/libstderred.so" ]]; then
+    export LD_PRELOAD="$dir/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
+  fi
+fi
+
+exec "$@"
