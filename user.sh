@@ -29,6 +29,11 @@ git config --global submodule.fetchJobs 8
 git config --global diff.submodule log
 git config --global --unset alias.ci  # bin/git-ci now
 
+# `git exec command` execute `command` in top-level directory of a repository.
+# Works because git runs aliases with ! from there :-)
+# stolen from https://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command#comment9747528_957978
+git config --global alias.exec '!exec '
+
 # Two ways to make github 2FA easier:
 # 1. Remember HTTPS passwords "forever", so I can put in an app-specific passwords.
 [ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
