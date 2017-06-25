@@ -1,0 +1,19 @@
+#!/bin/bash
+if [[ $# == 0 ]]; then
+    echo "Usage: $(basename "$0") <work directory>..."
+    exit 1
+fi
+
+gparallel --keep-order '
+  cd {}
+  # The intent is for user to pass working tree paths.
+  # If say inside a git checkout I have several other repos checked out under plugins/
+  # and I do `git statuses plugins/`  by mistake instead of `git statuses plugins/*`,
+  # it would silently work up from plugins to . and give me status for that :-(
+  # The `show-cdup` is normally empty but in this case would show me `plugins/../`.
+  tput smul; echo "{}/$(git rev-parse --show-cdup)"; tput rmul  # underlined
+
+  # compact git status (no "use ..." tips, no empty lines), indented
+  git -c color.status=always status --branch --untracked-files=no |
+    sed -e "s/(use .*)//" -e "/^ *\$/d" -e "s/^/    /"
+' ::: "$@"
