@@ -33,7 +33,7 @@ sudo dnf install --setopt=strict=0 \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
     pandoc python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     pygpgme \
-    redshift redshift-gtk mscore
+    redshift redshift-gtk openbox obconf mscore
 
 # nodejs included npm anyway at some point in fedora 24 (or was it from UnitedRPMs?)
 if ! rpm -ql nodejs | egrep -q '^(/usr)?/bin/npm'; then
