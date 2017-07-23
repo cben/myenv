@@ -2,8 +2,9 @@
   "dependencies": {
     "bower": "*",
     "grunt-cli": "*",
+    "heroku-cli": "^6.10.2",
     "markmon": "*",
-    "npm-check-updates": "^2.8.6"
+    "npm-check-updates": "*"
   },
   "repository": {
     "type": "git",
