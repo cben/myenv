@@ -11,7 +11,10 @@ gparallel --keep-order '
   # and I do `git statuses plugins/`  by mistake instead of `git statuses plugins/*`,
   # it would silently work up from plugins to . and give me status for that :-(
   # The `show-cdup` is normally empty but in this case would show me `plugins/../`.
-  tput smul; echo "{}/$(git rev-parse --show-cdup)"; tput rmul  # underlined
+  tput smul; echo -n "{}/$(git rev-parse --show-cdup)"; tput rmul  # underlined
+  printf "\tfetched: %s" "$(stat --format="%y" $(git rev-parse --git-dir)/FETCH_HEAD)"
+  printf "\tlast commit: %s" "$(git log -n1 --format="%ci")"
+  echo
 
   # compact git status (no "use ..." tips, no empty lines), indented
   git -c color.status=always status --branch --untracked-files=no |
