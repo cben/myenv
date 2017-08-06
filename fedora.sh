@@ -21,7 +21,7 @@ sudo dnf install etckeeper
 sudo dnf install --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf mlocate smartmontools acpi \
-    mtr nmap socat inadyn-mt jq python-jwt \
+    mtr nmap socat inadyn-mt jq python-jwt w3m elinks \
     git git-gui tig hub libgnome-keyring-devel bzr hg meld gists nano emacs \
     ack the_silver_searcher renameutils xsel \
     make automake gcc gcc-c++ kernel-devel \
