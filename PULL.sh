@@ -11,6 +11,7 @@ git submodule update --init --recursive --remote
 (cd jo; autoreconf -i; ./configure; make check)
 (cd stderred; make)
 (cd ungit; npm install --silent; grunt)
+(cd exa; cargo build --release)
 
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.

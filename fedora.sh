@@ -27,6 +27,7 @@ sudo dnf install --setopt=strict=0 \
     make automake gcc gcc-c++ kernel-devel \
     python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
     nodejs \
+    rust cargo \
     maven \
     haskell-platform ghc-regex-posix-devel \
     linux-libertine-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
@@ -34,6 +35,9 @@ sudo dnf install --setopt=strict=0 \
     pandoc python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     pygpgme \
     redshift redshift-gtk openbox obconf mscore
+
+# Stuff I'm prone to compile
+sudo dnf builddep ruby mscore
 
 # nodejs included npm anyway at some point in fedora 24 (or was it from UnitedRPMs?)
 if ! rpm -ql nodejs | egrep -q '^(/usr)?/bin/npm'; then
