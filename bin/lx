@@ -1,2 +1,2 @@
 #!/bin/sh
-exa --git -l
+exa --git -l --color-scale --time-style=long-iso "$@"
