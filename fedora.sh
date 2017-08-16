@@ -24,6 +24,7 @@ sudo dnf install --setopt=strict=0 \
     mtr nmap socat inadyn-mt jq python-jwt w3m elinks \
     git git-gui tig hub libgnome-keyring-devel bzr hg meld gists nano emacs \
     ack the_silver_searcher renameutils xsel \
+    fortune-mod fortune-firefly figlet cowsay \
     make automake gcc gcc-c++ kernel-devel \
     python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
     nodejs \

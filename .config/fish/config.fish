@@ -20,9 +20,11 @@ if status --is-interactive
     PATH_prepend ~/.local/bin
     # some sbin tools are useful without root, e.g. mtr on fedora
     PATH_prepend /usr/sbin
-end
 
-# M-up is fish's single most time-saving key binding.
-# Alas, it doesn't work in linux console.
-# => Alias M-. (which did something similar in bash) to it.
-bind \e. history-token-search-backward
+    # M-up is fish's single most time-saving key binding.
+    # Alas, it doesn't work in linux console.
+    # => Alias M-. (which did something similar in bash) to it.
+    bind \e. history-token-search-backward
+
+    fortune | cowsay -W 60 -f (ls /usr/share/cowsay/*.cow | grep -v -e sodomized -e telebears | shuf -n1)
+end
