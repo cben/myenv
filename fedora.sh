@@ -35,6 +35,7 @@ sudo dnf install --setopt=strict=0 \
     mozilla-fira-mono-fonts google-droid-sans-mono-fonts anka-coder-\*fonts mplus-1m-fonts \
     pandoc python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     pygpgme \
+    chrome-gnome-shell gnome-tweak-tool \
     redshift redshift-gtk openbox obconf mscore
 
 # Stuff I'm prone to compile
