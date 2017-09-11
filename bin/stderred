@@ -1,7 +1,6 @@
 #!/bin/bash
 
 dir="$(dirname "$(dirname "$0")")"/stderred/
-echo $dir
 
 # based on usr/share/stderred/stderred.sh
 if [[ ! "$LD_PRELOAD" == *libstderred.so* ]]; then
