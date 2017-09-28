@@ -35,7 +35,7 @@ sudo-apt install \
   vlc mkvtoolnix-gui libav-tools handbrake
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
-sudo-apt install nautilus-open-terminal
+sudo-apt install nautilus-open-terminal || true
 
 # Add extra repos
 # ===============
