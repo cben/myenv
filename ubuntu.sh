@@ -32,7 +32,7 @@ sudo-apt install \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
   referencer pdftk pdfshuffler diffpdf \
-  vlc
+  vlc mkvtoolnix-gui libav-tools handbrake
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
 sudo-apt install nautilus-open-terminal
