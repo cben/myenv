@@ -1,0 +1,36 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - markmon > express > connect > connect-timeout > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - heroku-cli > heroku-ci > socket.io-client > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - heroku-cli > heroku-pg > tunnel-ssh > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > send > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > body-parser > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > compression > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - heroku-cli > heroku-ci > socket.io-client > engine.io-client > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > express-session > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > finalhandler > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > morgan > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > serve-index > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - markmon > express > connect > serve-static > send > debug:
+        patched: '2017-10-02T02:52:22.503Z'
+    - heroku-cli > heroku-ci > socket.io-client > socket.io-parser > debug:
+        patched: '2017-10-02T02:52:22.503Z'
