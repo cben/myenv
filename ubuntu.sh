@@ -26,7 +26,7 @@ sudo-apt install \
   tmux logapp moreutils renameutils rlwrap entr cowsay fortune \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
-  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip libzmq-dev \
+  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip libzmq-dev python-yaml \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 \
   gtk-redshift \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
@@ -60,9 +60,9 @@ add-ppa ubuntu-elisp/ppa
 
 add-ppa zanchey/asciinema
 
-if ! has-ppa "nodesource.*UBUNTU_VERSION"; then
+if ! has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
   # TODO: after upgrade multiple versions will pile up?
-  sudo /usr/bin/add-apt-repository -y "deb https://deb.nodesource.com/node_4.x $UBUNTU_VERSION main"
+  sudo /usr/bin/add-apt-repository -y "deb https://deb.nodesource.com/node_8.x $UBUNTU_VERSION main"
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
   update=1
 fi
