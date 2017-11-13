@@ -18,6 +18,7 @@ cp -i -v --symbolic-link -R "$dir"/.config/ ~/
 
 git config --global color.ui true
 git config --global core.pager 'less --quit-if-one-screen' # --no-init might be needed on some systems
+git config --global pager.stash false
 git config --global diff.algorithm patience
 # http://stackoverflow.com/q/11133290/239657
 git config --global merge.conflictStyle diff3
