@@ -1,8 +1,10 @@
 #!/bin/bash
 if [[ $# == 0 ]]; then
-    echo "Usage: $(basename "$0") <work directory>..."
+    echo "Usage: [env BASELINE_BRANCH=...] $(basename "$0") <work directory>..."
     exit 1
 fi
+
+export BASELINE_BRANCH="${BASELINE_BRANCH:-origin/master}"
 
 gparallel --keep-order '
   cd {}
@@ -11,7 +13,9 @@ gparallel --keep-order '
   # and I do `git statuses plugins/`  by mistake instead of `git statuses plugins/*`,
   # it would silently work up from plugins to . and give me status for that :-(
   # The `show-cdup` is normally empty but in this case would show me `plugins/../`.
-  tput smul; echo -n "{}/$(git rev-parse --show-cdup)"; tput rmul  # underlined
+  echo "$(tput smul){}/$(git rev-parse --show-cdup)$(tput rmul)"  # underlined
+  # TODO pushed branch "$(git config github.user)/$(git rev-parse --abbrev-ref HEAD)"
+  git log --oneline --decorate --graph HEAD "$BASELINE_BRANCH" --not "$BASELINE_BRANCH" --color
   printf "\tfetched: %s" "$(stat --format="%y" $(git rev-parse --git-dir)/FETCH_HEAD)"
   printf "\tlast commit: %s" "$(git log -n1 --format="%ci")"
   echo
