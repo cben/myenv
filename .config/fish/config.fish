@@ -18,6 +18,10 @@ if status --is-interactive
     PATH_prepend $myenv_dir/rbenv/shims
     # pip install --user (default) goes to ~/.local
     PATH_prepend ~/.local/bin
+    # go get installs binaries here
+    if [ -n $GOPATH ]
+        PATH_prepend $GOPATH/bin
+    end
     # some sbin tools are useful without root, e.g. mtr on fedora
     PATH_prepend /usr/sbin
 
