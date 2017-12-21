@@ -21,6 +21,7 @@ git config --global core.pager 'less --quit-if-one-screen' # --no-init might be 
 git config --global pager.stash false
 git config --global diff.algorithm patience
 # http://stackoverflow.com/q/11133290/239657
+git config --global diff.noprefix true
 git config --global merge.conflictStyle diff3
 git config --global merge.tool mymeld
 git config --global merge.tool.mymeld.cmd '--auto-merge $LOCAL $BASE $REMOTE --output $MERGED'
