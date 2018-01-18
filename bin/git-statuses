@@ -18,6 +18,7 @@ gparallel --keep-order '
   git log --oneline --decorate --graph HEAD "$BASELINE_BRANCH" --not "$BASELINE_BRANCH" --color
   printf "\tfetched: %s" "$(stat --format="%y" $(git rev-parse --git-dir)/FETCH_HEAD)"
   printf "\tlast commit: %s" "$(git log -n1 --format="%ci")"
+  printf "\t$(git rev-list --left-right --count HEAD...$BASELINE_BRANCH | egrep --color=always "[0-9]*[1-9][0-9]*|\$") commits ahead/behind."
   echo
 
   # compact git status (no "use ..." tips, no empty lines), indented
