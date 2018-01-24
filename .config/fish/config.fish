@@ -30,5 +30,5 @@ if status --is-interactive
     # => Alias M-. (which did something similar in bash) to it.
     bind \e. history-token-search-backward
 
-    fortune | eval (printf cowsay\ncowthink\n | shuf -n1) -W 60 -f (ls /usr/share/cowsay/**.cow | grep -v -e sodomized -e telebears -e head-in | shuf -n1)
+    fortune | eval (printf cowsay\ncowthink\n | shuf -n1) -n -f (ls /usr/share/cowsay/**.cow | grep -v -e sodomized -e telebears -e head-in | shuf -n1)
 end
