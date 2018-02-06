@@ -39,9 +39,10 @@ if
     # keyboard-friendly if we don't (I found no way to access file list with kbd; you
     # can stage files by just repeatedly pressing Ctrl+T but you can't unstage by Ctrl+U)
 
-    # git-gui pops a dialog if it doesn't find spelling dictionary for current
-    # locale.  Simpler to silence it (and I write English commit messages anyway).
-    env LC_ALL=en_US.utf8 git citool
+    # git-gui pops a dialog if it doesn't find spelling dictionary for current locale.
+    # Fix: install `aspell-en` etc.
+    # https://bugs.launchpad.net/ubuntu/+source/git/+bug/890783
+    git citool
   else
     # Not using `--interactive`/`--patch` because the interface sucks.
     # TODO: learn to use `tig` for interactive commit?
