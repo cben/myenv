@@ -22,7 +22,7 @@ sudo-apt install \
   $(check-language-support -l ru) fontmatrix \
   nano htop sysdig dstat glances sysstat nethogs di ncdu dlocate ppa-purge \
   unicode info bash-doc ack-grep silversearcher-ag \
-  par unar gddrescue smartmontools \
+  par unar gddrescue smartmontools exfat-fuse exfat-utils \
   tmux logapp moreutils renameutils rlwrap entr cowsay fortune \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
   git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
