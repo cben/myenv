@@ -44,6 +44,7 @@ function has-ppa () {  # has-ppa foo/bar  # don't prepend ppa:
   apt-get update --print-uris  | grep -q "$1"
 }
 
+update=0
 function add-ppa () {
   if ! has-ppa "$1"; then
     sudo apt-add-repository "ppa:$1"
