@@ -1,6 +1,6 @@
 function PATH_prepend -a dir
-    if echo $PATH | not grep -q $dir
-        echo PATH_prepend $dir
+    if echo $PATH | not grep -q -x "$dir"
+        echo (string escape PATH_prepend $dir)
         set -x PATH $dir $PATH
     end
 end
@@ -19,7 +19,7 @@ if status --is-interactive
     # pip install --user (default) goes to ~/.local
     PATH_prepend ~/.local/bin
     # go get installs binaries here
-    if [ -n $GOPATH ]
+    if [ -n "$GOPATH" ]
         PATH_prepend $GOPATH/bin
     end
     # some sbin tools are useful without root, e.g. mtr on fedora
