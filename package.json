@@ -4,10 +4,16 @@
     "grunt-cli": "*",
     "heroku-cli": "^6.10.2",
     "markmon": "*",
-    "npm-check-updates": "*"
+    "npm-check-updates": "*",
+    "snyk": "^1.70.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cben/myenv"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
