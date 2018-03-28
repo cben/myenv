@@ -3,6 +3,7 @@
 cd "$(dirname "$0")"
 
 git fetch # show what's new when uncommitted changes prevent `pull --rebase`.
+rm -v */Cargo.lock */package-lock.json
 git pull --rebase=preserve --recurse-submodules
 git submodule update --init --recursive --remote
 
