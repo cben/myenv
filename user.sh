@@ -31,6 +31,10 @@ git config --global submodule.fetchJobs 8
 git config --global diff.submodule log
 git config --global --unset alias.ci  # bin/git-ci now
 
+# https://stackoverflow.com/a/894402/239657
+git config --global --replace-all 'guitool.git svn rebase.cmd' 'git svn rebase'
+git config --global --replace-all 'guitool.git svn dcommit.cmd' 'git svn dcommit'
+
 # `git exec command` execute `command` in top-level directory of a repository.
 # Works because git runs aliases with ! from there :-)
 # stolen from https://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command#comment9747528_957978
