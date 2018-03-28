@@ -65,3 +65,6 @@
 [submodule "exa"]
 	path = exa
 	url = https://github.com/ogham/exa
+[submodule "ungit-gitsvn"]
+	path = ungit-gitsvn
+	url = https://github.com/Fabbi/ungit-gitsvn
