@@ -3,8 +3,9 @@
 cd "$(dirname "$0")"
 
 git fetch # show what's new when uncommitted changes prevent `pull --rebase`.
-rm -v */Cargo.lock */package-lock.json
-git pull --rebase=preserve --recurse-submodules
+# Clean lock files - only if untracked by git - that may obstruct updating submodules.
+git submodule foreach --recursive git clean -f package-lock.json Cargo.lock
+git pull --rebase=preserve --autostash --recurse-submodules
 git submodule update --init --recursive --remote
 
 # Build/install submodules inside their directories, there are a fixed symlinks in bin/
