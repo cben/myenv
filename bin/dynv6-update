@@ -40,7 +40,7 @@
      fi
   fi
 
-  echo "After: $(host paskin.dynv6.net)"
+  echo "After: $(host "$domain")"
 ) |& /usr/bin/logger --stderr --id
 
 # To install in `crontab -e` (hourly at xx:53):
