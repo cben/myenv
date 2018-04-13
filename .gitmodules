@@ -68,3 +68,6 @@
 [submodule "ungit-gitsvn"]
 	path = ungit-gitsvn
 	url = https://github.com/Fabbi/ungit-gitsvn
+[submodule "git-svn-clone-externals"]
+	path = git-svn-clone-externals
+	url = https://github.com/andrep/git-svn-clone-externals
