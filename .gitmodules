@@ -71,3 +71,6 @@
 [submodule "git-svn-clone-externals"]
 	path = git-svn-clone-externals
 	url = https://github.com/andrep/git-svn-clone-externals
+[submodule "Solaar"]
+	path = Solaar
+	url = https://github.com/pwr/Solaar

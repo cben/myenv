@@ -14,6 +14,7 @@ git submodule update --init --recursive --remote
 (cd stderred; make)
 (cd ungit; npm install --silent; grunt)
 (cd exa; cargo build --release)
+(cd Solaar; sudo rules.d/install.sh)
 
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.
