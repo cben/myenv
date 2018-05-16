@@ -53,6 +53,13 @@ git config github.user && git config --global --add url.ssh://git@gist.github.co
 
 $dir/check-github-ssh-fingerprint.sh
 
+# Subversion
+# ==========
+
+svn info >& /dev/null  # Creates default ~/.subversion/config if doesn't exist.
+grep '^password-stores *=' ~/.subversion/config || sed -i -e "/^\[auth\]/a# vvv Inserted by $0\\npassword-stores = gnome-keyring\\n# ^^^" ~/.subversion/config 
+grep '^store-plaintext-passwords *=' ~/.subversion/config || sed -i -e "/^\[auth\]/a# vvv Inserted by $0\\nstore-plaintext-passwords = no\\n# ^^^" ~/.subversion/config 
+
 # ---
 
 if [ -f "$dir"/retext/ReText/__init__.py ]; then
