@@ -1,0 +1,20 @@
+#!/bin/bash
+
+(
+  upnpc -a 10.0.0.1 22 1022 TCP
+  upnpc -a 10.0.0.2 22 2022 TCP
+  upnpc -a 10.0.0.3 22 3022 TCP
+  upnpc -a 10.0.0.4 22 4022 TCP
+  upnpc -a 10.0.0.5 22 5022 TCP
+  upnpc -a 10.0.0.6 22 6022 TCP
+  upnpc -a 10.0.0.7 22 7022 TCP
+  upnpc -a 10.0.0.8 22 8022 TCP
+  upnpc -a 10.0.0.9 22 9022 TCP
+  upnpc -l
+) |& /usr/bin/logger --stderr --id
+
+# To install in `crontab -e` (hourly at xx:22):
+# 22 * * * * /home/mira/myenv/bin/upnp-open-ssh
+
+# To see logs: journalctl -n100
+
