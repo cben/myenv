@@ -50,6 +50,10 @@ git config --global url.ssh://git@github.com/.pushInsteadOf https://github.com/
 # Gists: https://stackoverflow.com/questions/18019142/how-to-clone-a-github-gist-via-ssh-protocol
 git config --global --replace-all url.ssh://git@gist.github.com/.pushInsteadOf https://gist.github.com/
 git config github.user && git config --global --add url.ssh://git@gist.github.com/.pushInsteadOf https://gist.github.com/$(git config github.user)/
+# Bitbucket
+git config --global url.ssh://git@bitbucket.org/.pushInsteadOf https://bitbucket.org/
+# Gitlab
+git config --global url.ssh://git@gitlab.com/.pushInsteadOf https://gitlab.com/
 
 $dir/check-github-ssh-fingerprint.sh
 
@@ -57,8 +61,8 @@ $dir/check-github-ssh-fingerprint.sh
 # ==========
 
 svn info >& /dev/null  # Creates default ~/.subversion/config if doesn't exist.
-grep '^password-stores *=' ~/.subversion/config || sed -i -e "/^\[auth\]/a# vvv Inserted by $0\\npassword-stores = gnome-keyring\\n# ^^^" ~/.subversion/config 
-grep '^store-plaintext-passwords *=' ~/.subversion/config || sed -i -e "/^\[auth\]/a# vvv Inserted by $0\\nstore-plaintext-passwords = no\\n# ^^^" ~/.subversion/config 
+grep '^password-stores *=' ~/.subversion/config || sed -i -e "/^\[auth\]/a# vvv Inserted by $0\\npassword-stores = gnome-keyring\\n# ^^^" ~/.subversion/config
+grep '^store-plaintext-passwords *=' ~/.subversion/config || sed -i -e "/^\[auth\]/a# vvv Inserted by $0\\nstore-plaintext-passwords = no\\n# ^^^" ~/.subversion/config
 
 # ---
 
