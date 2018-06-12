@@ -15,7 +15,7 @@ gparallel --keep-order '
   # The `show-cdup` is normally empty but in this case would show me `plugins/../`.
   echo "$(tput smul){}/$(git rev-parse --show-cdup)$(tput rmul)"  # underlined
   # TODO pushed branch "$(git config github.user)/$(git rev-parse --abbrev-ref HEAD)"
-  git log --oneline --decorate --graph HEAD "$BASELINE_BRANCH" --not "$BASELINE_BRANCH" --color
+  git log --oneline --decorate --graph HEAD "$BASELINE_BRANCH" --not "$BASELINE_BRANCH" --color -n20
   printf "\t$(git rev-list --left-right --count HEAD...$BASELINE_BRANCH | egrep --color=always "[0-9]*[1-9][0-9]*|\$") commits ahead/behind."
   printf "\tFetched: %s" "$(stat --format="%y" $(git rev-parse --git-dir)/FETCH_HEAD)."
   printf "\tLast commit: %s" "$(git log -n1 --format="%cr" | egrep --color=always "[0-9]* *(week|month|year)s?|\$")."
