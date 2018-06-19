@@ -74,3 +74,6 @@
 [submodule "Solaar"]
 	path = Solaar
 	url = https://github.com/pwr/Solaar
+[submodule "di"]
+	path = di
+	url = https://github.com/cben-githgmirror/di

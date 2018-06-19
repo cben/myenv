@@ -16,6 +16,9 @@ git submodule update --init --recursive --remote
 (cd exa; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
 
+# Mercurial import
+(cd di; git remote add upstream hg::http://hg.code.sf.net/p/diskinfo-di/code || true; git fetch upstream; git fetch --tags hg::tags: tag "*"; make)
+
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.
 # So mixing system and venv packages: http://stackoverflow.com/a/19459977
