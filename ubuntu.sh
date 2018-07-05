@@ -29,7 +29,7 @@ sudo-apt install \
   idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip libzmq-dev python-yaml \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 \
   gtk-redshift \
-  gpm read-edid xbacklight powertop powerstat iotop android-tools-adb \
+  gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
   referencer pdftk pdfshuffler diffpdf \
   vlc mkvtoolnix-gui libav-tools handbrake
