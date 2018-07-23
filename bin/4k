@@ -8,4 +8,5 @@ xrandr --output eDP1 -s 0 --scale-from 3840x2160 --pos 0x0
 xrandr --output eDP-1 -s 0 --scale-from 3840x2160 --pos 0x0
 xrandr --output XWAYLAND0 -s 0 --scale-from 3840x2160 --pos 0x0
 xrandr --auto
-xrandr
+# Display state compactly - omit resolutions except active one
+xrandr | egrep --color=never '^[^ ]|\*'

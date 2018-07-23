@@ -1,4 +1,5 @@
 #!/bin/bash
 xrandr --output eDP-1 -s 0 --transform none
 xrandr --auto
-xrandr
+# Display state compactly - omit resolutions except active one
+xrandr | egrep --color=never '^[^ ]|\*'
