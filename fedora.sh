@@ -23,7 +23,7 @@ sudo dnf install etckeeper
 sudo dnf install --errorlevel=1 --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf mlocate smartmontools acpi \
-    mtr nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc \
+    mtr nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
     git git-gui tig hub libgnome-keyring-devel bzr hg git-cinnabar meld gists nano emacs \
     ack the_silver_searcher renameutils xsel entr progress \
     fortune-mod fortune-firefly figlet cowsay \
