@@ -92,11 +92,13 @@ rpm --quiet --query hack-fonts || sudo dnf copr -y enable heliocastro/hack-fonts
 
 rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
 
+rpm --quiet --query kitty || sudo dnf copr -y enable oleastre/kitty-terminal
+
 # Install from extra repos
 # ========================
 
 sudo dnf install \
-     hack-fonts chromium sysdig \
+     hack-fonts chromium kitty sysdig \
      totem youtube-dl \
      syncthing syncthing-gtk
 
