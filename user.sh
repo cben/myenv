@@ -11,7 +11,9 @@ fi
 
 dir="$(dirname "$(readlink -f "$0")")"
 
-cp -i -v --symbolic-link -R "$dir"/.config/ ~/
+# cp --symbolic-link refuses to clobber existing files
+# TODO: be silent when correct symlink exists.
+cp -v --symbolic-link -R "$dir"/.config/ ~/
 
 # Git
 # ===
@@ -86,3 +88,8 @@ systemctl --user enable syncthing.service
 systemctl --user enable syncthing-inotify.service  # ignore on RHEL
 systemctl --user start syncthing.service
 systemctl --user start syncthing-inotify.service  # ignore on RHEL
+
+# Fonts
+mkdir -p ~/.fonts/
+cp -v --symbolic-link "$dir"/FiraCode/distr/otf/*.otf ~/.fonts/
+fc-cache
