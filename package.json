@@ -4,7 +4,8 @@
     "grunt-cli": "*",
     "heroku-cli": "^6.10.2",
     "markmon": "*",
-    "npm-check-updates": "*"
+    "npm-check-updates": "*",
+    "yarn": "^1.4.0"
   },
   "repository": {
     "type": "git",
