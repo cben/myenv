@@ -1,0 +1,3 @@
+#!/bin/bash
+# Usage: git mr-head 35
+git fetch origin merge-requests/"$1"/head:mr-"$1" && git checkout mr-"$1"
