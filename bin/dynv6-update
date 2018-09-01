@@ -18,6 +18,7 @@
   #curl 'https://dynv6.com/api/update?hostname=paskin.dynv6.net&ipv4=auto&token=...'
   # For ssh, ssh-keygen -t ed25519, upload to https://dynv6.com/public_keys
   # TODO: don't send if same IP?
+  ssh_opts="-o StrictHostKeyChecking=no"
   if [ -z "$v4" ]; then
      echo "no IPv4"
   else
@@ -25,7 +26,7 @@
         echo "IPv4 already good: $v4"
      else
 	echo "IPv4 updating to $v4"
-        ssh api@dynv6.com hosts "$domain" set ipv4addr "$v4"
+        ssh $ssh_opts api@dynv6.com hosts "$domain" set ipv4addr "$v4"
      fi
   fi
 
@@ -36,11 +37,13 @@
         echo "IPv6 already good: $v6"
      else
 	echo "IPv4 updating to $v6"
-        ssh api@dynv6.com hosts "$domain" set ipv6addr "$v6"
+        ssh $ssh_opts api@dynv6.com hosts "$domain" set ipv6addr "$v6"
      fi
   fi
 
-  echo "After: $(host "$domain")"
+  echo "Sleeping 2min (?) for DNS to update."
+  sleep 120
+  echo "After: $(host "$domain" 8.8.8.8)"
 ) |& /usr/bin/logger --stderr --id
 
 # To install in `crontab -e` (hourly at xx:53):
