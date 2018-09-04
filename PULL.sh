@@ -13,6 +13,7 @@ git submodule update --init --recursive --remote
 (cd jo; autoreconf -i; ./configure; make check)
 (cd stderred; make)
 (cd ungit; npm install --silent; grunt)
+(cd bat; cargo build --release)
 (cd exa; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
 
