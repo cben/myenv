@@ -4,6 +4,7 @@
     "grunt-cli": "*",
     "heroku-cli": "^6.10.2",
     "markmon": "*",
+    "npm": "^6.4.1",
     "npm-check-updates": "*",
     "yarn": "^1.4.0"
   },
