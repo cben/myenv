@@ -6,10 +6,16 @@
     "markmon": "*",
     "npm": "^6.4.1",
     "npm-check-updates": "*",
-    "yarn": "^1.4.0"
+    "yarn": "^1.4.0",
+    "snyk": "^1.105.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cben/myenv"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
