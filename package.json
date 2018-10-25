@@ -2,7 +2,7 @@
   "dependencies": {
     "bower": "*",
     "grunt-cli": "*",
-    "heroku-cli": "^6.10.2",
+    "heroku": "^7.18.3",
     "markmon": "*",
     "npm": "^6.4.1",
     "npm-check-updates": "*",
