@@ -80,3 +80,6 @@
 [submodule "FiraCode"]
 	path = FiraCode
 	url = https://github.com/tonsky/FiraCode
+[submodule "bat"]
+	path = bat
+	url = https://github.com/sharkdp/bat
