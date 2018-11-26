@@ -1,0 +1,96 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - markmon > express > connect > serve-static > send > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > express-session > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > finalhandler > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > compression > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-index > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > body-parser > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > connect-timeout > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > morgan > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > send > debug:
+        patched: '2018-11-26T08:44:39.795Z'
+  'npm:hoek:20180212':
+    - npm-check-updates > npm > request > hawk > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npm > request > hawk > boom > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npm > request > hawk > sntp > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npmi > npm > request > hawk > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npm > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npmi > npm > request > hawk > boom > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npmi > npm > request > hawk > sntp > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npmi > npm > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-11-26T08:44:39.795Z'
+  'npm:mime:20170907':
+    - markmon > express > send > mime:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-static > send > mime:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > mime:
+        patched: '2018-11-26T08:44:39.795Z'
+  'npm:ms:20170412':
+    - markmon > express > connect > express-session > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > send > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > send > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > connect-timeout > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > morgan > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-index > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > compression > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > body-parser > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > connect-timeout > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > finalhandler > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-static > send > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-static > send > debug > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-favicon > ms:
+        patched: '2018-11-26T08:44:39.795Z'
+  'npm:negotiator:20160616':
+    - markmon > express > connect > compression > accepts > negotiator:
+        patched: '2018-11-26T08:44:39.795Z'
+    - markmon > express > connect > serve-index > accepts > negotiator:
+        patched: '2018-11-26T08:44:39.795Z'
+  'npm:tunnel-agent:20170305':
+    - npm-check-updates > npm > request > tunnel-agent:
+        patched: '2018-11-26T08:44:39.795Z'
+    - npm-check-updates > npmi > npm > request > tunnel-agent:
+        patched: '2018-11-26T08:44:39.795Z'
+  'npm:ws:20160920':
+    - markmon > socket.io > socket.io-client > ws:
+        patched: '2018-11-26T08:44:39.795Z'
