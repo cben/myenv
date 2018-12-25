@@ -88,11 +88,11 @@ if ! has-ppa heroku; then
   update=1
 fi
 
-if ! has-ppa "tox.chat.*UBUNTU_VERSION"; then
-  echo "deb https://pkg.tox.chat/debian nightly $UBUNTU_VERSION" | sudo tee /etc/apt/sources.list.d/tox.list
-  curl https://pkg.tox.chat/debian/pkg.gpg.key | sudo apt-key add -
-  update=1
-fi
+#if ! has-ppa "tox.chat.*UBUNTU_VERSION"; then
+#  echo "deb https://pkg.tox.chat/debian nightly $UBUNTU_VERSION" | sudo tee /etc/apt/sources.list.d/tox.list
+#  curl https://pkg.tox.chat/debian/pkg.gpg.key | sudo apt-key add -
+#  update=1
+#fi
 
 if ! has-ppa apt.syncthing.net; then
   sudo /usr/bin/add-apt-repository -y 'deb https://apt.syncthing.net/ syncthing release'
@@ -123,7 +123,7 @@ sudo apt-get purge lxc-docker
 sudo-apt install docker-engine "linux-image-extra-$(uname -r)"
 
 sudo-apt install fish nodejs asciinema emacs-snapshot emacs-snapshot-el atom zeal \
-  heroku-toolbelt git-annex syncthing syncthing-gtk qtox toxic
+  heroku-toolbelt git-annex syncthing syncthing-gtk #qtox toxic
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
