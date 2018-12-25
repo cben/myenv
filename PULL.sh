@@ -6,13 +6,13 @@ git fetch # show what's new when uncommitted changes prevent `pull --rebase`.
 # Clean lock files - only if untracked by git - that may obstruct updating submodules.
 git submodule foreach --recursive git clean -f package-lock.json Cargo.lock
 git pull --rebase=preserve --autostash --recurse-submodules
-git submodule update --init --recursive --remote
+git submodule update --init --recursive --remote --recommend-submodules
 
 # Build/install submodules inside their directories, there are a fixed symlinks in bin/
 (cd hub; ./script/build)
 (cd jo; autoreconf -i; ./configure; make check)
 (cd stderred; make)
-(cd ungit; npm install --silent; grunt)
+(cd ungit; npm install --silent; npm run build)
 (cd bat; cargo build --release)
 (cd exa; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
