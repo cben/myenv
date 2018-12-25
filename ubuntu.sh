@@ -115,8 +115,7 @@ add-ppa zeal-developers/ppa
 # Only adding PPA here, not installing hal by default.
 add-ppa mjblenner/ppa-hal
 
-# Add SAGE repo but don't install by default - it's over 500MB!
-add-ppa aims/sagemath
+remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
 
 # Install from extra repos
 # ========================

@@ -9,10 +9,11 @@ source $(dirname "$0")/ubuntu.sh
 sudo-apt install \
     nautilus-dropbox \
     texlive texlive-latex-recommended texlive-latex-extra texlive-extra-utils texlive-bibtex-extra \
-    texlive-fonts-extra texlive-science texlive-humanities texlive-luatex texlive-lang-{hebrew,cyrillic} \
+    texlive-fonts-extra texlive-science texlive-humanities texlive-luatex texlive-lang-cyrillic \
     latexmk latexdiff texworks texstudio auctex emacs-goodies-el \
-    haskell-platform libghc6-regex-posix-dev \
-    sagemath-upstream-binary
+    haskell-platform libghc-regex-posix-dev \
+    sagemath sagemath-jupyter sagemath-doc-en
+    # texlive-lang-cyrillic
 
 # Up to date pandoc.  Will compile in ~/.cabal but install in /usr/local.
 # (The only reason I'm installing here globally instead of per-user is saving space.)
