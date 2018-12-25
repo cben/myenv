@@ -101,7 +101,13 @@ if ! has-ppa apt.syncthing.net; then
 fi
 add-ppa nilarimogard/webupd8  # for Syncthing GTK
 
-add-ppa webupd8team/atom
+# https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux
+if ! has-ppa packagecloud.io/AtomEditor; then
+  sudo /usr/bin/add-apt-repository -y 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main'
+  curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+  update=1
+fi
+remove-ppa webupd8team/atom  # deprecated
 
 add-ppa zeal-developers/ppa
 
