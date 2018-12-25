@@ -18,16 +18,18 @@ sudo-apt () {
 
 sudo-apt install \
   apt-transport-https \
-  $(check-language-support -l en) $(check-language-support -l he) culmus-fancy \
-  $(check-language-support -l ru) fontmatrix \
-  nano htop sysdig dstat glances sysstat nethogs di ncdu dlocate ppa-purge \
+  $(check-language-support -l en) fonts-droid-fallback fonts-noto ttf-bitstream-vera \
+  fonts-inconsolata fonts-ricty-diminished fonts-mplus fonts-hack fonts-monoid fonts-firacode \
+  $(check-language-support -l he) culmus-fancy \
+  $(check-language-support -l ru) \
+  nano htop sysdig dstat glances sysstat nethogs linux-tools-generic di ncdu dlocate ppa-purge \
   unicode info bash-doc silversearcher-ag \
   par unar gddrescue smartmontools exfat-fuse exfat-utils \
   tmux logapp moreutils renameutils rlwrap entr cowsay fortune \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
-  git tig git-gui gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
-  idle{,3} ipython{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip libzmq-dev python-yaml \
-  build-essential pkg-config colormake ruby-full rake golang guile-2.0 \
+  git tig git-gui git-svn gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
+  idle{,3} python{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip python-yaml \
+  build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
   gtk-redshift \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
@@ -48,6 +50,12 @@ update=0
 function add-ppa () {
   if ! has-ppa "$1"; then
     sudo apt-add-repository "ppa:$1"
+    update=1
+  fi
+}
+function remove-ppa () {
+  if has-ppa "$1"; then
+    sudo apt-add-repository --remove "ppa:$1"
     update=1
   fi
 }
