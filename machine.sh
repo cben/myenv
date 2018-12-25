@@ -27,8 +27,9 @@ sudo npm uninstall -g --silent grunt-cli bower markmon
 
 # Heroku CLI
 # TODO: GOPATH setup is not automated here (yet)
-if [ -z "$GOPATH" ]; then
+if [ -z "${GOPATH:-}" ]; then
   echo "ERROR: GOPATH not set, can't install heroku CLI"
+else
   go get github.com/heroku/cli
   (cd $GOPATH/src/github.com/heroku/cli; go build)
 fi
