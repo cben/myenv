@@ -80,6 +80,16 @@
 [submodule "FiraCode"]
 	path = FiraCode
 	url = https://github.com/tonsky/FiraCode
+	shallow = true
+[submodule "monoid"]
+	path = monoid
+	url = https://github.com/larsenwork/monoid
+	shallow = true
+[submodule "Iosevka"]
+	path = Iosevka
+	url = https://github.com/be5invis/Iosevka/
+	branch = gh-pages
+	shallow = true
 [submodule "bat"]
 	path = bat
 	url = https://github.com/sharkdp/bat

@@ -92,4 +92,6 @@ systemctl --user start syncthing-inotify.service  # ignore on RHEL
 # Fonts
 mkdir -p ~/.fonts/
 cp -v --symbolic-link "$dir"/FiraCode/distr/otf/*.otf ~/.fonts/
+cp -v --symbolic-link "$dir"/Iosevka/iosevka*/*.ttf ~/.fonts/
+cp -v --symbolic-link "$dir"/monoid/Monoisome/Monoisome-Regular.ttf ~/.fonts/
 fc-cache
