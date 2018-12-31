@@ -83,3 +83,9 @@
 [submodule "bat"]
 	path = bat
 	url = https://github.com/sharkdp/bat
+[submodule "ponysay"]
+	path = ponysay
+	url = https://github.com/erkin/ponysay
+[submodule "httpstat"]
+	path = httpstat
+	url = https://github.com/reorx/httpstat
