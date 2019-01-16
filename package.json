@@ -3,6 +3,8 @@
     "bower": "*",
     "grunt-cli": "*",
     "heroku": "^7.18.3",
+    "jwt-cli": "^1.1.0",
+    "markdown-link-check": "^3.7.2",
     "markmon": "*",
     "npm": "^6.4.1",
     "npm-check-updates": "*",
