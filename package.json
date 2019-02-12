@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bower": "*",
+    "git-file-history": "0.0.3",
     "grunt-cli": "*",
     "heroku": "^7.18.3",
     "jwt-cli": "^1.1.0",
