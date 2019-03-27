@@ -1,0 +1,4 @@
+--italic-text=always
+--style=changes,header
+# closest to kinda working both on Solarized Dark and Light terminals...
+--theme=TwoDark
