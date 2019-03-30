@@ -30,7 +30,7 @@ git config --global mergetool.mymeld.cmd 'meld --auto-merge $LOCAL $BASE $REMOTE
 
 git config --global rerere.enabled true
 git config --global submodule.fetchJobs 8
-git config --global diff.submodule log
+git config --global diff.submodule short
 git config --global --unset alias.ci  # bin/git-ci now
 
 # https://stackoverflow.com/a/894402/239657
