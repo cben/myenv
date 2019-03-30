@@ -99,3 +99,6 @@
 [submodule "httpstat"]
 	path = httpstat
 	url = https://github.com/reorx/httpstat
+[submodule "FlameGraph"]
+	path = FlameGraph
+	url = https://github.com/brendangregg/FlameGraph
