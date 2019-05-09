@@ -53,7 +53,13 @@ if
     fi
   fi
 then
-  git push --recurse-submodules=on-demand || echo '`git push` failed.'
+  remote=()
+  if git remote show | grep --quiet --line-regexp 'cben'; then
+    remote=cben
+  elif git remote show | grep --quiet --line-regexp 'bpaskinc'; then
+    remote=bpaskinc
+  fi
+  git push --verbose --recurse-submodules=on-demand --set-upstream $remote || echo '`git push` failed.'
 else
   echo Commit cancelled, so not pushing.
 fi
