@@ -1,2 +1,2 @@
 #!/bin/bash
-PYTHONSTARTUP=<(cat $PYTHONSTARTUP /dev/null; echo 'from math import *') python -Qnew "$@"
+PYTHONSTARTUP=<(cat $PYTHONSTARTUP /dev/null; echo 'from math import *') python3 "$@"
