@@ -7,7 +7,7 @@ fi
 export BASELINE_BRANCH="${BASELINE_BRANCH:-origin/master}"
 
 gparallel --keep-order '
-  cd {}
+  cd {} || exit
   # The intent is for user to pass working tree paths.
   # If say inside a git checkout I have several other repos checked out under plugins/
   # and I do `git statuses plugins/`  by mistake instead of `git statuses plugins/*`,
