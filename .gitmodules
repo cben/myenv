@@ -33,8 +33,8 @@
 	url = https://github.com/folkswithhats/fedy
 [submodule "unicode"]
 	path = unicode
-	url = https://github.com/cben/unicode
-#        branch = unicodedata-redhat
+	url = https://github.com/garabik/unicode
+        branch = master
 [submodule "jo"]
 	path = jo
 	url = https://github.com/jpmens/jo
