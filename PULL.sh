@@ -25,6 +25,8 @@ git submodule update --init --recursive --remote --recommend-shallow
 # So mixing system and venv packages: http://stackoverflow.com/a/19459977
 (cd retext; virtualenv --system-site-packages --python=python3 venv; venv/bin/pip3 install --upgrade -e .)
 
+(cd ponysay; ./setup.py install --private --freedom=strict)
+
 npm install --silent
 npm update --silent
 
