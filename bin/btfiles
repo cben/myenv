@@ -1,18 +1,23 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 import sys
-from BitTorrent.bencode import bdecode
+# pip install py3-bencode
+from bencode import bdecode
+
+def decode_str(_key_or_value, value):
+    return str(value, 'utf-8', 'replace')
 
 for fname in sys.argv[1:]:
-    print "=== %s ===" % fname
+    print("=== %s ===" % fname)
     try:
-        data = bdecode(open(fname, 'rb').read())
+        data = bdecode(open(fname, 'rb').read(), decoder=decode_str)
         if 'files' in data['info']:
-            print "--- %s/ ---" % data['info']['name']
+            print("--- %s/ ---" % data['info']['name'])
             paths = sorted('/'.join(f['path']) for f in data['info']['files'])
             for p in paths:
-                print p
+                print(p)
         else:
-            print data['info']['name']
+            print(data['info']['name'])
     except:
         import traceback
         sys.stderr.write(traceback.format_exc())
