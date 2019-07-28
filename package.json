@@ -1,16 +1,18 @@
 {
   "dependencies": {
     "bower": "*",
+    "download-github-release": "^0.3.2",
     "git-file-history": "0.0.3",
+    "git-open": "^2.1.0",
     "grunt-cli": "*",
     "heroku": "^7.18.3",
-    "jwt-cli": "^1.1.0",
+    "jwt-cli": "^1.1.2",
     "markdown-link-check": "^3.7.2",
     "markmon": "*",
     "npm": "^6.4.1",
     "npm-check-updates": "*",
     "svg-term-cli": "^2.1.1",
-    "yarn": "^1.4.0"
+    "yarn": "^1.16.0"
   },
   "repository": {
     "type": "git",

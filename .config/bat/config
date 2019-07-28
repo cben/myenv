@@ -1,5 +1,5 @@
 --tabs=0
 --italic-text=always
 --style=changes,header
-# closest to kinda working both on Solarized Dark and Light terminals...
---theme=TwoDark
+# works with both dark and light terminal themes from https://github.com/chriskempson/base16
+--theme=base16
