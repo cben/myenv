@@ -25,13 +25,11 @@ sudo --set-home pip3 install --upgrade restview jupyter
 # Switched to local install via package.json.
 sudo npm uninstall -g --silent grunt-cli bower markmon
 
-# Heroku CLI
 # TODO: GOPATH setup is not automated here (yet)
 if [ -z "${GOPATH:-}" ]; then
-  echo "ERROR: GOPATH not set, can't install heroku CLI"
+  echo "ERROR: GOPATH not set, can't install tools written in go"
 else
-  go get github.com/heroku/cli
-  (cd $GOPATH/src/github.com/heroku/cli; go build)
+  go get -u github.com/fiatjaf/jiq/cmd/jiq
 fi
 
 # See also full-ubuntu.sh compiling pandoc from cabal
