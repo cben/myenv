@@ -3,8 +3,8 @@
 # TODO: handle first connection instead of just after the fact
 # https://help.github.com/articles/testing-your-ssh-connection/
 
-expected_fingerprints_url=https://help.github.com/articles/github-s-ssh-key-fingerprints/
-expected_fingerprints=$(curl --silent $expected_fingerprints_url | grep -o 'SHA[^ <]*')
+expected_fingerprints_url=https://help.github.com/en/articles/github-s-ssh-key-fingerprints
+expected_fingerprints=$(curl --location --silent $expected_fingerprints_url | grep -o 'SHA[^ <]*')
 status=0
 
 for domain in github.com gist.github.com; do
