@@ -74,6 +74,7 @@
 [submodule "di"]
 	path = di
 	url = https://github.com/cben-githgmirror/di
+	branch = branches/default/tip
 [submodule "FiraCode"]
 	path = FiraCode
 	url = https://github.com/tonsky/FiraCode

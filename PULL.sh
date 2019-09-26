@@ -3,6 +3,10 @@
 cd "$(dirname "$0")"
 
 git fetch # show what's new when uncommitted changes prevent `pull --rebase`.
+
+# Mercurial import
+(cd di; git remote add upstream hg::http://hg.code.sf.net/p/diskinfo-di/code || true; git fetch upstream; git fetch --tags hg::tags: tag "*"; make)
+
 # Clean lock files - only if untracked by git - that may obstruct updating submodules.
 git submodule foreach --recursive git clean -f package-lock.json Cargo.lock
 git pull --rebase=preserve --autostash --recurse-submodules
@@ -16,9 +20,6 @@ git submodule update --init --recursive --remote --recommend-shallow
 (cd bat; cargo build --release)
 (cd exa; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
-
-# Mercurial import
-(cd di; git remote add upstream hg::http://hg.code.sf.net/p/diskinfo-di/code || true; git fetch upstream; git fetch --tags hg::tags: tag "*"; make)
 
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.
