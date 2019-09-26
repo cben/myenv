@@ -9,6 +9,7 @@ cd "$(dirname "$0")"
 # TODO: consider installing each of these locally
 
 sudo install -v --mode=644 sysctl.d/* /etc/sysctl.d/
+sudo sysctl --system
 
 # Helps live with Github 2FA
 # relies on libgnome-keyring-dev/devel package
