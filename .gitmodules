@@ -86,7 +86,8 @@
 [submodule "Iosevka"]
 	path = Iosevka
 	url = https://github.com/be5invis/Iosevka/
-	branch = gh-pages
+	# Avoid unclear "Unable to find current origin/gh-pages revision" error
+	#branch = gh-pages
 	shallow = true
 [submodule "bat"]
 	path = bat
