@@ -36,7 +36,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     linux-libertine-fonts culmus-\*-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
     mozilla-fira-{sans,mono}-fonts google-droid-sans-mono-fonts google-noto-{sans,serif,sans-mono}-fonts anka-coder-\*fonts mplus-1m-fonts \
     python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
-    pygpgme python-pyudev \
+    python3-gpg python3-pyudev \
     chrome-gnome-shell gnome-tweak-tool \
     redshift redshift-gtk openbox obconf mscore
 

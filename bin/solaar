@@ -1,1 +1,2 @@
-../Solaar/bin/solaar
+#!/usr/bin/fish
+python3 (dirname (status filename))/../Solaar/bin/solaar
