@@ -2,7 +2,7 @@
   "dependencies": {
     "bower": "*",
     "download-github-release": "^0.3.2",
-    "git-file-history": "0.0.3",
+    "git-file-history": "0.1.0",
     "git-open": "^2.1.0",
     "grunt-cli": "*",
     "heroku": "^7.18.3",
