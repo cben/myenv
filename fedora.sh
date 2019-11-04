@@ -24,7 +24,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf mlocate smartmontools acpi \
     mtr nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
-    git git-lfs git-gui tig hub libgnome-keyring-devel bzr hg git-cinnabar meld gists nano emacs \
+    git git-lfs git-gui tig hub libgnome-keyring-devel bzr hg colordiff git-cinnabar meld gists nano emacs \
     the_silver_searcher ripgrep renameutils xsel entr progress \
     fortune-mod fortune-firefly figlet cowsay asciinema \
     make automake gcc gcc-c++ kernel-devel texinfo \
