@@ -66,8 +66,8 @@ if ! rpm --quiet --query chromium; then
 fi
 
 if ! rpm --quiet --query sysdig; then
-  sudo rpm --import repo-stuff/syncthing-draios.gpg.key
-  sudo cp -v repo-stuff/syncthing-draios.repo /etc/yum.repos.d/
+  sudo rpm --import repo-stuff/sysdig-draios.gpg.key
+  sudo cp -v repo-stuff/sysdig-draios.repo /etc/yum.repos.d/
 fi
 
 # http://rpmfusion.org/Configuration
