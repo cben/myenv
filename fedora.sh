@@ -84,7 +84,7 @@ fi
 # packages like VLC.  TODO: might create conflicts?
 #sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/URPMS-GPG-PUBLICKEY-Fedora-24
 #sudo dnf config-manager --add-repo=https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/unitedrpms.repo
-sudo dnf config-manager --set-disabled unitedrpms\*
+sudo dnf config-manager --set-disabled 'unitedrpms*' 2>/dev/null || true
 
 # From http://folkswithhats.org/fedy-installer
 # TODO: http?! nogpgcheck!?
