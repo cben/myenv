@@ -56,6 +56,8 @@ fi
 # Add extra repos
 # ===============
 
+fedora="$(rpm -E %fedora)"
+
 if ! rpm --quiet --query keybase; then
   sudo yum install https://prerelease.keybase.io/keybase_amd64.rpm
 fi
@@ -71,12 +73,17 @@ if ! rpm --quiet --query sysdig; then
   sudo cp -v repo-stuff/sysdig-draios.repo /etc/yum.repos.d/
 fi
 
-# http://rpmfusion.org/Configuration
-# TODO: http!?  https gives cert for wrong domain + 404.
-if ! rpm --query rpmfusion-free-release | grep -q rpmfusion-free-release-$(rpm -E %fedora); then
-    # Keys from https://pgp.mit.edu/pks/lookup?search=RPM+Fusion+24 etc
-    sudo rpm --import repo-stuff/rpmfusion-free-fedora$(rpm -E %fedora).gpg.key
-    sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+# https://rpmfusion.org/Configuration
+if ! rpm --query rpmfusion-free-release | grep -q rpmfusion-free-release-$fedora; then
+    # Recent keys from https://rpmfusion.org/keys;
+    # old ones from https://pgp.mit.edu/pks/lookup?search=RPM+Fusion+24 etc
+    for k in rpmfusion-{free,nonfree}; do
+        if ! -f repo-stuff/$k-fedora-$fedora.gpg.key; then
+            curl "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-$k-fedora-$fedora" > repo-stuff/$k-fedora-$fedora.gpg.key
+        fi
+        sudo rpm --import repo-stuff/$k-fedora-$fedora.gpg.key
+    done
+    sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$fedora.noarch.rpm
 fi
 # TODO: do I want rpmfusion nonfree?
 
