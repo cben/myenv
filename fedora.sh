@@ -100,8 +100,6 @@ sudo dnf config-manager --set-disabled 'unitedrpms*' 2>/dev/null || true
 # => fedy from submodule seems to work (bin/fedy)
 sudo dnf install gjs dnf-plugins-core wget  # https://github.com/folkswithhats/fedy#dependencies
 
-rpm --quiet --query hack-fonts || sudo dnf copr -y enable heliocastro/hack-fonts
-
 rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
 
 rpm --quiet --query kitty || sudo dnf copr -y enable oleastre/kitty-terminal
@@ -111,7 +109,7 @@ rpm --quiet --query kitty || sudo dnf copr -y enable oleastre/kitty-terminal
 
 sudo dnf install \
      keybase \
-     hack-fonts chromium kitty sysdig \
+     chromium kitty sysdig \
      totem youtube-dl \
      syncthing syncthing-gtk
 
