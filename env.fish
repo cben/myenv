@@ -11,6 +11,11 @@ abbr bi 'bundle install'
 abbr bx 'bundle exec'
 abbr rc 'bundle exec rails c'
 abbr rs 'bundle exec rails s'
+abbr yi 'yarn install'
+abbr xvf 'tar --one-file-system -xvf'
+abbr -- +x 'chmod --verbose +x'
+abbr -- -x 'chmod --verbose -x'
+abbr -- u 'unicode --terse --max=0'
 
 # This used to attept diffing old to new state but it doesn't work due to
 # https://github.com/fish-shell/fish-shell/issues/2151
