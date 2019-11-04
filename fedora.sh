@@ -65,6 +65,7 @@ if ! rpm --quiet --query chromium; then
   sudo curl https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo -o /etc/yum.repos.d/fedora-chromium-stable.repo
 fi
 
+sudo rm /etc/yum.repos.d/syncthing-draios.repo || true # old name
 if ! rpm --quiet --query sysdig; then
   sudo rpm --import repo-stuff/sysdig-draios.gpg.key
   sudo cp -v repo-stuff/sysdig-draios.repo /etc/yum.repos.d/
