@@ -56,6 +56,10 @@ fi
 # Add extra repos
 # ===============
 
+if ! rpm --quiet --query keybase; then
+  sudo yum install https://prerelease.keybase.io/keybase_amd64.rpm
+fi
+
 if ! rpm --quiet --query chromium; then
   sudo rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
   sudo curl https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo -o /etc/yum.repos.d/fedora-chromium-stable.repo
@@ -98,6 +102,7 @@ rpm --quiet --query kitty || sudo dnf copr -y enable oleastre/kitty-terminal
 # ========================
 
 sudo dnf install \
+     keybase \
      hack-fonts chromium kitty sysdig \
      totem youtube-dl \
      syncthing syncthing-gtk
