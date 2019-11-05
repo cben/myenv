@@ -4,6 +4,9 @@
 # colordiff.py is colors changes within lines, like meld.
 # https://plus.google.com/+BeniCherniavskyPaskin/posts/869iFsrzKNe
 
+# Allow finding sibling colordiff.py e.g. under sudo
+PATH="$(dirname "$(realpath "$0")"):$PATH"
+
 if [ -t 1 ]; then  # stdout isatty
   python -m bzrlib.patiencediff "$@" | colordiff.py
 else
