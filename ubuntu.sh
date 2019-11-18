@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 set -e -u -o pipefail
 
@@ -76,9 +76,8 @@ if ! has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
   update=1
 fi
 
-if ! has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
-  sudo /usr/bin/add-apt-repository -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
-  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+if has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
+  sudo /usr/bin/add-apt-repository --remove -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
   update=1
 fi
 
@@ -124,8 +123,8 @@ remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
 
 # Only on amd64, let it fail separately.  (TODO: docker.io package seems to exist on i386
 # but does it work?  See https://github.com/docker/docker/issues/7513)
-sudo apt-get purge lxc-docker
-sudo-apt install docker-engine "linux-image-extra-$(uname -r)"
+#sudo apt-get purge lxc-docker
+#sudo-apt install docker-engine "linux-image-extra-$(uname -r)"
 
 sudo-apt install fish nodejs asciinema emacs-snapshot emacs-snapshot-el atom zeal \
   heroku-toolbelt git-annex syncthing syncthing-gtk #qtox toxic
