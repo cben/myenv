@@ -23,7 +23,7 @@ if status --is-interactive
     if [ -n "$GOPATH" ]
         PATH_prepend $GOPATH/bin
     end
-    if [ -d ~/.cargo ]
+    if [ -d ~/.cargo/bin ]
         PATH_prepend ~/.cargo/bin
     end
     # some sbin tools are useful without root, e.g. mtr on fedora
