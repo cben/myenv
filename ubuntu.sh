@@ -20,6 +20,7 @@ sudo-apt install \
   apt-transport-https \
   $(check-language-support -l en) fonts-droid-fallback fonts-noto ttf-bitstream-vera \
   fonts-inconsolata fonts-ricty-diminished fonts-mplus fonts-hack fonts-monoid fonts-firacode \
+  fonts-fantasque-sans fonts-jura fonts-lmodern \
   $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) \
   nano htop sysdig dstat glances sysstat nethogs linux-tools-generic di ncdu dlocate ppa-purge \
@@ -112,7 +113,7 @@ add-ppa zeal-developers/ppa
 
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
-add-ppa mjblenner/ppa-hal
+#add-ppa mjblenner/ppa-hal
 
 remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
 
