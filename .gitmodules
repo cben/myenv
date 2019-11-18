@@ -83,12 +83,6 @@
 	path = monoid
 	url = https://github.com/larsenwork/monoid
 	shallow = true
-[submodule "Iosevka"]
-	path = Iosevka
-	url = https://github.com/be5invis/Iosevka/
-	# Avoid unclear "Unable to find current origin/gh-pages revision" error
-	#branch = gh-pages
-	shallow = true
 [submodule "bat"]
 	path = bat
 	url = https://github.com/sharkdp/bat
