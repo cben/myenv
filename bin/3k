@@ -7,6 +7,7 @@ xrandr --output XWAYLAND -s 0 --transform none
 xrandr --output HDMI1 --off
 xrandr --output DP1  --off
 xrandr --output DP-1  --off
+xrandr --output DP-2  --off
 xrandr --output XWAYLAND2 --off
 
 # Display state compactly - omit resolutions except active one

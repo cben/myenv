@@ -3,6 +3,7 @@
 # Yoga cable doesn't work reliably at max 30Hz, let's see if 24Hz is better.
 xrandr --output HDMI1 --mode 3840x2160 -r 24 --transform none --pos 0x0
 xrandr --output DP1 --mode 3840x2160 --transform none --pos 0x0
+xrandr --output DP2 --mode 3840x2160 --transform none --pos 0x0
 xrandr --output XWAYLAND2 -s 3840x2160 --transform none --pos 0x0
 # builtin screen is eDP1 / eDP-1 / XWAYLAND0.  0 should be its highest possible res.
 xrandr --output eDP1 -s 0 --scale-from 3840x2160 --pos 0x0
