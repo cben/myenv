@@ -31,7 +31,7 @@ sudo-apt install \
   git tig git-gui git-svn gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} python{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip python-yaml \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
-  gtk-redshift \
+  gtk-redshift openbox \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
   pdfshuffler diffpdf \
