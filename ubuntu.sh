@@ -34,11 +34,19 @@ sudo-apt install \
   gtk-redshift \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
-  referencer pdftk pdfshuffler diffpdf \
-  vlc mkvtoolnix-gui libav-tools handbrake
+  pdfshuffler diffpdf \
+  vlc mkvtoolnix-gui handbrake
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
 sudo-apt install nautilus-open-terminal || true
+
+sudo-apt install libav-tools || true
+sudo-apt install ffmpeg || true
+
+# Things that might help libreoffice Impress to play media
+sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0 \
+  libreoffice-avmedia-backend-gstreamer
+
 
 # Add extra repos
 # ===============
@@ -70,16 +78,12 @@ add-ppa ubuntu-elisp/ppa
 
 add-ppa zanchey/asciinema
 
-if ! has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
-  # TODO: after upgrade multiple versions will pile up?
-  sudo /usr/bin/add-apt-repository -y "deb https://deb.nodesource.com/node_8.x $UBUNTU_VERSION main"
-  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-  update=1
+if has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
+  sudo /usr/bin/add-apt-repository --remove -y "deb https://deb.nodesource.com/node_8.x $UBUNTU_VERSION main"
 fi
 
 if has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
   sudo /usr/bin/add-apt-repository --remove -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
-  update=1
 fi
 
 if ! has-ppa heroku; then
