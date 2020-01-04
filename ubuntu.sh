@@ -45,8 +45,8 @@ sudo-apt install ffmpeg || true
 
 # Things that might help libreoffice Impress to play media
 sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0 \
-  libreoffice-avmedia-backend-gstreamer
-
+  libreoffice-avmedia-backend-gstreamer libreoffice-gtk2
+sudo-apt remove libreoffice-gtk3
 
 # Add extra repos
 # ===============
@@ -70,6 +70,10 @@ function remove-ppa () {
 }
 
 UBUNTU_VERSION="$(lsb_release --short --codename)"
+
+# See https://www.libreoffice.org/download/download/ for which version is currently "stable".
+# See https://launchpad.net/~libreoffice/+archive/ubuntu/ppa for related of PPAs.
+# sudo add-apt-repository ppa:libreoffice/libreoffice-6-2
 
 add-ppa fish-shell/release-2
 
@@ -120,6 +124,7 @@ add-ppa zeal-developers/ppa
 #add-ppa mjblenner/ppa-hal
 
 remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
+
 
 # Install from extra repos
 # ========================
