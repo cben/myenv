@@ -31,14 +31,22 @@ sudo-apt install \
   git tig git-gui git-svn gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} python{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip python-yaml \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
-  gtk-redshift \
+  gtk-redshift openbox \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
-  referencer pdftk pdfshuffler diffpdf \
-  vlc mkvtoolnix-gui libav-tools handbrake
+  pdfshuffler diffpdf \
+  vlc mkvtoolnix-gui handbrake
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
 sudo-apt install nautilus-open-terminal || true
+
+sudo-apt install libav-tools || true
+sudo-apt install ffmpeg || true
+
+# Things that might help libreoffice Impress to play media
+sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0 \
+  libreoffice-avmedia-backend-gstreamer libreoffice-gtk2
+sudo-apt remove libreoffice-gtk3
 
 # Add extra repos
 # ===============
@@ -63,6 +71,10 @@ function remove-ppa () {
 
 UBUNTU_VERSION="$(lsb_release --short --codename)"
 
+# See https://www.libreoffice.org/download/download/ for which version is currently "stable".
+# See https://launchpad.net/~libreoffice/+archive/ubuntu/ppa for related of PPAs.
+# sudo add-apt-repository ppa:libreoffice/libreoffice-6-2
+
 add-ppa fish-shell/release-2
 
 sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
@@ -70,16 +82,12 @@ add-ppa ubuntu-elisp/ppa
 
 add-ppa zanchey/asciinema
 
-if ! has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
-  # TODO: after upgrade multiple versions will pile up?
-  sudo /usr/bin/add-apt-repository -y "deb https://deb.nodesource.com/node_8.x $UBUNTU_VERSION main"
-  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-  update=1
+if has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
+  sudo /usr/bin/add-apt-repository --remove -y "deb https://deb.nodesource.com/node_8.x $UBUNTU_VERSION main"
 fi
 
 if has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
   sudo /usr/bin/add-apt-repository --remove -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
-  update=1
 fi
 
 if ! has-ppa heroku; then
@@ -116,6 +124,7 @@ add-ppa zeal-developers/ppa
 #add-ppa mjblenner/ppa-hal
 
 remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
+
 
 # Install from extra repos
 # ========================
