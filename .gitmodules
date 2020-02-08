@@ -101,3 +101,6 @@
 [submodule "odf_fixlinks"]
 	path = odf_fixlinks
 	url = https://github.com/cben/odf_fixlinks.git
+[submodule "PaperWM"]
+	path = PaperWM
+	url = https://github.com/paperwm/PaperWM
