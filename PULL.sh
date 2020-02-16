@@ -19,6 +19,7 @@ fi
 
 # Build/install submodules inside their directories, there are a fixed symlinks in bin/
 (cd hub; ./script/build)
+(cd gh; make)
 (cd jo; autoreconf -i; ./configure; make check)
 (cd stderred; make)
 (cd ungit; npm install --silent; npm run build)

@@ -104,3 +104,6 @@
 [submodule "PaperWM"]
 	path = PaperWM
 	url = https://github.com/paperwm/PaperWM
+[submodule "gh"]
+	path = gh
+	url = https://github.com/cli/cli
