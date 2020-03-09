@@ -107,3 +107,6 @@
 [submodule "gh"]
 	path = gh
 	url = https://github.com/cli/cli
+[submodule "multi-git-status"]
+	path = multi-git-status
+	url = https://github.com/fboender/multi-git-status
