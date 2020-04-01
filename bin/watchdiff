@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 set old (mktemp --suffix=watchold)
 set new (mktemp --suffix=watchnew)
-function --signal SIGINT cleanup
+function cleanup --on-signal=SIGINT
     rm -vf $old $new
 end
 while true
