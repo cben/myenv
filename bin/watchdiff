@@ -17,7 +17,7 @@ while true
     #   (like RCS & SVN storage)?
     # TODO: consider accumulating history in git, for advanced querying?!
     #   (could even feed into https://github.com/pomber/git-history/ ?)
-    colordiff -U1 $old $new
+    diff -U1 $old $new | colordiff.py
     mv -f $new $old
     sleep 3
 end
