@@ -1,9 +1,12 @@
 #!/usr/bin/fish
 set old (mktemp --suffix=watchold)
 set new (mktemp --suffix=watchnew)
-function cleanup --on-signal=SIGINT
+# TODO: Ctrl+C possibly not caught by fish but only subprocess?
+#   https://github.com/fish-shell/fish-shell/issues/2036
+function cleanup --on-signal=SIGINT --on-event fish_exit --on-process-exit %self
     rm -vf $old $new
 end
+
 while true
     eval $argv >$new ^&1
     # Disabled screen clearing, showing all diff history is more useful,
