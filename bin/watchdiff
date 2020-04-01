@@ -2,12 +2,21 @@
 set old (mktemp --suffix=watchold)
 set new (mktemp --suffix=watchnew)
 function --signal SIGINT cleanup
-   rm -vf $old $new
+    rm -vf $old $new
 end
 while true
-    eval $argv > $new ^&1
-    clear
-    echo "Every 3 seconds:  "(date)
+    eval $argv >$new ^&1
+    # Disabled screen clearing, showing all diff history is more useful,
+    # and makes intelligent use of screen size.
+    #clear
+    #echo "Every 3 seconds:  "(date)
+
+    # TODO: show more context, up to full output, if screen size allows?
+    #   Makes less sense without clearing.
+    # TODO: show full current output + series of "reverse diffs"
+    #   (like RCS & SVN storage)?
+    # TODO: consider accumulating history in git, for advanced querying?!
+    #   (could even feed into https://github.com/pomber/git-history/ ?)
     colordiff -U1 $old $new
     mv -f $new $old
     sleep 3
