@@ -25,7 +25,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     fish htop glances perf mlocate smartmontools acpi \
     mtr nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
     git git-lfs git-gui aspell{,-en,he,ru} tig hub libgnome-keyring-devel bzr hg colordiff git-cinnabar meld gists nano emacs \
-    the_silver_searcher ripgrep renameutils xsel entr progress \
+    the_silver_searcher ripgrep fd-find renameutils xsel entr progress \
     fortune-mod fortune-firefly figlet cowsay asciinema \
     make automake gcc gcc-c++ kernel-devel texinfo \
     python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \

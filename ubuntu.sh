@@ -26,7 +26,7 @@ sudo-apt install \
   nano htop sysdig dstat glances sysstat nethogs linux-tools-generic di ncdu dlocate ppa-purge \
   unicode info bash-doc silversearcher-ag \
   par unar gddrescue smartmontools exfat-fuse exfat-utils \
-  tmux logapp moreutils renameutils rlwrap entr cowsay fortune \
+  tmux logapp moreutils renameutils fd-find rlwrap entr cowsay fortune \
   openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
   git tig git-gui git-svn gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} python{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip python-yaml \
