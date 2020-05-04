@@ -110,3 +110,6 @@
 [submodule "multi-git-status"]
 	path = multi-git-status
 	url = https://github.com/fboender/multi-git-status
+[submodule "bat-extras"]
+	path = bat-extras
+	url = https://github.com/eth-p/bat-extras
