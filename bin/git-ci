@@ -93,4 +93,31 @@ if ! branch="$(git symbolic-ref --short HEAD)"; then
   exit 8
 fi
 
-push "$branch" || echo '`git push` failed.'
+if git merge-base --is-ancestor "$hash_before_commit" HEAD; then
+  # 1 or more commits appended, fast-forward push is safe.
+  push "$branch" || echo '`git push` failed.'
+elif git merge-base --is-ancestor "${hash_before_commit}~1" HEAD; then
+  if [[ "$branch" =~ 'stable|main|master|develop' ]]; then
+    echo "Last commit amended, but refusing to force $branch."
+    echo "If you're sure, push yourself with --force-with-lease='$branch:$hash_before_commit'"
+    exit 11
+  fi
+
+  # TODO: given this sequence:
+  #
+  #        citool (no push)      citool (no push)
+  #     R---------------------A---------------------B
+  #     ^                      \                       ci (amend of B)
+  #  remote/branch              ---------------------------------------C
+  #
+  # we'll arrive here - exactly 1 commit amended B->C
+  # but force-with-lease will fail because remote (R) != hash_before_commit (A).
+  # However, the new commit is fast-forward so regular push would be safe?
+
+  echo "Last commit amended, allowing careful push:"
+  push "$branch" --force-with-lease="$branch:$hash_before_commit" || echo '`git push` failed.'
+else
+  echo "Rewrote multiple commits?!  Not pushing."
+  echo "If you're sure, push yourself with --force-with-lease='$branch:$hash_before_commit'"
+  exit 11
+fi
