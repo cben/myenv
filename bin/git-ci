@@ -33,7 +33,10 @@ if [ $# -gt 0 ]; then
   git add --verbose --update "$@"
 fi
 
-if
+hash_before_commit="$(git rev-parse HEAD)"
+
+# Returns non-0 if cancelled
+function make_commit {
   if [ -v DISPLAY ] && git help citool >&/dev/null; then
     # Without args, we could auto-stage all changes but `citool` is more
     # keyboard-friendly if we don't (I found no way to access file list with kbd; you
@@ -52,14 +55,42 @@ if
       git commit --verbose -a
     fi
   fi
-then
-  remote=()
-  if git remote show | grep --quiet --line-regexp 'cben'; then
-    remote=cben
-  elif git remote show | grep --quiet --line-regexp 'bpaskinc'; then
-    remote=bpaskinc
+}
+
+# Print name of "my fork" remote, or return non-0
+function my_remote {
+  # Limit to 1 match to avoid unexpected expansion
+  git remote show | egrep --max-count=1 --line-regexp 'cben|bpaskinc'
+}
+
+# Optional extra args (refspec / flags) used after remote IFF remote is my fork.
+function push {
+  if remote="$(my_remote)"; then
+    (
+      set -x;
+      git push --verbose --recurse-submodules=on-demand --set-upstream "$remote" "$@"
+    )
+  else
+    # Push to default remote, if any.
+    # git config branch."$(git symbolic-ref --quiet HEAD)".remote
+    if [ "$#" -gt 0 ]; then
+      echo "using default remote, to be safe NOT passing args: $*"
+    fi
+    (
+      set -x
+      git push --verbose --recurse-submodules=on-demand
+    )
   fi
-  git push --verbose --recurse-submodules=on-demand --set-upstream $remote || echo '`git push` failed.'
-else
+}
+
+if ! make_commit; then
   echo Commit cancelled, so not pushing.
+  exit 1
 fi
+
+if ! branch="$(git symbolic-ref --short HEAD)"; then
+  echo "Detached HEAD?  No branch to push."
+  exit 8
+fi
+
+push "$branch" || echo '`git push` failed.'
