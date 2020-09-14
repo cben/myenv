@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+import sys, os, subprocess
+
+args = sys.argv[1:]
+
+# workaround ghostwriter using deprecated --smart
+# https://github.com/wereturtle/ghostwriter/issues/488
+if '--smart' in args:
+    args.remove('--smart')
+    for i, arg in enumerate(args):
+        if arg in ('-f', '--from'):
+             args[i+1] = args[i+1].replace('markdown', 'markdown+smart')
+        elif arg.startswith('-f'):
+             args[i] = '--from=' + args[i][2:].replace('markdown', 'markdown+smart')
+        elif arg.startswith('--from='):
+             args[i] = '--from=' + args[i][7:].replace('markdown', 'markdown+smart')
+
+cmd = [
+    # -i helps when running with piped stdin/stdout under ghostwriter
+    'docker', 'run', '--rm', '-i',
+    '--volume=%s:/data' % os.getcwd(),
+    '--user=%s:%s' % (os.getuid(), os.getgid()),
+    '--security-opt=label=disable',
+    'pandoc/latex:latest', *args
+]
+subprocess.call(cmd)
