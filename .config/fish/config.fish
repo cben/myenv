@@ -26,6 +26,8 @@ if status --is-interactive
     if [ -d ~/.cargo/bin ]
         PATH_prepend ~/.cargo/bin
     end
+    # https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+    PATH_prepend ~/.krew/bin
     # some sbin tools are useful without root, e.g. mtr on fedora
     PATH_prepend /usr/sbin
 
