@@ -25,6 +25,7 @@ fi
 (cd ungit; npm install --silent; npm run build)
 (cd bat; cargo build --release)
 (cd exa; cargo build --release)
+(cd git-workspace; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
 
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
