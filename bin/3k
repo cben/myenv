@@ -6,9 +6,13 @@ xrandr --output XWAYLAND -s 0 --transform none
 # our Yoga 2 Pro outputs to HDMI1, Thinkpad T450s to DP1.
 xrandr --output HDMI1 --off
 xrandr --output DP1  --off
-xrandr --output DP-1  --off
-xrandr --output DP-2  --off
+xrandr --output DP-1 --off
+xrandr --output DP2  --off
+xrandr --output DP-2 --off
 xrandr --output XWAYLAND2 --off
 
 # Display state compactly - omit resolutions except active one
 xrandr | egrep --color=never '^[^ ]|\*'
+
+xinput map-to-output 'ELAN Touchscreen' eDP1
+xinput map-to-output 'ELAN Touchscreen' eDP-1
