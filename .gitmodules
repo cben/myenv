@@ -113,3 +113,6 @@
 [submodule "bat-extras"]
 	path = bat-extras
 	url = https://github.com/eth-p/bat-extras
+[submodule "git-workspace"]
+	path = git-workspace
+	url = https://github.com/orf/git-workspace
