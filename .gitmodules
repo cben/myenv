@@ -116,3 +116,6 @@
 [submodule "git-workspace"]
 	path = git-workspace
 	url = https://github.com/orf/git-workspace
+[submodule "yeelight-shell-scripts"]
+	path = yeelight-shell-scripts
+	url = https://github.com/hphde/yeelight-shell-scripts
