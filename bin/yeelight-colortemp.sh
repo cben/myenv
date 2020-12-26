@@ -1,0 +1,1 @@
+../yeelight-shell-scripts/yeelight-colortemp.sh
