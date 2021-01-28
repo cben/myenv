@@ -119,3 +119,6 @@
 [submodule "yeelight-shell-scripts"]
 	path = yeelight-shell-scripts
 	url = https://github.com/hphde/yeelight-shell-scripts
+[submodule "goenv"]
+	path = goenv
+	url = https://github.com/syndbg/goenv

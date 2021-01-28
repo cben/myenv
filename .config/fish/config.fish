@@ -11,6 +11,8 @@ set myenv_dir (dirname (dirname (dirname (readlink --canonicalize ~/.config/fish
 
 # https://github.com/rbenv/rbenv#installation, modified to be under myenv/
 set -x RBENV_ROOT $myenv_dir/rbenv
+# https://github.com/syndbg/goenv/blob/master/INSTALL.md
+set -x GOENV_ROOT $myenv_dir/goenv
 
 if status --is-interactive
     echo "== running config.fish =="
@@ -23,6 +25,9 @@ if status --is-interactive
     if [ -n "$GOPATH" ]
         PATH_prepend $GOPATH/bin
     end
+    # goenv docs recommend putting this (and $GOPATH/bin) at end of PATH,
+    # for safety.  But I want it to take priority over system `go`.
+    PATH_prepend $myenv_dir/goenv/shims
     if [ -d ~/.cargo/bin ]
         PATH_prepend ~/.cargo/bin
     end
