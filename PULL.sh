@@ -15,6 +15,7 @@ if ! git submodule update --init --recursive --remote --recommend-shallow; then
 fi
 
 # Build/install submodules inside their directories, there are a fixed symlinks in bin/
+ln -s ../bin/yeelight-ips yeelight-shell-scripts/
 (cd hub; ./script/build)
 (cd gh; make)
 (cd jo; autoreconf -i; ./configure; make check)
