@@ -1,0 +1,40 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - markdown-link-check > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - npm-check-updates > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > cli-ux > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @oclif/plugin-update > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - npm-check-updates > node-alias > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - svg-term-cli > svg-term > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - svg-term-cli > term-schemes > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @oclif/plugin-plugins > cli-ux > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-spaces > heroku-cli-util > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-orgs-v5 > inquirer > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-config > edit-string > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-pg-v5 > @heroku-cli/plugin-addons > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-webhooks > @heroku-cli/command > cli-ux > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-pg-v5 > @heroku-cli/plugin-addons > heroku-cli-util > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-ps-exec > heroku-exec-util > heroku-cli-util > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-ci-v5 > @heroku-cli/plugin-run-v5 > @heroku-cli/command > cli-ux > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
+    - heroku > @heroku-cli/plugin-ps-exec > heroku-exec-util > @heroku/socksv5 > ip-address > lodash:
+        patched: '2020-05-04T06:50:39.420Z'
