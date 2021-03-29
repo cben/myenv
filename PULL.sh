@@ -28,6 +28,7 @@ fi
 (cd git-workspace; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
 
+
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.
 # So mixing system and venv packages: http://stackoverflow.com/a/19459977
@@ -39,4 +40,6 @@ npm install --silent
 npm update --silent
 
 cargo install tabwriter-bin
+cargo install git-absorb
+
 git status
