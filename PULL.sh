@@ -38,4 +38,5 @@ fi
 npm install --silent
 npm update --silent
 
+cargo install tabwriter-bin
 git status
