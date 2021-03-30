@@ -7,9 +7,6 @@
 [submodule "spark"]
 	path = spark
 	url = https://github.com/holman/spark
-[submodule "colordiff.py"]
-	path = colordiff.py
-	url = https://github.com/cben/colordiff.py
 [submodule "gnu-parallel"]
 	path = gnu-parallel
 	url = git://git.savannah.gnu.org/parallel.git
