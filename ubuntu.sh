@@ -23,7 +23,8 @@ sudo-apt install \
   fonts-fantasque-sans fonts-jura fonts-lmodern \
   $(check-language-support -l he) culmus-fancy \
   $(check-language-support -l ru) \
-  nano htop sysdig dstat glances sysstat nethogs linux-tools-generic di ncdu dlocate ppa-purge \
+  nano htop sysdig dstat glances sysstat nethogs linux-tools-generic \
+  borgbackup ncdu dlocate ppa-purge \
   unicode info bash-doc silversearcher-ag \
   par unar gddrescue smartmontools exfat-fuse exfat-utils \
   tmux logapp moreutils renameutils fd-find rlwrap entr cowsay fortune \

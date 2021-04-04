@@ -4,9 +4,6 @@ cd "$(dirname "$0")"
 
 git fetch # show what's new when uncommitted changes prevent `pull --rebase`.
 
-# Mercurial import
-(cd di; git remote add upstream hg::http://hg.code.sf.net/p/diskinfo-di/code || true; git fetch upstream; git fetch --tags hg::tags: tag "*"; make)
-
 # Clean lock files - only if untracked by git - that may obstruct updating submodules.
 git submodule foreach --recursive git clean -f package-lock.json Cargo.lock
 
