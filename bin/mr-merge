@@ -1,10 +1,10 @@
 #!/bin/bash
-# Usage: git mr-head 35
+# Usage: git mr-merge 35
 
 # https://disconnected.systems/blog/another-bash-strict-mode/
 set -u -o pipefail
 
 # avoid "Refusing to fetch into current branch"
 git checkout --detach
-git fetch origin "merge-requests/$1/head:mr-$1"
-git checkout "mr-$1"
+git fetch origin "merge-requests/$1/merge:mr-$1-merge"
+git checkout "mr-$1-merge"
