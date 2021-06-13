@@ -46,5 +46,5 @@ if status --is-interactive
     # Disabled, conflicts with gnome-terminal's theming
     #source "$BASE16_SHELL/profile_helper.fish"
 
-    fortune | eval (printf cowsay\ncowthink\n | shuf -n1) -n -f (ls /usr/share/cowsay/**.cow | grep -v -e sodomized -e telebears -e head-in | shuf -n1)
+    fortune | eval (printf cowsay\ncowthink\n | shuf -n1) -n -f (ls /usr/share/cowsay/**.cow | grep -v -e sodomized -e telebears -e head-in -e udder | shuf -n1)
 end
