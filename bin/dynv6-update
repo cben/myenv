@@ -1,5 +1,10 @@
 #!/bin/bash
 
+verbose () {
+  echo "$@"
+  "$@"
+}
+
 (
   domain="$(hostname --fqdn)"
   current="$(host "$domain")"
@@ -25,8 +30,8 @@
      if echo "$current" | grep -q "$v4"; then
         echo "IPv4 already good: $v4"
      else
-	echo "IPv4 updating to $v4"
-        ssh $ssh_opts api@dynv6.com hosts "$domain" set ipv4addr "$v4"
+	#echo "IPv4 updating to $v4"
+        verbose ssh $ssh_opts api@dynv6.com hosts "$domain" set ipv4addr "$v4"
      fi
   fi
 
@@ -36,8 +41,8 @@
      if echo "$current" | grep -q "$v6"; then
         echo "IPv6 already good: $v6"
      else
-	echo "IPv4 updating to $v6"
-        ssh $ssh_opts api@dynv6.com hosts "$domain" set ipv6addr "$v6"
+	#echo "IPv4 updating to $v6"
+        verbose ssh $ssh_opts api@dynv6.com hosts "$domain" set ipv6addr "$v6"
      fi
   fi
 
