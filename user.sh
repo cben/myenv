@@ -27,6 +27,7 @@ git config --global diff.noprefix true
 git config --global merge.conflictStyle diff3
 git config --global merge.tool mymeld
 git config --global mergetool.mymeld.cmd 'meld --auto-merge $LOCAL $BASE $REMOTE --output $MERGED'
+git config --global mergetool.keepBackup false
 
 git config --global rerere.enabled true
 git config --global submodule.fetchJobs 8
