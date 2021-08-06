@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.1
+version: v1.21.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -38,3 +38,72 @@ patch:
         patched: '2020-05-04T06:50:39.420Z'
     - heroku > @heroku-cli/plugin-ps-exec > heroku-exec-util > @heroku/socksv5 > ip-address > lodash:
         patched: '2020-05-04T06:50:39.420Z'
+  'npm:debug:20170905':
+    - markmon > express > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > send > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > body-parser > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > compression > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > connect-timeout > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > express-session > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > finalhandler > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > morgan > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-index > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-static > send > debug:
+        patched: '2021-08-06T15:30:33.225Z'
+  'npm:mime:20170907':
+    - markmon > express > send > mime:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-static > send > mime:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > mime:
+        patched: '2021-08-06T15:30:33.225Z'
+  'npm:ms:20170412':
+    - markmon > express > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > send > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > send > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > connect-timeout > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > body-parser > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > compression > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > connect-timeout > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > express-session > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > finalhandler > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > morgan > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-index > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-static > send > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-static > send > debug > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-favicon > ms:
+        patched: '2021-08-06T15:30:33.225Z'
+  'npm:negotiator:20160616':
+    - markmon > express > connect > compression > accepts > negotiator:
+        patched: '2021-08-06T15:30:33.225Z'
+    - markmon > express > connect > serve-index > accepts > negotiator:
+        patched: '2021-08-06T15:30:33.225Z'
+  'npm:ws:20160920':
+    - markmon > socket.io > socket.io-client > ws:
+        patched: '2021-08-06T15:30:33.225Z'
