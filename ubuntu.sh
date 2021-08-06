@@ -17,7 +17,7 @@ sudo-apt () {
 # ==========================
 
 sudo-apt install \
-  apt-transport-https \
+  apt-transport-https gdebi \
   $(check-language-support -l en) fonts-droid-fallback fonts-noto ttf-bitstream-vera \
   fonts-inconsolata fonts-ricty-diminished fonts-mplus fonts-hack fonts-monoid fonts-firacode \
   fonts-fantasque-sans fonts-jura fonts-lmodern \
@@ -28,12 +28,12 @@ sudo-apt install \
   unicode info bash-doc silversearcher-ag \
   par unar gddrescue smartmontools exfat-fuse exfat-utils \
   tmux logapp moreutils renameutils fd-find rlwrap entr cowsay fortune \
-  openssh-server autossh curl nmap mtr w3m chromium-browser ruby-bcat html-xml-utils xml2 jq deluge phantomjs \
-  git tig git-gui git-svn gitg github-backup libgnome-keyring-dev mercurial bzr subversion meld colordiff etckeeper gist \
-  idle{,3} python{,3}-notebook ipython{,3}-qtconsole python-virtualenv python3-venv python{,3}-pip python-yaml \
+  openssh-server autossh curl nmap mtr w3m chromium-browser html-xml-utils xml2 jq deluge phantomjs \
+  git tig git-gui git-svn gitg github-backup mercurial bzr subversion meld colordiff etckeeper gist \
+  idle{,3} python3-venv python3-pip python-yaml \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
   gtk-redshift openbox \
-  gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python-pyudev \
+  gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python3-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
   pdfshuffler diffpdf \
   vlc mkvtoolnix-gui handbrake
@@ -76,10 +76,10 @@ UBUNTU_VERSION="$(lsb_release --short --codename)"
 # See https://launchpad.net/~libreoffice/+archive/ubuntu/ppa for related of PPAs.
 # sudo add-apt-repository ppa:libreoffice/libreoffice-6-2
 
-add-ppa fish-shell/release-2
+#add-ppa fish-shell/release-2
 
 sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
-add-ppa ubuntu-elisp/ppa
+#add-ppa ubuntu-elisp/ppa
 
 add-ppa zanchey/asciinema
 
@@ -97,12 +97,6 @@ if ! has-ppa heroku; then
   update=1
 fi
 
-#if ! has-ppa "tox.chat.*UBUNTU_VERSION"; then
-#  echo "deb https://pkg.tox.chat/debian nightly $UBUNTU_VERSION" | sudo tee /etc/apt/sources.list.d/tox.list
-#  curl https://pkg.tox.chat/debian/pkg.gpg.key | sudo apt-key add -
-#  update=1
-#fi
-
 if ! has-ppa apt.syncthing.net; then
   sudo /usr/bin/add-apt-repository -y 'deb https://apt.syncthing.net/ syncthing release'
   curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -110,15 +104,8 @@ if ! has-ppa apt.syncthing.net; then
 fi
 add-ppa nilarimogard/webupd8  # for Syncthing GTK
 
-# https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux
-if ! has-ppa packagecloud.io/AtomEditor; then
-  sudo /usr/bin/add-apt-repository -y 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main'
-  curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-  update=1
-fi
+remove-ppa packagecloud.io/AtomEditor
 remove-ppa webupd8team/atom  # deprecated
-
-add-ppa zeal-developers/ppa
 
 # http://askubuntu.com/questions/362259/how-to-watch-videos-in-amazon-prime-instant-video
 # Only adding PPA here, not installing hal by default.
@@ -137,7 +124,7 @@ remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
 #sudo apt-get purge lxc-docker
 #sudo-apt install docker-engine "linux-image-extra-$(uname -r)"
 
-sudo-apt install fish nodejs asciinema emacs-snapshot emacs-snapshot-el atom zeal \
+sudo-apt install fish nodejs asciinema \
   heroku-toolbelt git-annex syncthing syncthing-gtk #qtox toxic
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
