@@ -15,17 +15,6 @@ sudo sysctl --system
 # relies on libgnome-keyring-dev/devel package
 ./install-git-credential-gnome-keyring.sh
 
-if ! which rhc || ! which travis ; then
-  sudo gem install rhc travis
-else
-  sudo gem update rhc travis
-fi
-
-sudo --set-home pip3 install --upgrade restview jupyter
-
-# Switched to local install via package.json.
-sudo npm uninstall -g --silent grunt-cli bower markmon
-
 # TODO: GOPATH setup is not automated here (yet)
 if [ -z "${GOPATH:-}" ]; then
   echo "ERROR: GOPATH not set, can't install tools written in go"

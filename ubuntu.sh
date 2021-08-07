@@ -27,22 +27,25 @@ sudo-apt install \
   borgbackup ncdu dlocate ppa-purge \
   unicode info bash-doc silversearcher-ag \
   par unar gddrescue smartmontools exfat-fuse exfat-utils \
-  tmux logapp moreutils renameutils fd-find rlwrap entr cowsay fortune \
+  tmux logapp moreutils renameutils fd-find mlocate rlwrap entr cowsay fortune \
   openssh-server autossh curl nmap mtr w3m chromium-browser html-xml-utils xml2 jq deluge phantomjs \
   git tig git-gui git-svn gitg github-backup mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} python3-venv python3-pip python-yaml \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
-  gtk-redshift openbox \
+  openbox arandr chrome-gnome-shell gnome-tweak-tool \
   gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python3-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
   pdfshuffler diffpdf \
-  vlc mkvtoolnix-gui handbrake
+  uvcdynctrl guvcview \
+  vlc mpv mkvtoolnix-gui handbrake
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
 sudo-apt install nautilus-open-terminal || true
 
 sudo-apt install libav-tools || true
 sudo-apt install ffmpeg || true
+
+sudo-apt install ripgrep || true
 
 # Things that might help libreoffice Impress to play media
 sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0 \
@@ -81,6 +84,8 @@ UBUNTU_VERSION="$(lsb_release --short --codename)"
 sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
 #add-ppa ubuntu-elisp/ppa
 
+add-ppa jgmath2000/et
+
 add-ppa zanchey/asciinema
 
 if has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
@@ -89,12 +94,6 @@ fi
 
 if has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
   sudo /usr/bin/add-apt-repository --remove -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
-fi
-
-if ! has-ppa heroku; then
-  sudo /usr/bin/add-apt-repository -y 'deb https://toolbelt.heroku.com/ubuntu ./'
-  curl https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
-  update=1
 fi
 
 if ! has-ppa apt.syncthing.net; then
@@ -124,8 +123,8 @@ remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
 #sudo apt-get purge lxc-docker
 #sudo-apt install docker-engine "linux-image-extra-$(uname -r)"
 
-sudo-apt install fish nodejs asciinema \
-  heroku-toolbelt git-annex syncthing syncthing-gtk #qtox toxic
+sudo-apt install fish nodejs asciinema et \
+  git-annex syncthing syncthing-gtk nautilus-dropbox
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
