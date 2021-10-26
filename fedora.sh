@@ -79,7 +79,7 @@ if ! rpm --query rpmfusion-free-release | grep -q rpmfusion-free-release-$fedora
     # Recent keys from https://rpmfusion.org/keys;
     # old ones from https://pgp.mit.edu/pks/lookup?search=RPM+Fusion+24 etc
     for k in rpmfusion-{free,nonfree}; do
-        if ! -f repo-stuff/$k-fedora-$fedora.gpg.key; then
+        if ! [ -f repo-stuff/$k-fedora-$fedora.gpg.key ]; then
             curl "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-$k-fedora-$fedora" > repo-stuff/$k-fedora-$fedora.gpg.key
         fi
         sudo rpm --import repo-stuff/$k-fedora-$fedora.gpg.key
