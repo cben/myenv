@@ -17,6 +17,7 @@ abbr xvf 'tar --one-top-level -xvf'
 abbr -- +x 'chmod --verbose +x'
 abbr -- -x 'chmod --verbose -x'
 abbr -- u 'unicode --terse --max=0'
+abbr sw 'git switch'
 
 # This used to attept diffing old to new state but it doesn't work due to
 # https://github.com/fish-shell/fish-shell/issues/2151
