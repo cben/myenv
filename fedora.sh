@@ -69,10 +69,12 @@ if ! rpm --quiet --query chromium; then
 fi
 
 sudo rm /etc/yum.repos.d/syncthing-draios.repo || true # old name
-if ! rpm --quiet --query sysdig; then
-  sudo rpm --import repo-stuff/sysdig-draios.gpg.key
-  sudo cp -v repo-stuff/sysdig-draios.repo /etc/yum.repos.d/
-fi
+rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
+
+#if ! rpm --quiet --query sysdig; then
+#  sudo rpm --import repo-stuff/sysdig-draios.gpg.key
+#  sudo cp -v repo-stuff/sysdig-draios.repo /etc/yum.repos.d/
+#fi
 
 # https://rpmfusion.org/Configuration
 if ! rpm --query rpmfusion-free-release | grep -q rpmfusion-free-release-$fedora; then
@@ -101,8 +103,6 @@ sudo dnf config-manager --set-disabled 'unitedrpms*' 2>/dev/null || true
 # => fedy from submodule seems to work (bin/fedy)
 sudo dnf install gjs dnf-plugins-core wget  # https://github.com/folkswithhats/fedy#dependencies
 
-rpm --quiet --query syncthing || sudo dnf copr -y enable decathorpe/syncthing
-
 rpm --quiet --query kitty || sudo dnf copr -y enable oleastre/kitty-terminal
 
 # Install from extra repos
@@ -112,7 +112,7 @@ sudo dnf install \
      keybase \
      chromium kitty sysdig \
      totem youtube-dl \
-     syncthing syncthing-gtk
+     syncthing
 
 sudo dnf install vlc mplayer ffmpeg guvcview mkvtoolnix-gui || echo "@@@@@@@@@@@@@@@@@@@ FAILED rpmfusion packages"
 
