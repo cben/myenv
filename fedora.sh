@@ -39,7 +39,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     python3-gpg python3-pyudev \
     chrome-gnome-shell gnome-tweak-tool \
-    redshift redshift-gtk openbox obconf mscore
+    openbox obconf labwc xisxwayland mscore
 
 # Stuff I'm prone to compile
 sudo dnf builddep ruby mscore
