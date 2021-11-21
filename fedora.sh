@@ -110,7 +110,7 @@ rpm --quiet --query kitty || sudo dnf copr -y enable oleastre/kitty-terminal
 
 sudo dnf install \
      keybase \
-     chromium kitty sysdig \
+     chromium kitty \
      totem youtube-dl \
      syncthing
 
