@@ -1,0 +1,6 @@
+#!/bin/bash
+if which codium > /dev/null; then
+  codium --wait --new-window "$@"
+else
+  code --wait --new-window "$@"
+fi
