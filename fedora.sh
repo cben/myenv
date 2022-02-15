@@ -22,7 +22,7 @@ sudo dnf install etckeeper
 # I'm not sure I want --allowerasing by default, so trying --setopt=strict=0
 sudo dnf install --errorlevel=1 --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
-    fish htop glances perf mlocate smartmontools acpi borgbackup \
+    fish htop glances perf strace mlocate smartmontools acpi borgbackup \
     mtr nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
     git git-lfs git-svn git-gui aspell{,-en,he,ru} tig hub libgnome-keyring-devel bzr hg \
     bat git-delta colordiff git-cinnabar meld gists nano micro emacs \
