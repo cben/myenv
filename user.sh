@@ -34,6 +34,8 @@ git config --global submodule.fetchJobs 8
 git config --global diff.submodule short
 git config --global --unset alias.ci  # bin/git-ci now
 
+git config --global init.defaultBranch main
+
 # https://stackoverflow.com/a/894402/239657
 git config --global --replace-all 'guitool.git svn rebase.cmd' 'git svn rebase'
 git config --global --replace-all 'guitool.git svn dcommit.cmd' 'git svn dcommit'
