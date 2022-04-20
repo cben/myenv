@@ -39,5 +39,6 @@ npm update --silent
 
 cargo install tabwriter-bin
 cargo install git-absorb
+cargo install broot
 
 git status
