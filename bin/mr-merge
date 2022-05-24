@@ -6,5 +6,5 @@ set -u -o pipefail
 
 # avoid "Refusing to fetch into current branch"
 git checkout --detach
-git fetch origin "merge-requests/$1/merge:mr-$1-merge"
+git fetch origin "merge-requests/$1/merge:mr-$1-merge" --force
 git checkout "mr-$1-merge"
