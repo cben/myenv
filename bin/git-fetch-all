@@ -1,3 +1,4 @@
 #!/bin/bash
-git gc --auto  # To reduce chance of many processes doing GC in parallel
-git remote | gparallel git fetch '{}' "$@"
+# Avoid many processes doing GC in parallel
+git remote | gparallel git fetch --no-auto-maintenance '{}' "$@"
+git maintenance run --auto
