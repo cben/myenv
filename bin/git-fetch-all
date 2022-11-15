@@ -1,4 +1,5 @@
 #!/bin/bash
-# Avoid many processes doing GC in parallel
-git remote | gparallel git fetch --no-auto-maintenance '{}' "$@"
+# Avoid many processes doing GC in parallel.
+# The `quit=1` avoids getting stuck when a remote needs to prompt for credentials, fails instead.
+git remote | gparallel --tag git -c "credential.helper='!printf quit=1'" fetch --no-auto-maintenance '{}' "$@"
 git maintenance run --auto
