@@ -29,11 +29,11 @@ sudo-apt install \
   par unar gddrescue smartmontools exfat-fuse exfat-utils \
   tmux logapp moreutils renameutils fd-find mlocate rlwrap entr cowsay fortune \
   openssh-server autossh curl nmap mtr w3m chromium-browser html-xml-utils xml2 jq deluge phantomjs \
-  git tig git-gui git-svn gitg github-backup mercurial bzr subversion meld colordiff etckeeper gist \
-  idle{,3} python3-venv python3-pip python-yaml \
+  git tig git-gui git-svn gitg github-backup libsecret-1-0 libsecret-1-dev mercurial bzr subversion meld colordiff etckeeper gist \
+  idle{,3} python3-notebook python3-qtconsole python3-venv python3-pip \
   build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
   openbox arandr chrome-gnome-shell gnome-tweak-tool \
-  gpm read-edid xbacklight powertop powerstat iotop android-tools-adb python3-pyudev \
+  gpm read-edid xbacklight ddcutil powertop powerstat iotop android-tools-adb python3-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
   pdfshuffler diffpdf \
   uvcdynctrl guvcview \
@@ -86,7 +86,7 @@ sudo rm -v /etc/apt/sources.list.d/cassou*emacs* && update=1  # unmaintained
 
 add-ppa jgmath2000/et
 
-add-ppa zanchey/asciinema
+#add-ppa zanchey/asciinema
 
 if has-ppa "nodesource\.com/node_8.*$UBUNTU_VERSION"; then
   sudo /usr/bin/add-apt-repository --remove -y "deb https://deb.nodesource.com/node_8.x $UBUNTU_VERSION main"
