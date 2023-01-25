@@ -19,7 +19,7 @@ sudo sysctl --system
 if [ -z "${GOPATH:-}" ]; then
   echo "ERROR: GOPATH not set, can't install tools written in go"
 else
-  go get -u github.com/fiatjaf/jiq/cmd/jiq
+  go install github.com/fiatjaf/jiq/cmd/jiq@latest
 fi
 
 # See also full-ubuntu.sh compiling pandoc from cabal
