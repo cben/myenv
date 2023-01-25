@@ -4,3 +4,7 @@
 --wrap=never
 # works with both dark and light terminal themes from https://github.com/chriskempson/base16
 --theme=base16
+
+# When >1 screen and needs paging, leave highlighted text on screen (or at least visible part).
+# Matches `cat` better, otherwise it functions as cat-or-less hybrid.
+--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --no-init"
