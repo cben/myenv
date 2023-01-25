@@ -7,16 +7,16 @@ end
 for dir in $argv
     if [ -d $dir ]
         pushd $dir
-	if [ -e .git ]
-	    echo "$dir/ - a Git working copy.  remotes:"
-	    git remote -v | grep '(fetch)' | sed 's/^/  /'
-            git svn info ^/dev/null | sed -n 's/^URL:/  git svn URL:\t/p'
-	    echo
-	else if [ -e .svn ]
-	    echo "$dir/ - an SVN working copy."
-	    svn info | sed -n 's/^URL:/  SVN URL:\t/p'
-	    echo
-	end
-	popd
+        if [ -e .git ]
+            echo "$dir/ - a Git working copy.  remotes:"
+            git remote -v | grep '(fetch)' | sed 's/^/  /'
+            git svn info 2>/dev/null | sed -n 's/^URL:/  git svn URL:\t/p'
+            echo
+        else if [ -e .svn ]
+            echo "$dir/ - an SVN working copy."
+            svn info | sed -n 's/^URL:/  SVN URL:\t/p'
+            echo
+        end
+        popd
     end
 end
