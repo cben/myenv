@@ -41,4 +41,6 @@ cargo install tabwriter-bin
 cargo install git-absorb
 cargo install broot
 
+go install github.com/rs/curlie@latest
+
 git status
