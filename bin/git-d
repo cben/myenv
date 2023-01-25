@@ -8,7 +8,7 @@ if [ $# == 0 ]; then
     git diff --staged
     tput rev; echo "== UNSTAGED ==                "; tput sgr0
     git diff
-  ) | delta --navigate
+  ) | delta --navigate --side-by-side
 else
-  git diff "$@"
+  git diff "$@" | delta --navigate --side-by-side
 fi
