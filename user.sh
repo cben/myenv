@@ -46,8 +46,19 @@ git config --global --replace-all 'guitool.git svn dcommit.cmd' 'git svn dcommit
 git config --global alias.exec '!exec '
 
 # Two ways to make github 2FA easier:
-# 1. Remember HTTPS passwords "forever", so I can put in an app-specific passwords.
-[ -x /usr/local/bin/git-credential-gnome-keyring ] && git config --global credential.helper "/usr/local/bin/git-credential-gnome-keyring"
+# 1. Remember HTTPS passwords "forever", so I can put in an app-specific passwords;
+#    Fallback to obtaining new ones via browser.
+if [ -x /usr/bin/git-credential-oauth ]; then
+  if [ -x /usr/libexec/git-core/git-credential-libsecret ]; then
+    git config --global --unset-all credential.helper
+    git config --global --add credential.helper /usr/libexec/git-core/git-credential-libsecret
+    git config --global --add credential.helper oauth
+  elif [ -x /usr/local/bin/git-credential-libsecret ]; then
+    git config --global --unset-all credential.helper
+    git config --global --add credential.helper /usr/local/bin/git-credential-libsecret
+    git config --global --add credential.helper oauth
+  fi
+fi
 
 # 2. Automatically push over SSH when anonymously cloned over HTTPS.
 # Normal github repos:

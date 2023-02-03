@@ -24,7 +24,8 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf strace mlocate smartmontools acpi borgbackup ddrescue \
     mtr iftop nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
-    git git-lfs git-svn git-gui aspell{,-en,he,ru} tig hub libgnome-keyring-devel bzr hg \
+    git git-lfs git-svn git-gui aspell{,-en,he,ru} tig multi-git-status hub bzr hg \
+    git-credential-libsecret git-credential-oauth \
     bat git-delta colordiff git-cinnabar meld gists nano micro emacs \
     the_silver_searcher ripgrep fd-find ncdu renameutils xsel entr progress \
     fortune-mod fortune-firefly figlet cowsay asciinema \

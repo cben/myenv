@@ -11,15 +11,15 @@ cd "$(dirname "$0")"
 sudo install -v --mode=644 sysctl.d/* /etc/sysctl.d/
 sudo sysctl --system
 
-# Helps live with Github 2FA
-# relies on libgnome-keyring-dev/devel package
-./install-git-credential-gnome-keyring.sh
+./install-git-credential-libsecret.sh
 
 # TODO: GOPATH setup is not automated here (yet)
 if [ -z "${GOPATH:-}" ]; then
   echo "ERROR: GOPATH not set, can't install tools written in go"
 else
   go install github.com/fiatjaf/jiq/cmd/jiq@latest
+
+  [ -x /usr/bin/git-credential-oauth ] || go install github.com/hickford/git-credential-oauth@latest
 fi
 
 # See also full-ubuntu.sh compiling pandoc from cabal
