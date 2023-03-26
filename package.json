@@ -5,7 +5,7 @@
     "git-file-history": "1.0.1",
     "git-open": "^2.1.0",
     "grunt-cli": "*",
-    "heroku": "^7.18.3",
+    "heroku": "^8.0.0",
     "jwt-cli": "^2.0.0",
     "markdown-link-check": "^3.7.2",
     "markmon": "*",
