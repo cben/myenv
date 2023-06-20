@@ -1,0 +1,11 @@
+#!/bin/sh
+# https://unix.stackexchange.com/a/11859/17113
+if [ $# == 0 ]; then
+  echo 'Usage: ... | body COMMAND | ...
+    Passes 1st line from stdin to stdout, runs COMMAND (e.g. sort) on the rest.' >/dev/stderr
+  exit 2
+fi
+# Better than `head -1` which might eat beyond 1st newline due to buffering
+IFS= read -r header
+printf '%s\n' "$header"
+exec "$@"
