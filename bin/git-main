@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e -u -o pipefail
+trap '
+  s=$? p=("${PIPESTATUS[@]}")
+  echo "$0: Error ${p[*]} on line $LINENO: $BASH_COMMAND" 1>&2
+  exit $s
+' ERR
+
+# https://stackoverflow.com/questions/28666357/how-to-get-default-git-branch
+branch="$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
+set -x
+git switch "$branch" && git pull
