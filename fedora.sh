@@ -40,7 +40,9 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     python3-gpg python3-pyudev \
     chrome-gnome-shell gnome-tweak-tool \
-    openbox obconf xrandr xinput labwc xisxwayland mscore
+    openbox obconf xrandr xinput alacritty \
+    labwc xisxwayland waycheck waypipe grim slurp swaybg swaylock wob waybar wofi \
+    mscore
 
 # Stuff I'm prone to compile
 sudo dnf builddep ruby mscore
