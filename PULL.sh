@@ -7,7 +7,7 @@ git fetch # show what's new when uncommitted changes prevent `pull --rebase`.
 # Clean lock files - only if untracked by git - that may obstruct updating submodules.
 git submodule foreach --recursive git clean -f package-lock.json Cargo.lock
 
-git pull --rebase=preserve --autostash --recurse-submodules
+git pull --rebase=merges --autostash --recurse-submodules
 
 if ! git submodule update --init --recursive --remote --recommend-shallow; then
     echo 'Maybe remove `branch = ...` in .gitmodules for this submodule ^^'
