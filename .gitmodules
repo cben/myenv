@@ -118,3 +118,6 @@
 [submodule "goenv"]
 	path = goenv
 	url = https://github.com/syndbg/goenv
+[submodule "dive"]
+	path = dive
+	url = https://github.com/wagoodman/dive

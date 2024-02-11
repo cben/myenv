@@ -26,6 +26,7 @@ ln -s ../bin/yeelight-ips yeelight-shell-scripts/
 (cd git-workspace; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
 (cd up; go install .)
+(cd dive; go install .)
 
 # retext needs pymarkups >=2.0 which is not yet in ubuntu 16.04,
 # and PyQt5, which I didn't manage to install via pip.
