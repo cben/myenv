@@ -1,7 +1,8 @@
 #!/usr/bin/env fish
 
 set -U -x BLOCK_SIZE \'1
-set -U -x EDITOR 'emacsclient --alternate-editor= -c'
+#set -U -x EDITOR 'emacsclient --alternate-editor= -c'
+set -U -x EDITOR 'micro'
 set -U -x MANPAGER 'less --quit-if-one-screen --no-init'
 set -U -x MAN_KEEP_FORMATTING (random)
 set -U -x LESS '-i -j5 -R'
