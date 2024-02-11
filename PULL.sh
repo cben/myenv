@@ -22,7 +22,7 @@ ln -s ../bin/yeelight-ips yeelight-shell-scripts/
 (cd stderred; make)
 (cd ungit; npm install --silent; npm run build)
 (cd bat; cargo build --release)
-(cd exa; cargo build --release)
+(cd eza; cargo build --release)
 (cd git-workspace; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
 (cd up; go install .)
