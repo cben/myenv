@@ -1,19 +1,17 @@
 {
   "dependencies": {
-    "bower": "*",
     "download-github-release": "^0.3.2",
     "git-file-history": "1.0.1",
     "git-open": "^3.0.0",
-    "grunt-cli": "*",
-    "heroku": "^7.18.3",
+    "heroku": "^8.11.1",
     "jwt-cli": "^2.0.0",
-    "markdown-link-check": "^3.7.2",
-    "markmon": "*",
-    "npm": "^6.4.1",
-    "npm-check-updates": "*",
+    "markdown-link-check": "^3.12.1",
+    "markmon": "^0.0.7",
+    "mathjax-node-cli": "^1.0.1",
+    "npm-check-updates": "^16.14.18",
+    "snyk": "^1.1286.1",
     "svg-term-cli": "^2.1.1",
-    "yarn": "^1.16.0",
-    "snyk": "^1.317.0"
+    "yarn": "^1.22.22"
   },
   "repository": {
     "type": "git",
