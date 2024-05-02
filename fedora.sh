@@ -35,7 +35,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     rust cargo \
     maven \
     haskell-platform ghc-regex-posix-devel \
-    linux-libertine-fonts culmus-\*-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts \
+    linux-libertine-fonts culmus-\*-fonts levien-inconsolata-fonts adobe-source-code-pro-fonts cascadia-fonts-all \
     mozilla-fira-{sans,mono}-fonts google-droid-sans-mono-fonts google-noto-{sans,serif,sans-mono}-fonts anka-coder-\*fonts mplus-1m-fonts \
     python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     python3-gpg python3-pyudev \
