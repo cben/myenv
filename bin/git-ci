@@ -33,6 +33,8 @@ if [ $# -gt 0 ]; then
   git add --verbose --update "$@"
 fi
 
+git hook run pre-commit
+
 hash_before_commit="$(git rev-parse HEAD)"
 
 # Returns non-0 if cancelled
@@ -60,7 +62,7 @@ function make_commit {
 # Print name of "my fork" remote, or return non-0
 function my_remote {
   # Limit to 1 match to avoid unexpected expansion
-  git remote show | egrep --max-count=1 --line-regexp 'cben|bpaskinc'
+  git remote show | grep --max-count=1 --line-regexp -E 'cben|bpaskinc'
 }
 
 # Optional extra args (refspec / flags) used after remote IFF remote is my fork.
