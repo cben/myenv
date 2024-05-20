@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This headphone connects upon it on to both my phone & computer,
+# but computer connection only works when initiated from computer. ~\'_'/~
+xterm -fa Fixed -e bash -x -c '
+  bluetoothctl disconnect FC:58:FA:82:E0:B2
+  bluetoothctl connect FC:58:FA:82:E0:B2 # MPOW H19 IPO
+  sleep 2
+'
