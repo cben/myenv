@@ -24,7 +24,8 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf strace mlocate smartmontools acpi borgbackup ddrescue \
     mtr iftop nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
-    git git-lfs git-svn git-gui aspell{,-en,he,ru} tig multi-git-status hub bzr hg \
+    langpacks-{en,ru,he} \
+    git git-lfs git-svn git-gui aspell{,-en,-he,-ru} tig multi-git-status hub bzr hg \
     git-credential-libsecret git-credential-oauth \
     bat git-delta colordiff git-cinnabar meld gists nano micro emacs \
     the_silver_searcher ripgrep fd-find ncdu renameutils xsel entr progress \
@@ -41,7 +42,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     python3-gpg python3-pyudev \
     chrome-gnome-shell gnome-tweak-tool \
     openbox obconf xrandr xinput alacritty \
-    labwc xisxwayland waycheck waypipe grim slurp swaybg swaylock wob waybar wofi \
+    labwc xisxwayland waycheck waypipe grim slurp swaybg swaylock wob waybar wofi wlr-randr \
     mscore
 
 # Stuff I'm prone to compile
