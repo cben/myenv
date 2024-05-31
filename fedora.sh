@@ -42,7 +42,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     python3-gpg python3-pyudev \
     chrome-gnome-shell gnome-tweak-tool \
     openbox obconf xrandr xinput alacritty \
-    labwc xisxwayland waycheck waypipe grim slurp swaybg swaylock wob waybar wofi wlr-randr \
+    labwc xisxwayland xwayland-run waycheck waypipe grim slurp swaybg swaylock wob waybar wofi wlr-randr fuzzel \
     mscore
 
 # Stuff I'm prone to compile
