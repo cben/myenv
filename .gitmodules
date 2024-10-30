@@ -56,9 +56,6 @@
 [submodule "outline-grep"]
 	path = outline-grep
 	url = https://github.com/mbrubeck/outline-grep
-[submodule "exa"]
-	path = exa
-	url = https://github.com/ogham/exa
 [submodule "eza"]
 	path = eza
 	url = https://github.com/eza-community/eza
