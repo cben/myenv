@@ -7,7 +7,7 @@ verbose () {
 
 (
   domain="$(hostname --fqdn)"
-  current="$(host "$domain")"
+  current="$(host "$domain" 8.8.8.8)"
   echo "Before: $current"
 
   if ! echo "$domain" | grep -q dynv6; then  # TODO: dynv6 supports some other domains.
