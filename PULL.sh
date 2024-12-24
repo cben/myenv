@@ -21,7 +21,6 @@ ln -s ../bin/yeelight-ips yeelight-shell-scripts/
 (cd jo; autoreconf -i; ./configure; make check)
 (cd stderred; make)
 (cd ungit; npm install --silent; npm run build)
-(cd bat; cargo build --release)
 (cd eza; cargo build --release)
 (cd git-workspace; cargo build --release)
 (cd Solaar; sudo rules.d/install.sh)
