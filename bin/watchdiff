@@ -8,7 +8,7 @@ function cleanup --on-signal=SIGINT --on-event fish_exit --on-process-exit %self
 end
 
 while true
-    eval $argv >$new ^&1
+    eval $argv >$new 2>&1
     # Disabled screen clearing, showing all diff history is more useful,
     # and makes intelligent use of screen size.
     #clear
@@ -20,8 +20,14 @@ while true
     #   (like RCS & SVN storage)?
     # TODO: consider accumulating history in git, for advanced querying?!
     #   (could even feed into https://github.com/pomber/git-history/ ?)
-    diff -U1 $old $new | colordiff.py
-    mv -f $new $old
-    sleep 3
+    if cmp --silent $old $new
+        sleep 0.2
+    else
+        #diff -U4 $old $new | delta --paging=never
+        wdiff -n $old $new | colordiff
+        mv -f $new $old
+        sleep 3
+        head -n $LINES $old
+    end
 end
 cleanup
