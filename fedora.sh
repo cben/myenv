@@ -27,7 +27,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     langpacks-{en,ru,he} \
     git git-lfs git-svn git-gui aspell{,-en,-he,-ru} tig multi-git-status hub bzr hg \
     git-credential-libsecret git-credential-oauth \
-    bat git-delta colordiff git-cinnabar meld gists nano micro emacs \
+    bat git-delta colordiff git-cinnabar meld gists nano micro emacs sensible-utils \
     the_silver_searcher ripgrep fd-find ncdu renameutils xsel entr progress \
     fortune-mod fortune-firefly figlet cowsay asciinema \
     make automake gcc gcc-c++ kernel-devel texinfo \
