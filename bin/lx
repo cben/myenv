@@ -1,2 +1,2 @@
 #!/bin/sh
-eza --git -l -a --header --color-scale --color=always --hyperlink --time-style=long-iso "$@"
+eza --git -l -a --header --color-scale --color=always --icons=auto --hyperlink --time-style=long-iso "$@"
