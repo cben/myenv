@@ -1,7 +1,7 @@
 #!/bin/bash
 # User-specific config that only makes sense for *me*.
 
-git config --global user.email "cben@redhat.com"
+git config --global user.email "beni.cherniavsky@gmail.com"
 git config --global user.name "Beni Cherniavsky-Paskin"
 git config --global github.user "cben"
 
