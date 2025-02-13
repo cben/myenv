@@ -23,7 +23,7 @@ sudo dnf install etckeeper
 sudo dnf install --errorlevel=1 --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf strace mlocate smartmontools acpi borgbackup ddrescue \
-    mtr iftop nmap socat inadyn-mt jq python-jwt w3m elinks miniupnpc avahi-tools \
+    mtr iftop nmap socat inadyn-mt jq jc jo yq python-jwt w3m elinks miniupnpc avahi-tools \
     langpacks-{en,ru,he} \
     git git-lfs git-svn git-gui aspell{,-en,-he,-ru} tig multi-git-status hub bzr hg \
     git-credential-libsecret git-credential-oauth \
