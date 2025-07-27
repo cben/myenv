@@ -14,6 +14,7 @@
 # directory would need a bit of setup...
 MAKE="$(which colormake || which make)"
 for DIR in \
+        /usr/share/git/credential/libsecret \
         /usr/share/doc/git/contrib/credential/libsecret \
 	    /usr/share/doc/git-core-doc/contrib/credential/libsecret; do
     if [ -d "$DIR" ]; then

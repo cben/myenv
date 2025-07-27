@@ -48,17 +48,21 @@ git config --global alias.exec '!exec '
 # Two ways to make github 2FA easier:
 # 1. Remember HTTPS passwords "forever", so I can put in an app-specific passwords;
 #    Fallback to obtaining new ones via browser.
-if [ -x /usr/bin/git-credential-oauth ]; then
-  if [ -x /usr/libexec/git-core/git-credential-libsecret ]; then
-    git config --global --unset-all credential.helper
-    git config --global --add credential.helper /usr/libexec/git-core/git-credential-libsecret
-    git config --global --add credential.helper oauth
-  elif [ -x /usr/local/bin/git-credential-libsecret ]; then
-    git config --global --unset-all credential.helper
-    git config --global --add credential.helper /usr/local/bin/git-credential-libsecret
-    git config --global --add credential.helper oauth
+
+#git config --global --unset-all credential.helper
+git config --global --get-all credential.helper | grep -q "oauth" ||
+  if [ -x /usr/bin/git-credential-oauth ]; then
+      git config --global --add credential.helper oauth
   fi
-fi
+
+git config --global --get-all credential.helper | grep -q "libsecret" ||
+  for path in /usr/libexec/git-core/git-credential-libsecret /usr/lib/git-core/git-credential-libsecret /usr/local/bin/git-credential-libsecret; do
+    if [ -x "$path" ]; then
+      echo "Configuring $path helper."
+      git config --global --add credential.helper "$path"
+      break
+    fi
+  done
 
 # 2. Automatically push over SSH when anonymously cloned over HTTPS.
 # Normal github repos:
