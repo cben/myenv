@@ -1,7 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = [
+#   "py3-bencode",
+# ]
+# ///
 
-import sys
-# pip install py3-bencode
+import sys, shlex
 from bencode import bdecode
 
 def decode_str(_key_or_value, value):
@@ -11,7 +15,7 @@ for fname in sys.argv[1:]:
     try:
         data = bdecode(open(fname, 'rb').read(), decoder=decode_str)
         # Print in quotes for easier copy-paste into shell commands.
-        print('"%s"\t"%s"' % (fname, data['info']['name']))
+        print('%s\t%s' % (shlex.quote(fname), shlex.quote(data['info']['name'])))
     except:
         import traceback
         sys.stderr.write(traceback.format_exc())
