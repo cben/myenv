@@ -31,7 +31,7 @@ sudo dnf install --errorlevel=1 --setopt=strict=0 \
     the_silver_searcher ripgrep fd-find ncdu renameutils xsel entr progress \
     fortune-mod fortune-firefly figlet cowsay asciinema \
     make automake gcc gcc-c++ kernel-devel texinfo \
-    python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv \
+    python{2,34,3} python{,3}-tools python-ipython-console python3-ipython-notebook python{2,3}-virtualenv uv \
     nodejs \
     rust cargo \
     maven \
