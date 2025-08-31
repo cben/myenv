@@ -33,7 +33,7 @@ if [ $# -gt 0 ]; then
   git add --verbose --update "$@"
 fi
 
-git hook run pre-commit
+git hook run --ignore-missing pre-commit
 
 hash_before_commit="$(git rev-parse HEAD)"
 
