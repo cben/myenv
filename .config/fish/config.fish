@@ -32,7 +32,7 @@ if status --is-interactive
         PATH_prepend ~/.cargo/bin
     end
     # https://krew.sigs.k8s.io/docs/user-guide/setup/install/
-    PATH_prepend ~/.krew/bin
+    #PATH_prepend ~/.krew/bin
     # some sbin tools are useful without root, e.g. mtr on fedora
     PATH_prepend /usr/sbin
 
@@ -45,6 +45,8 @@ if status --is-interactive
     set -x BASE16_SHELL "$HOME/.config/base16-shell/"
     # Disabled, conflicts with gnome-terminal's theming
     #source "$BASE16_SHELL/profile_helper.fish"
+
+    [ -f ~/myenv/env.fish ] && . ~/myenv/env.fish
 
     if type -q fortune && type -q cowsay
         fortune | eval (printf cowsay\ncowthink\n | shuf -n1) -n -f (ls /usr/share/cowsay/**.cow | grep -v -e sodomized -e telebears -e head-in -e udder | shuf -n1)
