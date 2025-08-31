@@ -3,11 +3,12 @@
 Dim each line's prefix shared with previous line.
 Great for post-processing `locate` or `find` output.
 """
-import curses, sys
+import curses, re, sys
 curses.setupterm()
 
-dim = curses.tigetstr('dim')
 sgr0 = curses.tigetstr('sgr0')
+dim = sgr0 + curses.tigetstr('dim')
+bold_dim = dim + curses.tigetstr('bold')
 
 def shared_len(str1, str2):
     i = 0
@@ -19,5 +20,9 @@ def shared_len(str1, str2):
 prev = ''
 for line in sys.stdin.buffer:
     i = shared_len(prev, line)
-    sys.stdout.buffer.write(dim + line[:i] + sgr0 + line[i:])
+    prefix, suffix = line[:i], line[i:]
+    # A hat tip to https://en.wikipedia.org/wiki/Ditto_mark:
+    # bold any punctuation in dimmed portion.
+    prefix = re.sub(rb'(\W+)', bold_dim + rb'\1' + dim, prefix)
+    sys.stdout.buffer.write(dim + prefix + sgr0 + suffix)
     prev = line
