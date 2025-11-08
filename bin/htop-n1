@@ -1,0 +1,17 @@
+#!/bin/bash
+# https://github.com/htop-dev/htop/issues/377#issuecomment-2875534813
+
+OUT="$(mktemp)"
+rm "$OUT"  # just to be extra sure we're not seeing old content
+printf [%s] "foo${@@Q}bar"
+SHELL=/bin/bash tmux new-session -d -x 500 -y 300 "
+  # like "$@" but with @Q operator to quote special characters from bash under tmux - https://stackoverflow.com/a/41940626/239657
+  htop -n1 ${*@Q}
+  tmux capture-pane -e -J -p > $OUT
+  tmux wait-for -S HTOP-DONE
+"
+tmux wait-for HTOP-DONE
+
+# Now post-processing is easy. Remove trailing spaces and empty lines:
+perl -0pe 's/ *$//mg; s/\n*\Z/\n/' < "$OUT"
+rm "$OUT"
