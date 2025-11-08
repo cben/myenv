@@ -2,8 +2,9 @@
 --italic-text=always
 --style=changes,header
 --wrap=never
-# works with both dark and light terminal themes from https://github.com/chriskempson/base16
---theme=base16
+# base16 works with both dark and light terminal themes from https://github.com/chriskempson/base16 - but not well with Solarized?
+# ansi works with any terminal theme!
+--theme=ansi
 
 # When >1 screen and needs paging, leave highlighted text on screen (or at least visible part).
 # Matches `cat` better, otherwise it functions as cat-or-less hybrid.
