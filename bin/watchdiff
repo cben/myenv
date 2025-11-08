@@ -21,14 +21,21 @@ while true
     #   (like RCS & SVN storage)?
     # TODO: consider accumulating history in git, for advanced querying?!
     #   (could even feed into https://github.com/pomber/git-history/ ?)
+    # TODO: Show deeper history in one view. More +- columns?
+    #   Decaying colors by line age?  Longer-lingering deleted lines?
     if cmp --silent $old $new
         sleep 0.2
     else
-        #diff -U4 $old $new | delta --paging=never
-        wdiff -n $old $new | colordiff
+        tput bold; echo -n === (date -Isec) ===; tput sgr0
+        diff -U4 $old $new | delta --paging=never --file-style=omit --hunk-header-decoration-style=''
+        #wdiff -n $old $new | colordiff
         mv -f $new $old
         sleep 3
-        head -n $LINES $old
+
+        # TODO: after a lot of chronological small changes, it becomes hard to see what full current output looks like.
+        #  PLain `watch` is better in that respect!  This was an attempt to revert to that when "quiet", but looks confusing.
+        #head -n $LINES $old
+        #  Perhaps show diff but with higher --context?  How to tune for output longer than $LINES??
     end
 end
 cleanup
