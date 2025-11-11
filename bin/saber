@@ -1,0 +1,19 @@
+#!/bin/fish
+# 
+set fish_trace 1
+
+# https://github.com/saber-notes/saber/issues/826
+# libsecret may not talk to kwallet => need gnome-keyring running [too]:
+# https://discuss.kde.org/t/how-do-i-set-the-keyring-backend-to-gnome-libsecret/21584/8
+if not pgrep -f gnome-keyring-daemon
+    gnome-keyring-daemon &
+    sleep 3
+end
+
+if [ -f ~/Downloads/Saber-0.24.6-x86_64.AppImage ]
+    # Last working version as of https://github.com/saber-notes/saber/issues/1444
+    ~/Downloads/Saber-0.24.6-x86_64.AppImage $argv
+else
+    # https://github.com/saber-notes/saber/issues/1042 but didn't help
+    flatpak run --talk-name=org.freedesktop.secrets com.adilhanney.saber $argv
+end
