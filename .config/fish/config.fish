@@ -16,6 +16,8 @@ set -x GOENV_ROOT $myenv_dir/goenv
 
 if status --is-interactive
     echo "== running config.fish =="
+    # some sbin tools are useful without root, e.g. mtr on fedora
+    PATH_prepend /usr/sbin
     PATH_prepend $myenv_dir/bin
     PATH_prepend $myenv_dir/node_modules/.bin
     PATH_prepend $myenv_dir/rbenv/shims
@@ -33,8 +35,6 @@ if status --is-interactive
     end
     # https://krew.sigs.k8s.io/docs/user-guide/setup/install/
     #PATH_prepend ~/.krew/bin
-    # some sbin tools are useful without root, e.g. mtr on fedora
-    PATH_prepend /usr/sbin
 
     # M-up is fish's single most time-saving key binding.
     # Alas, it doesn't work in linux console.
