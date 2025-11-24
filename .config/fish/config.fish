@@ -1,3 +1,14 @@
+if [ -f /usr/share/cachyos-fish-config/cachyos-config.fish ]
+    source /usr/share/cachyos-fish-config/cachyos-config.fish
+end
+
+# overwrite greeting
+# potentially disabling fastfetch
+#function fish_greeting
+#    # smth smth
+#end
+
+
 function PATH_prepend -a dir
     if echo $PATH | not grep -q -x "$dir"
         echo (string escape PATH_prepend $dir)

@@ -1,1 +1,1 @@
-mathjax
+mdx_math(enable_dollar_delimiter=1)
