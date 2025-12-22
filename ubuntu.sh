@@ -26,30 +26,38 @@ sudo-apt install \
   nano htop sysdig dstat glances sysstat nethogs linux-tools-generic \
   borgbackup ncdu dlocate ppa-purge \
   unicode info bash-doc silversearcher-ag \
-  par unar gddrescue smartmontools exfat-fuse exfat-utils \
-  tmux logapp moreutils renameutils fd-find mlocate rlwrap entr cowsay fortune \
-  openssh-server autossh curl nmap mtr w3m chromium-browser html-xml-utils xml2 jq deluge phantomjs \
-  git tig git-gui git-svn gitg github-backup libsecret-1-0 libsecret-1-dev mercurial bzr subversion meld colordiff etckeeper gist \
+  par unar gddrescue smartmontools exfat-fuse \
+  tmux logapp moreutils renameutils fd-find rlwrap entr cowsay fortune \
+  openssh-server autossh curl nmap mtr w3m chromium-browser html-xml-utils xml2 jq deluge \
+  git tig git-gui git-svn gitg libsecret-1-0 libsecret-1-dev mercurial bzr subversion meld colordiff etckeeper gist \
   idle{,3} python3-notebook python3-qtconsole python3-venv python3-pip \
-  build-essential pkg-config colormake ruby-full rake golang guile-2.0 cargo \
+  build-essential pkg-config colormake ruby-full rake golang cargo \
   openbox arandr chrome-gnome-shell gnome-tweak-tool \
   gpm read-edid xbacklight ddcutil powertop powerstat iotop android-tools-adb python3-pyudev \
   libtext-multimarkdown-perl retext python3-pyqt5 libjs-mathjax \
-  pdfshuffler diffpdf \
+  diffpdf \
   uvcdynctrl guvcview \
   vlc mpv mkvtoolnix-gui handbrake
+
+sudo ln -s /usr/bin/htop /usr/local/bin/top
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
 sudo-apt install nautilus-open-terminal || true
 
 sudo-apt install libav-tools || true
 sudo-apt install ffmpeg || true
+sudo-apt install yt-dlp || true
 
 sudo-apt install ripgrep || true
+if sudo-apt install bat; then
+  sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+fi
+sudo-apt install fd-find || true
+sudo-apt install eza || true
 
 # Things that might help libreoffice Impress to play media
-sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0 \
-  libreoffice-avmedia-backend-gstreamer libreoffice-gtk2
+sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0
+sudo-apt install libreoffice-avmedia-backend-gstreamer libreoffice-gtk2 || true
 sudo-apt remove libreoffice-gtk3
 
 # Add extra repos
@@ -96,13 +104,16 @@ if has-ppa "apt.dockerproject.org.*$UBUNTU_VERSION"; then
   sudo /usr/bin/add-apt-repository --remove -y "deb https://apt.dockerproject.org/repo ubuntu-$UBUNTU_VERSION main"
 fi
 
-if ! has-ppa apt.syncthing.net; then
-  sudo /usr/bin/add-apt-repository -y 'deb https://apt.syncthing.net/ syncthing release'
-  curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
-  update=1
-fi
-add-ppa nilarimogard/webupd8  # for Syncthing GTK
+# TODO: dead? a bunch of errors like:
+#   W: Пропускается получение настроенного файла «release/binary-amd64/Packages», так как в репозитории «https://apt.syncthing.net syncthing InRelease» отсутствует компонент «release» (возможно, компонент указан с ошибкой в sources.list?)
+# maybe transient (https://forum.syncthing.net/t/cant-update-syncthing/23818) but I'm seeing this a lot, and Debian has it anyway.
+#if ! has-ppa apt.syncthing.net; then
+#  sudo /usr/bin/add-apt-repository -y 'deb https://apt.syncthing.net/ syncthing release'
+#  curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+#  update=1
+#fi
 
+remove-ppa nilarimogard/webupd8  # last update 2018?
 remove-ppa packagecloud.io/AtomEditor
 remove-ppa webupd8team/atom  # deprecated
 
@@ -125,6 +136,8 @@ remove-ppa aims/sagemath # SAGE now in debian, ppa no longer needed
 
 sudo-apt install fish nodejs asciinema et \
   git-annex syncthing syncthing-gtk nautilus-dropbox
+
+sudo-apt install restic
 
 # TODO: set DEFAULT_FORWARD_POLICY="ACCEPT" in /etc/default/ufw for Docker
 #       http://docs.docker.io/en/latest/installation/ubuntulinux/#ufw
