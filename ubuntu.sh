@@ -39,7 +39,7 @@ sudo-apt install \
   uvcdynctrl guvcview \
   vlc mpv mkvtoolnix-gui handbrake
 
-sudo ln -s /usr/bin/htop /usr/local/bin/top
+sudo ln -s /usr/bin/htop /usr/local/bin/top || true
 
 # This disappeared on 16.04 (replaced by gnome-terminal), let it fail separately
 sudo-apt install nautilus-open-terminal || true
@@ -50,14 +50,18 @@ sudo-apt install yt-dlp || true
 
 sudo-apt install ripgrep || true
 if sudo-apt install bat; then
-  sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+  sudo ln -s /usr/bin/batcat /usr/local/bin/bat || true
 fi
 sudo-apt install fd-find || true
 sudo-apt install eza || true
+sudo-apt install git-delta || true
+
+sudo-apt install plocate || sudo-apt install mlocate
 
 # Things that might help libreoffice Impress to play media
 sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0
 sudo-apt install libreoffice-avmedia-backend-gstreamer libreoffice-gtk2 || true
+sudo-apt install libreoffice-qt6 || true
 sudo-apt remove libreoffice-gtk3
 
 # Add extra repos
