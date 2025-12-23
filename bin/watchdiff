@@ -3,7 +3,7 @@ set old (mktemp --suffix=watchold)
 set new (mktemp --suffix=watchnew)
 
 function cleanup --on-signal=SIGINT --on-event fish_exit --on-process-exit %self
-    rm -vf $old $new
+    command rm -vf $old $new
     exit
 end
 
@@ -29,7 +29,7 @@ while true
         tput bold; echo -n === (date -Isec) ===; tput sgr0
         diff -U4 $old $new | delta --paging=never --file-style=omit --hunk-header-decoration-style=''
         #wdiff -n $old $new | colordiff
-        mv -f $new $old
+        command mv -f $new $old
         sleep 3
 
         # TODO: after a lot of chronological small changes, it becomes hard to see what full current output looks like.
