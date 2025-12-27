@@ -58,6 +58,8 @@ sudo-apt install git-delta || true
 
 sudo-apt install plocate || sudo-apt install mlocate
 
+sudo-apt install wlr-randr wlrctl wl-clipboard xwayland-run wev
+
 # Things that might help libreoffice Impress to play media
 sudo-apt install gstreamer1.0-plugins-{good,bad,ugly} libgstreamer-plugins-{good,bad}1.0-0
 sudo-apt install libreoffice-avmedia-backend-gstreamer libreoffice-gtk2 || true
