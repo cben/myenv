@@ -37,6 +37,7 @@ ln -s ../bin/yeelight-ips yeelight-shell-scripts/
 npm install --silent
 npm update --silent
 
+cargo install spacer
 cargo install tabwriter-bin
 cargo install git-absorb
 cargo install broot
