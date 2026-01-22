@@ -44,5 +44,6 @@ cargo install broot
 cargo install trippy
 
 go install github.com/rs/curlie@latest
+go install github.com/pranshuparmar/witr/cmd/witr@latest
 
 git status
