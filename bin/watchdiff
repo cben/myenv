@@ -27,8 +27,11 @@ while true
         sleep 0.2
     else
         tput bold; echo -n === (date -Isec) ===; tput sgr0
-        diff -U4 $old $new | delta --paging=never --file-style=omit --hunk-header-decoration-style=''
-        #wdiff -n $old $new | colordiff
+        if which delta > /dev/null
+            diff -U4 $old $new | delta --paging=never --file-style=omit --hunk-header-decoration-style=''
+        else
+            diff -U4 $old $new --color
+        end
         command mv -f $new $old
         sleep 3
 
