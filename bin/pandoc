@@ -26,6 +26,6 @@ cmd = [
     '--volume=%s:/data' % os.getcwd(),
     '--user=%s:%s' % (os.getuid(), os.getgid()),
     '--security-opt=label=disable',
-    'pandoc/latex:latest', *args
+    'docker.io/pandoc/latex:latest', *args
 ]
 subprocess.call(cmd)
