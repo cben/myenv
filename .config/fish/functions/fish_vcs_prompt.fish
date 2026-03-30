@@ -8,6 +8,6 @@ function fish_vcs_prompt --description 'Print all vcs prompts'
     # You can also only use it in specific directories by checking $PWD.
     # or fish_svn_prompt
     if pwd | grep -q "^$HOME/Dropbox"
-        printf ' [📦%s]' (dropbox-cli filestatus .)
+        printf ' [📦%s]' (dropbox-cli filestatus . 2>/dev/null)
     end
 end
