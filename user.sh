@@ -11,6 +11,10 @@ fi
 
 dir="$(dirname "$(readlink -f "$0")")"
 
+# Link whole functions/ so that created/edited functions change here under git,
+# and vice-versa git pull will update fish without re-copying.
+mkdir --parents ~/.config/fish/
+ln --symbolic "$dir"/.config/fish/functions/ ~/.config/fish/functions
 # cp --symbolic-link refuses to clobber existing files
 # TODO: be silent when correct symlink exists.
 cp -v --symbolic-link -R "$dir"/.config/ ~/
