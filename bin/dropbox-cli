@@ -1,0 +1,9 @@
+#!/bin/fish --no-config
+# set fish_trace 1
+if [ -x /usr/bin/dropbox-cli ]
+    /usr/bin/dropbox-cli $argv
+else if [ -x /usr/bin/dropbox ]
+    /usr/bin/dropbox $argv
+else
+    echo 💨
+end
