@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 for arg in $argv
-    pgrep -fl $arg
+    pgrep -a $arg
     for pid in (pgrep $arg)
         sudo ionice -c3 -p$pid
         sudo renice 10 $pid
