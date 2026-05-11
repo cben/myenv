@@ -63,5 +63,5 @@ if status --is-interactive
         fortune | eval (printf cowsay\ncowthink\n | shuf -n1) -n -f (ls /usr/share/cowsay/**.cow | grep -v -e sodomized -e telebears -e head-in -e udder | shuf -n1)
     end
 
-    echo "📦 dropbox-cli status:" (dropbox-cli status)
+    echo "📦 dropbox-cli status:" (timeout 0.5 dropbox-cli status)
 end
