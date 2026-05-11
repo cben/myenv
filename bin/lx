@@ -1,2 +1,2 @@
 #!/bin/sh
-EZA_GRID_ROWS=4 eza --git -A -l --grid --header --color-scale --color=always --icons=auto --hyperlink --time-style=long-iso "$@"
+EZA_GRID_ROWS=4 eza --git -A -l --grid --header --color-scale --color=always --classify=always --icons=auto --hyperlink --time-style=long-iso "$@"
