@@ -39,8 +39,9 @@ sudo dnf install --setopt=strict=0 \
     python3-markups python3-qt5 unicode-ucd qpdf diffpdf \
     python3-gpg python3-pyudev \
     chrome-gnome-shell gnome-tweak-tool \
-    openbox obconf xrandr xinput alacritty \
-    labwc xisxwayland xwayland-run waycheck waypipe grim slurp swaybg swaylock wob waybar wofi wlr-randr fuzzel \
+    openbox obconf xrandr xinput alacritty lxrandr \
+    qtile qtile-wayland qtile-extras raindrop xisxwayland vicinae \
+    labwc xwayland-run waycheck waypipe grim slurp wf-recorder swaybg swaylock swayimg wob waybar wofi wlr-randr fuzzel \
     mscore
 
 # Stuff I'm prone to compile
