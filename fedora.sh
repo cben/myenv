@@ -16,11 +16,9 @@ sudo dnf install etckeeper
 # Things from standard repos
 # ==========================
 
-#  --errorlevel=1 (deprecated but works) omits the "already installed" lines,
-# (and unlike --quiet does show what it's going to do before asking y/n).
 # I want the command to proceed partially even if it can't do all these;
 # I'm not sure I want --allowerasing by default, so trying --setopt=strict=0
-sudo dnf install --errorlevel=1 --setopt=strict=0 \
+sudo dnf install --setopt=strict=0 \
     dnf-automatic fedora-repos-rawhide \
     fish htop glances perf strace mlocate smartmontools acpi borgbackup ddrescue \
     mtr iftop nmap socat inadyn-mt jq jc jo yq python-jwt w3m elinks miniupnpc avahi-tools \
