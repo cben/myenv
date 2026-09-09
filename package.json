@@ -2,6 +2,7 @@
   "dependencies": {
     "@slidev/cli": "^52.1.0",
     "@snyk/protect": "^1.657.0",
+    "clipboard-cli": "^5.0.0",
     "download-github-release": "^0.3.2",
     "git-file-history": "1.0.1",
     "git-open": "^3.0.0",
